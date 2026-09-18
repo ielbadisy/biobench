@@ -4,15 +4,54 @@
 \alias{biobench_index}
 \title{Index of datasets included in biobench}
 \usage{
-biobench_index()
+biobench_index(
+  outcome = NULL,
+  highdim = NULL,
+  highdim_threshold = 20L,
+  source_package = NULL,
+  n_min = NULL,
+  n_max = NULL,
+  missing = NULL
+)
+}
+\arguments{
+\item{outcome}{Character vector, one or more of \code{"classification"},
+\code{"regression"}, \code{"survival"}. If given, only datasets with a matching
+task are returned. Default \code{NULL} (no filter).}
+
+\item{highdim}{Logical. If \code{TRUE}, keep only high-dimensional datasets
+(more than \code{highdim_threshold} predictor columns); if \code{FALSE}, keep
+only low-dimensional ones. Default \code{NULL} (no filter).}
+
+\item{highdim_threshold}{Integer number of columns above which a
+dataset is considered high-dimensional. Default \code{20}.}
+
+\item{source_package}{Character vector filtering on the upstream
+package a dataset was sourced from (\code{"mlbench"}, \code{"medicaldata"},
+\code{"survival"}, \code{"TH.data"}). Default \code{NULL} (no filter).}
+
+\item{n_min}{Integer, minimum number of rows required. Default \code{NULL}.}
+
+\item{n_max}{Integer, maximum number of rows allowed. Default \code{NULL}.}
+
+\item{missing}{Logical. If \code{TRUE}, keep only datasets containing
+missing values; if \code{FALSE}, keep only complete-case datasets.
+Default \code{NULL} (no filter).}
 }
 \value{
-A data frame with one row per dataset.
+A data frame with one row per matching dataset: \code{dataset},
+\code{task}, \code{source_package}, \code{n_row}, \code{n_col}, \code{has_missing}, and
+\code{highdim}.
 }
 \description{
 Returns a summary table of every dataset shipped in the package,
-including its task type, dimensions, and source package.
+including its task type, dimensions, missingness, and source package.
+Optional arguments filter the table down to datasets matching given
+criteria, so a benchmark suite can be assembled programmatically, e.g.
+\code{biobench_index(outcome = "survival", highdim = FALSE)}.
 }
 \examples{
 biobench_index()
+biobench_index(outcome = "survival", missing = FALSE)
+biobench_index(highdim = TRUE)
 }
