@@ -17,10 +17,22 @@ benchmarking classification, regression, and survival machine learning
 methods. Every dataset is documented with its canonical literature
 reference (`?dataset_name`).
 
-Sources: [mlbench](https://cran.r-project.org/package=mlbench),
+Sourced from CRAN packages only, so every dataset carries clear reuse
+terms: [mlbench](https://cran.r-project.org/package=mlbench),
 [medicaldata](https://higgi13425.github.io/medicaldata/),
-[survival](https://cran.r-project.org/package=survival), and
-[TH.data](https://cran.r-project.org/package=TH.data).
+[survival](https://cran.r-project.org/package=survival),
+[TH.data](https://cran.r-project.org/package=TH.data),
+[KMsurv](https://cran.r-project.org/package=KMsurv),
+[timereg](https://cran.r-project.org/package=timereg),
+[HSAUR3](https://cran.r-project.org/package=HSAUR3),
+[pec](https://cran.r-project.org/package=pec),
+[riskRegression](https://cran.r-project.org/package=riskRegression),
+[MASS](https://cran.r-project.org/package=MASS),
+[boot](https://cran.r-project.org/package=boot),
+[aplore3](https://cran.r-project.org/package=aplore3),
+[casebase](https://cran.r-project.org/package=casebase),
+[addhazard](https://cran.r-project.org/package=addhazard), and
+[biostatlab](https://github.com/ielbadisy/biostatlab).
 
 ## Installation
 
@@ -45,4 +57,36 @@ str(gbsg2)
 
 ```{r index}
 biobench_index()
+```
+
+Filter by task, dimensionality, source, size, or missingness:
+
+```{r filter-example}
+biobench_index(outcome = "survival", missing = FALSE)
+```
+
+## Datasets by task
+
+```{r datasets-by-task, echo = FALSE, results = "asis"}
+idx <- biobench_index()
+idx <- idx[order(idx$task, idx$dataset), ]
+db <- tools::Rd_db("biobench")
+idx$title <- vapply(idx$dataset, function(nm) {
+  rd <- db[[paste0(nm, ".Rd")]]
+  tags <- vapply(rd, function(x) attr(x, "Rd_tag"), character(1))
+  paste(unlist(rd[[which(tags == "\\title")]]), collapse = "")
+}, character(1))
+
+for (tsk in c("classification", "regression", "survival")) {
+  sub <- idx[idx$task == tsk, ]
+  cat("\n### ", tools::toTitleCase(tsk), " (n = ", nrow(sub), ")\n\n", sep = "")
+  cat("| Dataset | Description | n | p | Source |\n|---|---|---:|---:|---|\n")
+  for (i in seq_len(nrow(sub))) {
+    cat(sprintf(
+      "| `%s` | %s | %d | %d | %s |\n",
+      sub$dataset[i], sub$title[i], sub$n_row[i], sub$n_col[i],
+      sub$source_package[i]
+    ))
+  }
+}
 ```
