@@ -106,4 +106,9 @@ biobench_index()
 #> 44           pbc3       survival            pec   349    15        TRUE   FALSE
 #> 45       melanoma       survival riskRegression   205    11       FALSE   FALSE
 #> 46         paquid       survival riskRegression  2561     4       FALSE   FALSE
+#> 47        birthwt     regression           MASS   189    10       FALSE   FALSE
+#> 48       anorexia     regression           MASS    72     3       FALSE   FALSE
+#> 49      aidsdelay     regression           boot   570     6       FALSE   FALSE
+#> 50         agefat     regression         HSAUR3    25     3       FALSE   FALSE
+#> 51      phosphate     regression         HSAUR3    33     9       FALSE   FALSE
 ```

@@ -581,3 +581,69 @@
 #'   program on brain ageing. \emph{Neuroepidemiology}, 11(1), 14-18.
 #' @source \pkg{riskRegression} package.
 "paquid"
+
+#' Risk factors for low infant birth weight
+#'
+#' Maternal risk factors (age, weight, smoking, hypertension, prior
+#' premature labours) collected at Baystate Medical Center, 1986.
+#' Regression on birth weight in grams (`bwt`); the `low` column also
+#' supports a classification framing (birth weight below 2.5kg) on the
+#' same data.
+#'
+#' @format A data frame with 189 rows and 10 variables.
+#' @references Hosmer, D. W., & Lemeshow, S. (1989). \emph{Applied
+#'   Logistic Regression}. Wiley.
+#' @source \pkg{MASS} package.
+"birthwt"
+
+#' Anorexia treatment weight change
+#'
+#' Randomized trial of cognitive behavioural therapy and family therapy
+#' versus control for young female anorexia patients. Regression on
+#' post-treatment weight (`Postwt`), adjusting for pre-treatment weight
+#' and treatment arm.
+#'
+#' @format A data frame with 72 rows and 3 variables.
+#' @references Hand, D. J., Daly, F., McConway, K., Lunn, D., & Ostrowski,
+#'   E. (Eds.) (1993). \emph{A Handbook of Small Data Sets}. Chapman &
+#'   Hall. Data set 285.
+#' @source \pkg{MASS} package.
+"anorexia"
+
+#' AIDS reporting delay in England and Wales
+#'
+#' Reported AIDS cases in England and Wales (1983-1992), cross-classified
+#' by quarter of diagnosis and reporting delay. Count regression on the
+#' number of cases reported (`y`).
+#'
+#' @format A data frame with 570 rows and 6 variables.
+#' @references De Angelis, D., & Gilks, W. R. (1994). Estimating acquired
+#'   immune deficiency syndrome accounting for reporting delay.
+#'   \emph{Journal of the Royal Statistical Society, A}, 157, 31-40.
+#' @source \pkg{boot} package.
+"aidsdelay"
+
+#' Age and body fat percentage
+#'
+#' Age, gender, and total body fat percentage (via dual-photon
+#' absorptiometry) for 25 healthy adults. Regression on body fat
+#' percentage from age and gender.
+#'
+#' @format A data frame with 25 rows and 3 variables.
+#' @references Mazess, R. B., Peppler, W. W., & Gibbons, M. (1984). Total
+#'   body composition by dual-photon (153Gd) absorptiometry.
+#'   \emph{American Journal of Clinical Nutrition}, 40, 834-839.
+#' @source \pkg{HSAUR3} package.
+"agefat"
+
+#' Postprandial phosphate levels
+#'
+#' Plasma inorganic phosphate levels measured at 8 time points after a
+#' carbohydrate meal, comparing obese subjects to controls (wide format,
+#' one row per subject). Regression on phosphate level at any time point.
+#'
+#' @format A data frame with 33 rows and 9 variables.
+#' @references Davis, C. S. (2002). \emph{Statistical Methods for the
+#'   Analysis of Repeated Measurements}. Springer.
+#' @source \pkg{HSAUR3} package.
+"phosphate"
