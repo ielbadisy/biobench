@@ -647,3 +647,158 @@
 #'   Analysis of Repeated Measurements}. Springer.
 #' @source \pkg{HSAUR3} package.
 "phosphate"
+
+#' ICU mortality
+#'
+#' Vital status at hospital discharge for intensive care unit patients,
+#' with admission diagnosis, physiology, and blood-gas covariates.
+#' Binary classification.
+#'
+#' @format A data frame with 200 rows and 21 variables.
+#' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
+#'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
+#' @source \pkg{aplore3} package.
+"icu"
+
+#' GLOW osteoporosis fracture risk
+#'
+#' Global Longitudinal Study of Osteoporosis in Women (GLOW): fracture
+#' risk factors and any-fracture outcome in the first year of follow-up.
+#' Binary classification.
+#'
+#' @format A data frame with 500 rows and 15 variables.
+#' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
+#'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
+#' @source \pkg{aplore3} package.
+"glow500"
+
+#' Orinda myopia study
+#'
+#' Longitudinal Study of Myopia: ocular biometry, near-work activity
+#' hours, and parental myopia, with onset of myopia within five years of
+#' follow-up. Binary classification.
+#'
+#' @format A data frame with 618 rows and 18 variables.
+#' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
+#'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
+#' @source \pkg{aplore3} package.
+"myopia"
+
+#' NHANES obesity survey extract
+#'
+#' National Health and Nutrition Examination Survey extract: demographic,
+#' cholesterol, blood pressure, and physical-activity variables with
+#' obesity (BMI > 35) outcome. Binary classification.
+#'
+#' @format A data frame with 6482 rows and 21 variables.
+#' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
+#'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
+#' @source \pkg{aplore3} package.
+"nhanes"
+
+#' Polypharmacy in mental health services
+#'
+#' Longitudinal cohort of mental-health service users (long format,
+#' repeated measures per subject across study years), with outcome
+#' polypharmacy (concurrent use of 3+ drug classes). Binary
+#' classification.
+#'
+#' @format A data frame with 3500 rows and 14 variables.
+#' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
+#'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
+#' @source \pkg{aplore3} package.
+"polypharm"
+
+#' Coronary heart disease and age
+#'
+#' Classic small dataset relating age to presence of coronary heart
+#' disease. Binary classification.
+#'
+#' @format A data frame with 100 rows and 4 variables.
+#' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
+#'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
+#' @source \pkg{aplore3} package.
+"chdage"
+
+#' National Burn Repository mortality
+#'
+#' Burn injury patients with total burn surface area, inhalation injury,
+#' and flame involvement, and hospital discharge mortality outcome.
+#' Binary classification.
+#'
+#' @format A data frame with 1000 rows and 9 variables.
+#' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
+#'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
+#' @source \pkg{aplore3} package.
+"burn1000"
+
+#' SUPPORT critically ill patients
+#'
+#' Study to Understand Prognoses Preferences Outcomes and Risks of
+#' Treatment (SUPPORT): seriously ill hospitalized adults with
+#' demographic, diagnostic, and day-3 physiology covariates.
+#' Right-censored survival, up to 5.56 years of follow-up.
+#'
+#' @format A data frame with 9104 rows and 34 variables.
+#' @references Knaus, W. A., Harrell, F. E., Lynn, J. et al. (1995). The
+#'   SUPPORT prognostic model: objective estimates of survival for
+#'   seriously ill hospitalized adults. \emph{Annals of Internal
+#'   Medicine}, 122, 191-203.
+#' @source \pkg{casebase} package.
+"support"
+
+#' European Randomized Study of Prostate Cancer Screening
+#'
+#' Individual-level follow-up for 159,893 men in the core age group
+#' (55-69) of the ERSPC screening trial. Right-censored survival (death
+#' from prostate cancer). Individual event times were reconstructed from
+#' the published Kaplan-Meier curves rather than extracted from raw
+#' patient-level data.
+#'
+#' @format A data frame with 159893 rows and 3 variables.
+#' @references Schroder, F. H. et al. (2009). Screening and
+#'   prostate-cancer mortality in a randomized European study. \emph{New
+#'   England Journal of Medicine}, 360, 1320-1328.
+#' @source \pkg{casebase} package.
+"erspc"
+
+#' Bone marrow transplant competing risks
+#'
+#' Patients who underwent haematopoietic stem cell transplantation for
+#' acute leukemia (ALL/AML), by disease phase and stem-cell source.
+#' Competing-risks survival (relapse vs other failure).
+#'
+#' @format A data frame with 177 rows and 7 variables.
+#' @references Scrucca, L., Santucci, A., & Aversa, F. (2007). Competing
+#'   risk analysis using R: an easy guide for clinicians. \emph{Bone
+#'   Marrow Transplantation}, 40(4), 381-387.
+#' @source \pkg{casebase} package.
+"bmtcrr"
+
+#' Estrogen plus progestin and coronary heart disease risk
+#'
+#' Time to coronary heart disease event under hormone therapy versus
+#' placebo, from the Women's Health Initiative hormone trial.
+#' Right-censored survival. Reconstructed from the published Figure 2
+#' Kaplan-Meier curves rather than extracted from raw patient-level data.
+#'
+#' @format A data frame with 16608 rows and 3 variables.
+#' @references Manson, J. E. et al. (2003). Estrogen plus progestin and
+#'   the risk of coronary heart disease. \emph{New England Journal of
+#'   Medicine}, 349(6), 523-534.
+#' @source \pkg{casebase} package.
+"eprchd"
+
+#' National Wilms Tumor Study
+#'
+#' Pediatric renal tumor (Wilms tumor) cohort from NWTS-3 and NWTS-4,
+#' with central and institutional histology, stage, and tumor
+#' measurements. Right-censored survival (time to death; `relaps` and
+#' `trel` also support a time-to-relapse framing on the same data).
+#'
+#' @format A data frame with 3915 rows and 12 variables.
+#' @references Kulich, M., & Lin, D. Y. (2004). Improving the efficiency
+#'   of relative-risk estimation in case-cohort studies. \emph{Journal of
+#'   the American Statistical Association}, 99, 832-844.
+#' @source \pkg{addhazard} package.
+"nwtsco"

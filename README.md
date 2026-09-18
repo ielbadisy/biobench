@@ -59,56 +59,132 @@ str(gbsg2)
 
 ``` r
 biobench_index()
-#>           dataset           task source_package n_row n_col has_missing highdim
-#> 1    breastcancer classification        mlbench   699    11        TRUE   FALSE
-#> 2           pima2 classification        mlbench   768     9        TRUE   FALSE
-#> 3             dna classification        mlbench  3186   181       FALSE    TRUE
-#> 4    bloodstorage       survival    medicaldata   316    20        TRUE   FALSE
-#> 5       covidtest classification    medicaldata 15524    17        TRUE   FALSE
-#> 6             cmv       survival    medicaldata    64    26        TRUE    TRUE
-#> 7         esophca classification    medicaldata    88     5       FALSE   FALSE
-#> 8         indorct classification    medicaldata   602    33        TRUE    TRUE
-#> 9        indometh     regression    medicaldata    66     3       FALSE   FALSE
-#> 10   laryngoscope     regression    medicaldata    99    22        TRUE    TRUE
-#> 11       licorice classification    medicaldata   235    19        TRUE   FALSE
-#> 12            opt classification    medicaldata   823   171        TRUE    TRUE
-#> 13         polyps     regression    medicaldata    22     7        TRUE   FALSE
-#> 14         scurvy classification    medicaldata    12     8       FALSE   FALSE
-#> 15      smartpill     regression    medicaldata    95    22        TRUE    TRUE
-#> 16        streptb classification    medicaldata   107    13        TRUE   FALSE
-#> 17      supraclav       survival    medicaldata   103    17        TRUE   FALSE
-#> 18         theoph     regression    medicaldata   132     5       FALSE   FALSE
-#> 19           lung       survival       survival   228    10        TRUE   FALSE
-#> 20        veteran       survival       survival   137     8       FALSE   FALSE
-#> 21            pbc       survival       survival   418    20        TRUE   FALSE
-#> 22          colon       survival       survival  1858    16        TRUE   FALSE
-#> 23        flchain       survival       survival  7874    11        TRUE   FALSE
-#> 24      rotterdam       survival       survival  2982    15       FALSE   FALSE
-#> 25          gbsg2       survival        TH.data   686    10       FALSE   FALSE
-#> 26         crcfes       survival     biostatlab   346    19        TRUE   FALSE
-#> 27     crcmondaca       survival     biostatlab   471    19        TRUE   FALSE
-#> 28     framingham       survival     biostatlab  5209    18       FALSE   FALSE
-#> 29       haberman classification     biostatlab   306     4       FALSE   FALSE
-#> 30   heartfailure       survival     biostatlab   299    13       FALSE   FALSE
-#> 31   highriskpreg classification     biostatlab  1205    13        TRUE   FALSE
-#> 32       metabric       survival     biostatlab  1904   693        TRUE    TRUE
-#> 33 tobaccomorocco classification     biostatlab  3915    27       FALSE    TRUE
-#> 34            bmt       survival         KMsurv   137    22       FALSE    TRUE
-#> 35        drug6mp       survival         KMsurv    21     5       FALSE   FALSE
-#> 36         larynx       survival         KMsurv    90     5       FALSE   FALSE
-#> 37         kidney       survival         KMsurv   119     3       FALSE   FALSE
-#> 38            std       survival         KMsurv   877    24       FALSE    TRUE
-#> 39       channing       survival         KMsurv   462     6       FALSE   FALSE
-#> 40        mitrace       survival        timereg  1878     9       FALSE   FALSE
-#> 41    respiratory classification         HSAUR3   555     7       FALSE   FALSE
-#> 42        toenail classification         HSAUR3  1908     5       FALSE   FALSE
-#> 43         stroke       survival            pec   518    15       FALSE   FALSE
-#> 44           pbc3       survival            pec   349    15        TRUE   FALSE
-#> 45       melanoma       survival riskRegression   205    11       FALSE   FALSE
-#> 46         paquid       survival riskRegression  2561     4       FALSE   FALSE
-#> 47        birthwt     regression           MASS   189    10       FALSE   FALSE
-#> 48       anorexia     regression           MASS    72     3       FALSE   FALSE
-#> 49      aidsdelay     regression           boot   570     6       FALSE   FALSE
-#> 50         agefat     regression         HSAUR3    25     3       FALSE   FALSE
-#> 51      phosphate     regression         HSAUR3    33     9       FALSE   FALSE
+#>           dataset           task source_package  n_row n_col has_missing
+#> 1    breastcancer classification        mlbench    699    11        TRUE
+#> 2           pima2 classification        mlbench    768     9        TRUE
+#> 3             dna classification        mlbench   3186   181       FALSE
+#> 4    bloodstorage       survival    medicaldata    316    20        TRUE
+#> 5       covidtest classification    medicaldata  15524    17        TRUE
+#> 6             cmv       survival    medicaldata     64    26        TRUE
+#> 7         esophca classification    medicaldata     88     5       FALSE
+#> 8         indorct classification    medicaldata    602    33        TRUE
+#> 9        indometh     regression    medicaldata     66     3       FALSE
+#> 10   laryngoscope     regression    medicaldata     99    22        TRUE
+#> 11       licorice classification    medicaldata    235    19        TRUE
+#> 12            opt classification    medicaldata    823   171        TRUE
+#> 13         polyps     regression    medicaldata     22     7        TRUE
+#> 14         scurvy classification    medicaldata     12     8       FALSE
+#> 15      smartpill     regression    medicaldata     95    22        TRUE
+#> 16        streptb classification    medicaldata    107    13        TRUE
+#> 17      supraclav       survival    medicaldata    103    17        TRUE
+#> 18         theoph     regression    medicaldata    132     5       FALSE
+#> 19           lung       survival       survival    228    10        TRUE
+#> 20        veteran       survival       survival    137     8       FALSE
+#> 21            pbc       survival       survival    418    20        TRUE
+#> 22          colon       survival       survival   1858    16        TRUE
+#> 23        flchain       survival       survival   7874    11        TRUE
+#> 24      rotterdam       survival       survival   2982    15       FALSE
+#> 25          gbsg2       survival        TH.data    686    10       FALSE
+#> 26         crcfes       survival     biostatlab    346    19        TRUE
+#> 27     crcmondaca       survival     biostatlab    471    19        TRUE
+#> 28     framingham       survival     biostatlab   5209    18       FALSE
+#> 29       haberman classification     biostatlab    306     4       FALSE
+#> 30   heartfailure       survival     biostatlab    299    13       FALSE
+#> 31   highriskpreg classification     biostatlab   1205    13        TRUE
+#> 32       metabric       survival     biostatlab   1904   693        TRUE
+#> 33 tobaccomorocco classification     biostatlab   3915    27       FALSE
+#> 34            bmt       survival         KMsurv    137    22       FALSE
+#> 35        drug6mp       survival         KMsurv     21     5       FALSE
+#> 36         larynx       survival         KMsurv     90     5       FALSE
+#> 37         kidney       survival         KMsurv    119     3       FALSE
+#> 38            std       survival         KMsurv    877    24       FALSE
+#> 39       channing       survival         KMsurv    462     6       FALSE
+#> 40        mitrace       survival        timereg   1878     9       FALSE
+#> 41    respiratory classification         HSAUR3    555     7       FALSE
+#> 42        toenail classification         HSAUR3   1908     5       FALSE
+#> 43         stroke       survival            pec    518    15       FALSE
+#> 44           pbc3       survival            pec    349    15        TRUE
+#> 45       melanoma       survival riskRegression    205    11       FALSE
+#> 46         paquid       survival riskRegression   2561     4       FALSE
+#> 47        birthwt     regression           MASS    189    10       FALSE
+#> 48       anorexia     regression           MASS     72     3       FALSE
+#> 49      aidsdelay     regression           boot    570     6       FALSE
+#> 50         agefat     regression         HSAUR3     25     3       FALSE
+#> 51      phosphate     regression         HSAUR3     33     9       FALSE
+#> 52            icu classification        aplore3    200    21       FALSE
+#> 53        glow500 classification        aplore3    500    15       FALSE
+#> 54         myopia classification        aplore3    618    18       FALSE
+#> 55         nhanes classification        aplore3   6482    21        TRUE
+#> 56      polypharm classification        aplore3   3500    14        TRUE
+#> 57         chdage classification        aplore3    100     4       FALSE
+#> 58       burn1000 classification        aplore3   1000     9       FALSE
+#> 59        support       survival       casebase   9104    34       FALSE
+#> 60          erspc       survival       casebase 159893     3       FALSE
+#> 61         bmtcrr       survival       casebase    177     7       FALSE
+#> 62         eprchd       survival       casebase  16608     3       FALSE
+#> 63         nwtsco       survival      addhazard   3915    12       FALSE
+#>    highdim
+#> 1    FALSE
+#> 2    FALSE
+#> 3     TRUE
+#> 4    FALSE
+#> 5    FALSE
+#> 6     TRUE
+#> 7    FALSE
+#> 8     TRUE
+#> 9    FALSE
+#> 10    TRUE
+#> 11   FALSE
+#> 12    TRUE
+#> 13   FALSE
+#> 14   FALSE
+#> 15    TRUE
+#> 16   FALSE
+#> 17   FALSE
+#> 18   FALSE
+#> 19   FALSE
+#> 20   FALSE
+#> 21   FALSE
+#> 22   FALSE
+#> 23   FALSE
+#> 24   FALSE
+#> 25   FALSE
+#> 26   FALSE
+#> 27   FALSE
+#> 28   FALSE
+#> 29   FALSE
+#> 30   FALSE
+#> 31   FALSE
+#> 32    TRUE
+#> 33    TRUE
+#> 34    TRUE
+#> 35   FALSE
+#> 36   FALSE
+#> 37   FALSE
+#> 38    TRUE
+#> 39   FALSE
+#> 40   FALSE
+#> 41   FALSE
+#> 42   FALSE
+#> 43   FALSE
+#> 44   FALSE
+#> 45   FALSE
+#> 46   FALSE
+#> 47   FALSE
+#> 48   FALSE
+#> 49   FALSE
+#> 50   FALSE
+#> 51   FALSE
+#> 52    TRUE
+#> 53   FALSE
+#> 54   FALSE
+#> 55    TRUE
+#> 56   FALSE
+#> 57   FALSE
+#> 58   FALSE
+#> 59    TRUE
+#> 60   FALSE
+#> 61   FALSE
+#> 62   FALSE
+#> 63   FALSE
 ```

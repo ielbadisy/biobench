@@ -17,8 +17,9 @@
 #' @param source_package Character vector filtering on the upstream
 #'   package a dataset was sourced from (`"mlbench"`, `"medicaldata"`,
 #'   `"survival"`, `"TH.data"`, `"biostatlab"`, `"KMsurv"`, `"timereg"`,
-#'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`). Default
-#'   `NULL` (no filter).
+#'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`,
+#'   `"aplore3"`, `"casebase"`, `"addhazard"`). Default `NULL` (no
+#'   filter).
 #' @param n_min Integer, minimum number of rows required. Default `NULL`.
 #' @param n_max Integer, maximum number of rows allowed. Default `NULL`.
 #' @param missing Logical. If `TRUE`, keep only datasets containing
@@ -51,7 +52,9 @@ biobench_index <- function(outcome = NULL,
       "highriskpreg", "metabric", "tobaccomorocco",
       "bmt", "drug6mp", "larynx", "kidney", "std", "channing", "mitrace",
       "respiratory", "toenail", "stroke", "pbc3", "melanoma", "paquid",
-      "birthwt", "anorexia", "aidsdelay", "agefat", "phosphate"
+      "birthwt", "anorexia", "aidsdelay", "agefat", "phosphate",
+      "icu", "glow500", "myopia", "nhanes", "polypharm", "chdage",
+      "burn1000", "support", "erspc", "bmtcrr", "eprchd", "nwtsco"
     ),
     task = c(
       "classification", "classification", "classification",
@@ -68,7 +71,11 @@ biobench_index <- function(outcome = NULL,
       "survival", "survival",
       "classification", "classification", "survival", "survival",
       "survival", "survival",
-      "regression", "regression", "regression", "regression", "regression"
+      "regression", "regression", "regression", "regression", "regression",
+      "classification", "classification", "classification",
+      "classification", "classification", "classification",
+      "classification",
+      "survival", "survival", "survival", "survival", "survival"
     ),
     source_package = c(
       "mlbench", "mlbench", "mlbench",
@@ -83,7 +90,10 @@ biobench_index <- function(outcome = NULL,
       rep("riskRegression", 2),
       rep("MASS", 2),
       "boot",
-      rep("HSAUR3", 2)
+      rep("HSAUR3", 2),
+      rep("aplore3", 7),
+      rep("casebase", 4),
+      "addhazard"
     ),
     stringsAsFactors = FALSE
   )
