@@ -93,4 +93,17 @@ biobench_index()
 #> 31   highriskpreg classification     biostatlab  1205    13        TRUE   FALSE
 #> 32       metabric       survival     biostatlab  1904   693        TRUE    TRUE
 #> 33 tobaccomorocco classification     biostatlab  3915    27       FALSE    TRUE
+#> 34            bmt       survival         KMsurv   137    22       FALSE    TRUE
+#> 35        drug6mp       survival         KMsurv    21     5       FALSE   FALSE
+#> 36         larynx       survival         KMsurv    90     5       FALSE   FALSE
+#> 37         kidney       survival         KMsurv   119     3       FALSE   FALSE
+#> 38            std       survival         KMsurv   877    24       FALSE    TRUE
+#> 39       channing       survival         KMsurv   462     6       FALSE   FALSE
+#> 40        mitrace       survival        timereg  1878     9       FALSE   FALSE
+#> 41    respiratory classification         HSAUR3   555     7       FALSE   FALSE
+#> 42        toenail classification         HSAUR3  1908     5       FALSE   FALSE
+#> 43         stroke       survival            pec   518    15       FALSE   FALSE
+#> 44           pbc3       survival            pec   349    15        TRUE   FALSE
+#> 45       melanoma       survival riskRegression   205    11       FALSE   FALSE
+#> 46         paquid       survival riskRegression  2561     4       FALSE   FALSE
 ```

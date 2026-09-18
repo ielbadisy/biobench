@@ -28,8 +28,8 @@ dataset is considered high-dimensional. Default \code{20}.}
 
 \item{source_package}{Character vector filtering on the upstream
 package a dataset was sourced from (\code{"mlbench"}, \code{"medicaldata"},
-\code{"survival"}, \code{"TH.data"}, \code{"biostatlab"}). Default \code{NULL} (no
-filter).}
+\code{"survival"}, \code{"TH.data"}, \code{"biostatlab"}, \code{"KMsurv"}, \code{"timereg"},
+\code{"HSAUR3"}, \code{"pec"}, \code{"riskRegression"}). Default \code{NULL} (no filter).}
 
 \item{n_min}{Integer, minimum number of rows required. Default \code{NULL}.}
 

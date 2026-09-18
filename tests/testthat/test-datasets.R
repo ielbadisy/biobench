@@ -2,7 +2,9 @@ datasets <- biobench_index()$dataset
 
 test_that("every indexed dataset loads and is a non-empty data frame", {
   for (nm in datasets) {
-    d <- get(nm, envir = asNamespace("biobench"))
+    e <- new.env()
+    utils::data(list = nm, package = "biobench", envir = e)
+    d <- get(nm, envir = e, inherits = FALSE)
     expect_s3_class(d, "data.frame")
     expect_gt(nrow(d), 0)
     expect_gt(ncol(d), 0)

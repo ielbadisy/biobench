@@ -415,3 +415,169 @@
 #'   Organization / CDC.
 #' @source \pkg{biostatlab} package.
 "tobaccomorocco"
+
+#' Bone marrow transplant for leukemia
+#'
+#' Allogeneic bone marrow transplant patients with acute leukemia (ALL,
+#' AML low-risk, AML high-risk), including graft-versus-host disease and
+#' platelet recovery times. Right-censored survival (disease-free
+#' survival: `t2`/`d3`).
+#'
+#' @format A data frame with 137 rows and 22 variables.
+#' @references Klein, J. P., & Moeschberger, M. L. (1997). \emph{Survival
+#'   Analysis: Techniques for Censored and Truncated Data}. Springer.
+#' @source \pkg{KMsurv} package.
+"bmt"
+
+#' 6-MP leukemia remission trial
+#'
+#' Freireich et al.'s classic paired clinical trial of 6-mercaptopurine
+#' (6-MP) versus placebo in maintaining remission in acute leukemia. One
+#' of the earliest published randomized survival trials. Right-censored
+#' survival.
+#'
+#' @format A data frame with 21 rows and 5 variables.
+#' @references Freireich, E. J. et al. (1963). The effect of
+#'   6-mercaptopurine on the duration of steroid-induced remissions in
+#'   acute leukemia. \emph{Blood}, 21, 699-716.
+#' @source \pkg{KMsurv} package.
+"drug6mp"
+
+#' Larynx cancer survival
+#'
+#' Survival of larynx cancer patients by disease stage at diagnosis.
+#' Right-censored survival.
+#'
+#' @format A data frame with 90 rows and 5 variables.
+#' @references Kardaun, O. (1983). Statistical survival analysis of male
+#'   larynx-cancer patients. \emph{Statistica Neerlandica}, 37, 103-126.
+#' @source \pkg{KMsurv} package.
+"larynx"
+
+#' Kidney dialysis catheter infection
+#'
+#' Time to first exit-site infection in kidney dialysis patients, by
+#' catheter placement method (surgical vs percutaneous). Right-censored
+#' survival.
+#'
+#' @format A data frame with 119 rows and 3 variables.
+#' @references Nahman, N. S. et al. (1992). Prevention of catheter-related
+#'   infection with exit-site care. \emph{Journal of the American Society
+#'   of Nephrology}, 3, 103-107.
+#' @source \pkg{KMsurv} package.
+"kidney"
+
+#' STD recurrence cohort
+#'
+#' Time to reinfection after treatment for a sexually transmitted
+#' disease, with demographic, behavioral, and clinical exam covariates.
+#' Right-censored survival.
+#'
+#' @format A data frame with 877 rows and 24 variables.
+#' @references Klein, J. P., & Moeschberger, M. L. (1997). \emph{Survival
+#'   Analysis: Techniques for Censored and Truncated Data}. Springer.
+#' @source \pkg{KMsurv} package.
+"std"
+
+#' Channing House retirement community mortality
+#'
+#' Age at entry and age at death or withdrawal for residents of the
+#' Channing House retirement community. Right-censored survival
+#' (actuarial/demographic cohort).
+#'
+#' @format A data frame with 462 rows and 6 variables.
+#' @references Hyde, J. (1977). Testing survival under right censoring
+#'   and left truncation. \emph{Biometrika}, 64, 225-230.
+#' @source \pkg{KMsurv} package.
+"channing"
+
+#' TRACE myocardial infarction study
+#'
+#' Survival after myocardial infarction in relation to clinical heart
+#' failure, diabetes, ventricular fibrillation, and echocardiographic
+#' wall motion index. Right-censored survival.
+#'
+#' @format A data frame with 1877 rows and 9 variables.
+#' @references Jensen, G. V. et al. (1997). Does in-hospital ventricular
+#'   fibrillation affect prognosis after myocardial infarction?
+#'   \emph{European Heart Journal}, 18, 919-924.
+#' @source \pkg{timereg} package.
+"mitrace"
+
+#' Respiratory illness clinical trial
+#'
+#' Longitudinal, multicenter randomized trial comparing an active
+#' treatment to placebo for respiratory illness, with monthly status
+#' assessments (long format, repeated measures per subject). Binary
+#' classification (respiratory status: poor/good).
+#'
+#' @format A data frame with 555 rows and 7 variables.
+#' @references Davis, C. S. (1991). Semi-parametric and non-parametric
+#'   methods for the analysis of repeated measurements with applications
+#'   to clinical trials. \emph{Statistics in Medicine}, 10, 1959-1980.
+#' @source \pkg{HSAUR3} package.
+"respiratory"
+
+#' Toenail infection clinical trial
+#'
+#' Randomized trial comparing two oral antifungal treatments for toenail
+#' infection (dermatophyte onychomycosis), with outcome assessed at up to
+#' seven visits (long format, repeated measures per subject). Binary
+#' classification (degree of nail separation).
+#'
+#' @format A data frame with 1908 rows and 5 variables.
+#' @references De Backer, M. et al. (1998). Twelve weeks of continuous
+#'   oral therapy for toenail onychomycosis caused by dermatophytes.
+#'   \emph{Journal of the American Academy of Dermatology}, 38, S57-S63.
+#' @source \pkg{HSAUR3} package.
+"toenail"
+
+#' Copenhagen Stroke Study
+#'
+#' Acute stroke patients with cardiovascular risk factors and stroke
+#' severity score at admission. Right-censored survival.
+#'
+#' @format A data frame with 518 rows and 15 variables.
+#' @references Jorgensen, H. S., Nakayama, H., Reith, J., Raaschou, H. O.,
+#'   & Olsen, T. S. (1996). Acute stroke with atrial fibrillation. The
+#'   Copenhagen Stroke Study. \emph{Stroke}, 27(10), 1765-1769.
+#' @source \pkg{pec} package.
+"stroke"
+
+#' PBC3 multi-center cirrhosis trial
+#'
+#' Multi-center randomized trial of Cyclosporin A versus placebo in
+#' primary biliary cirrhosis across six European hospitals, with outcome
+#' time to treatment failure (death or liver transplantation).
+#' Right-censored survival, distinct patient cohort from the Mayo Clinic
+#' `pbc` trial.
+#'
+#' @format A data frame with 349 rows and 15 variables.
+#' @references Andersen, P. K., & Skovgaard, L. T. (2010). \emph{Regression
+#'   with Linear Predictors}. Springer.
+#' @source \pkg{pec} package.
+"pbc3"
+
+#' Malignant melanoma cohort
+#'
+#' Patients with malignant melanoma who underwent radical surgery at
+#' Odense University Hospital, Denmark (1962-1977), followed until 1977.
+#' Competing-risks survival (death from melanoma vs other causes).
+#'
+#' @format A data frame with 205 rows and 11 variables.
+#' @references Andersen, P. K., & Skovgaard, L. T. (2010). \emph{Regression
+#'   with Linear Predictors}. Springer.
+#' @source \pkg{riskRegression} package.
+"melanoma"
+
+#' Paquid dementia cohort
+#'
+#' Prospective French cohort study (PAQUID) on functional and cerebral
+#' ageing, with baseline cognitive test scores. Competing-risks survival
+#' (dementia onset vs death without dementia).
+#'
+#' @format A data frame with 2561 rows and 4 variables.
+#' @references Dartigues, J. F. et al. (1992). The Paquid epidemiological
+#'   program on brain ageing. \emph{Neuroepidemiology}, 11(1), 14-18.
+#' @source \pkg{riskRegression} package.
+"paquid"
