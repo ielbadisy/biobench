@@ -228,6 +228,83 @@ biobench_index(outcome = "survival", missing = FALSE)
 #> 20       nwtsco survival      addhazard   3915    12       FALSE   FALSE
 ```
 
+## Using biobench in a benchmark study
+
+biobench’s job is to supply the datasets; any modeling package can
+consume them. The example below uses
+[funcml](https://cran.r-project.org/package=funcml), a formula-first ML
+framework with a `fit()` / `evaluate()` / `compare()` / `tune()` /
+`interpret()` interface, to benchmark several learners on one dataset:
+
+``` r
+library(funcml)
+
+d <- na.omit(breastcancer)
+d$Id <- NULL # identifier column, not a predictor
+
+compare(
+  data = d,
+  formula = Class ~ .,
+  models = c("glm", "ranger", "xgboost"),
+  resampling = cv(5),
+  metrics = c("accuracy", "auc"),
+  seed = 1
+)
+#> <funcml_compare> task: classification | tuned: FALSE
+#>     model   metric   mean     sd n std_error conf_level conf_low conf_high
+#> 1     glm accuracy 0.9298 0.0108 5    0.0049       0.95   0.9163    0.9432
+#> 2     glm      auc 0.9466 0.0065 5    0.0029       0.95   0.9385    0.9546
+#> 3  ranger accuracy 0.9605 0.0229 5    0.0102       0.95   0.9320    0.9889
+#> 4  ranger      auc 0.9922 0.0046 5    0.0020       0.95   0.9866    0.9979
+#> 5 xgboost accuracy 0.9547 0.0221 5    0.0099       0.95   0.9273    0.9822
+#> 6 xgboost      auc 0.9904 0.0063 5    0.0028       0.95   0.9827    0.9982
+#>   tuned rank
+#> 1 FALSE    3
+#> 2 FALSE    3
+#> 3 FALSE    1
+#> 4 FALSE    1
+#> 5 FALSE    2
+#> 6 FALSE    2
+```
+
+The same recipe scales to a multi-dataset benchmark study: pick datasets
+from `biobench_index()`, pair each with its outcome formula, and loop
+`compare()` over them to get one long-format results table.
+
+``` r
+benchmark_sets <- list(
+  breastcancer = list(formula = Class ~ ., data = d),
+  pima2        = list(formula = diabetes ~ ., data = na.omit(pima2)),
+  dna          = list(formula = Class ~ ., data = dna)
+)
+
+results <- lapply(names(benchmark_sets), function(nm) {
+  spec <- benchmark_sets[[nm]]
+  res <- compare(
+    data = spec$data,
+    formula = spec$formula,
+    models = c("ranger", "xgboost"),
+    resampling = cv(5),
+    metrics = "accuracy",
+    seed = 1
+  )
+  cbind(dataset = nm, res$results)
+})
+
+do.call(rbind, results)[, c("dataset", "model", "mean", "sd", "rank")]
+#>        dataset   model      mean          sd rank
+#> 1 breastcancer  ranger 0.9604974 0.014152343    1
+#> 2 breastcancer xgboost 0.9501703 0.016075343    2
+#> 3        pima2  ranger 0.7779617 0.049728946    2
+#> 4        pima2 xgboost 0.7883804 0.030990694    1
+#> 5          dna  ranger 0.9526035 0.003243635    2
+#> 6          dna xgboost 0.9629616 0.008718564    1
+```
+
+`biobench_index(outcome = "classification", missing = FALSE)` (or
+`"regression"` / `"survival"`) is the natural way to select which
+datasets go into `benchmark_sets` for a larger study.
+
 ## Datasets by task
 
 ### Classification (n = 22)

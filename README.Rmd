@@ -65,6 +65,61 @@ Filter by task, dimensionality, source, size, or missingness:
 biobench_index(outcome = "survival", missing = FALSE)
 ```
 
+## Using biobench in a benchmark study
+
+biobench's job is to supply the datasets; any modeling package can consume
+them. The example below uses
+[funcml](https://cran.r-project.org/package=funcml), a formula-first ML
+framework with a `fit()` / `evaluate()` / `compare()` / `tune()` /
+`interpret()` interface, to benchmark several learners on one dataset:
+
+```{r funcml-single, message = FALSE, warning = FALSE}
+library(funcml)
+
+d <- na.omit(breastcancer)
+d$Id <- NULL # identifier column, not a predictor
+
+compare(
+  data = d,
+  formula = Class ~ .,
+  models = c("glm", "ranger", "xgboost"),
+  resampling = cv(5),
+  metrics = c("accuracy", "auc"),
+  seed = 1
+)
+```
+
+The same recipe scales to a multi-dataset benchmark study: pick datasets
+from `biobench_index()`, pair each with its outcome formula, and loop
+`compare()` over them to get one long-format results table.
+
+```{r funcml-loop, message = FALSE}
+benchmark_sets <- list(
+  breastcancer = list(formula = Class ~ ., data = d),
+  pima2        = list(formula = diabetes ~ ., data = na.omit(pima2)),
+  dna          = list(formula = Class ~ ., data = dna)
+)
+
+results <- lapply(names(benchmark_sets), function(nm) {
+  spec <- benchmark_sets[[nm]]
+  res <- compare(
+    data = spec$data,
+    formula = spec$formula,
+    models = c("ranger", "xgboost"),
+    resampling = cv(5),
+    metrics = "accuracy",
+    seed = 1
+  )
+  cbind(dataset = nm, res$results)
+})
+
+do.call(rbind, results)[, c("dataset", "model", "mean", "sd", "rank")]
+```
+
+`biobench_index(outcome = "classification", missing = FALSE)` (or
+`"regression"` / `"survival"`) is the natural way to select which datasets
+go into `benchmark_sets` for a larger study.
+
 ## Datasets by task
 
 ```{r datasets-by-task, echo = FALSE, results = "asis"}
