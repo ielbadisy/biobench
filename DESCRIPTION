@@ -1,0 +1,22 @@
+Package: biobench
+Title: Biomedical Datasets for Machine Learning Benchmarking
+Version: 0.1.0
+Authors@R:
+    person("Imad", "El Badisy", , "elbadisyimad@gmail.com", role = c("aut", "cre"))
+Description: A curated collection of real (non-synthetic) biomedical
+    datasets assembled from published clinical studies, cohorts, and
+    trials, for benchmarking classification, regression, and survival
+    machine learning methods. Each dataset carries a canonical
+    literature reference to its original source study.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+LazyData: true
+Depends:
+    R (>= 3.5)
+URL: https://github.com/ielbadisy/biobench
+BugReports: https://github.com/ielbadisy/biobench/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

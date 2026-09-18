@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-"
+)
+```
+
+# biobench
+
+A curated collection of **real (non-synthetic) biomedical datasets** for
+benchmarking classification, regression, and survival machine learning
+methods. Every dataset is documented with its canonical literature
+reference (`?dataset_name`).
+
+Sources: [mlbench](https://cran.r-project.org/package=mlbench),
+[medicaldata](https://higgi13425.github.io/medicaldata/),
+[survival](https://cran.r-project.org/package=survival), and
+[TH.data](https://cran.r-project.org/package=TH.data).
+
+## Installation
+
+```r
+# install.packages("remotes")
+remotes::install_github("ielbadisy/biobench")
+```
+
+## Usage
+
+Datasets load directly via `biobench::<name>`, no `data()` call needed.
+
+```{r example}
+library(biobench)
+
+head(breastcancer)
+
+str(gbsg2)
+```
+
+## Dataset index
+
+```{r index}
+biobench_index()
+```
