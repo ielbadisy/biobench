@@ -312,3 +312,106 @@
 #'   Oncology}, 12, 2086-2093.
 #' @source \pkg{TH.data} package.
 "gbsg2"
+
+#' Fez colorectal cancer cohort
+#'
+#' Clinical colorectal cancer cohort from Fez, Morocco, with tumour,
+#' treatment, and diagnostic-delay covariates. Primary endpoint is
+#' right-censored survival (`time`/`event`); the `Delay` column (time to
+#' diagnosis or treatment) also supports a regression framing on the same
+#' data.
+#'
+#' @format A data frame with 346 rows and 19 variables.
+#' @references Colorectal cancer cohort from Fez. \emph{Scientific
+#'   Reports}, article 51304 (2024).
+#' @source \pkg{biostatlab} package.
+"crcfes"
+
+#' Colorectal cancer genomic cohort (Mondaca et al. 2020)
+#'
+#' Clinical and tumour-genomic variables (mutation burden, fraction genome
+#' altered, microsatellite status) with right-censored survival outcome.
+#'
+#' @format A data frame with 471 rows and 19 variables.
+#' @references Mondaca, S. et al. (2020). Colorectal cancer genomic
+#'   cohort. Cohort manuscript included with the biostatlab
+#'   raw-selected-datasets sources.
+#' @source \pkg{biostatlab} package.
+"crcmondaca"
+
+#' Framingham Heart Study survival extract
+#'
+#' Cardiovascular follow-up cohort with event time and cause-of-event
+#' fields. Right-censored survival. Missing values in `scl1`, `scl2`, and
+#' `smok` are coded `-1` in the original extract rather than `NA`.
+#'
+#' @format A data frame with 5209 rows and 18 variables.
+#' @references Dawber, T. R. (1980). \emph{The Framingham Study: The
+#'   Epidemiology of Atherosclerotic Disease}. Harvard University Press.
+#' @source \pkg{biostatlab} package.
+"framingham"
+
+#' Haberman breast cancer survival
+#'
+#' Survival of patients who underwent surgery for breast cancer, by age,
+#' year of operation, and number of positive axillary nodes. Binary
+#' classification (5-year survival status).
+#'
+#' @format A data frame with 306 rows and 4 variables.
+#' @references Haberman, S. J. (1976). Generalized residuals for log-linear
+#'   models. \emph{Proceedings of the 9th International Biometrics
+#'   Conference}, 104-122. UCI Machine Learning Repository.
+#' @source \pkg{biostatlab} package.
+"haberman"
+
+#' Heart failure clinical records
+#'
+#' Clinical records of patients with heart failure, with follow-up time
+#' and death event. Right-censored survival.
+#'
+#' @format A data frame with 299 rows and 13 variables.
+#' @references Chicco, D., & Jurman, G. (2020). Machine learning can
+#'   predict survival of patients with heart failure from serum
+#'   creatinine and ejection fraction alone. \emph{BMC Medical Informatics
+#'   and Decision Making}, 20, 16.
+#' @source \pkg{biostatlab} package.
+"heartfailure"
+
+#' Maternal health risk assessment
+#'
+#' Maternal vital-sign measurements (blood pressure, blood sugar, body
+#' temperature, heart rate) with a categorical pregnancy risk level.
+#' Multiclass classification.
+#'
+#' @format A data frame with 1205 rows and 13 variables.
+#' @references Maternal health risk assessment dataset. Mendeley Data.
+#' @source \pkg{biostatlab} package.
+"highriskpreg"
+
+#' METABRIC breast cancer cohort
+#'
+#' Molecular Taxonomy of Breast Cancer International Consortium cohort:
+#' clinical, gene-expression, and mutation variables with right-censored
+#' overall survival. High-dimensional (n < p).
+#'
+#' @format A data frame with 1904 rows and 693 variables.
+#' @references Curtis, C. et al. (2012). The genomic and transcriptomic
+#'   architecture of 2,000 breast tumours reveals novel subgroups.
+#'   \emph{Nature}, 486, 346-352. Pereira, B. et al. (2016). The somatic
+#'   mutation profiles of 2,433 breast cancers refine their genomic and
+#'   transcriptomic landscapes. \emph{Nature Communications}, 7, 11479.
+#' @source \pkg{biostatlab} package.
+"metabric"
+
+#' Morocco youth tobacco survey
+#'
+#' Global Youth Tobacco Survey extract for Morocco: demographic and
+#' household exposure variables. Primary outcome `cigar_use` (binary
+#' classification); the `age_first_cig` column also supports a regression
+#' framing on the same data.
+#'
+#' @format A data frame with 3915 rows and 27 variables.
+#' @references Global Youth Tobacco Survey, Morocco. World Health
+#'   Organization / CDC.
+#' @source \pkg{biostatlab} package.
+"tobaccomorocco"

@@ -16,7 +16,8 @@
 #'   dataset is considered high-dimensional. Default `20`.
 #' @param source_package Character vector filtering on the upstream
 #'   package a dataset was sourced from (`"mlbench"`, `"medicaldata"`,
-#'   `"survival"`, `"TH.data"`). Default `NULL` (no filter).
+#'   `"survival"`, `"TH.data"`, `"biostatlab"`). Default `NULL` (no
+#'   filter).
 #' @param n_min Integer, minimum number of rows required. Default `NULL`.
 #' @param n_max Integer, maximum number of rows allowed. Default `NULL`.
 #' @param missing Logical. If `TRUE`, keep only datasets containing
@@ -44,7 +45,9 @@ biobench_index <- function(outcome = NULL,
       "bloodstorage", "covidtest", "cmv", "esophca", "indorct", "indometh",
       "laryngoscope", "licorice", "opt", "polyps", "scurvy", "smartpill",
       "streptb", "supraclav", "theoph",
-      "lung", "veteran", "pbc", "colon", "flchain", "rotterdam", "gbsg2"
+      "lung", "veteran", "pbc", "colon", "flchain", "rotterdam", "gbsg2",
+      "crcfes", "crcmondaca", "framingham", "haberman", "heartfailure",
+      "highriskpreg", "metabric", "tobaccomorocco"
     ),
     task = c(
       "classification", "classification", "classification",
@@ -54,13 +57,16 @@ biobench_index <- function(outcome = NULL,
       "classification", "survival",
       "regression",
       "survival", "survival", "survival", "survival", "survival",
-      "survival", "survival"
+      "survival", "survival",
+      "survival", "survival", "survival", "classification", "survival",
+      "classification", "survival", "classification"
     ),
     source_package = c(
       "mlbench", "mlbench", "mlbench",
       rep("medicaldata", 15),
       rep("survival", 6),
-      "TH.data"
+      "TH.data",
+      rep("biostatlab", 8)
     ),
     stringsAsFactors = FALSE
   )
