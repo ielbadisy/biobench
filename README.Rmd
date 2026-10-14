@@ -32,7 +32,9 @@ terms: [mlbench](https://cran.r-project.org/package=mlbench),
 [aplore3](https://cran.r-project.org/package=aplore3),
 [casebase](https://cran.r-project.org/package=casebase),
 [addhazard](https://cran.r-project.org/package=addhazard), and
-[biostatlab](https://github.com/ielbadisy/biostatlab).
+[biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
+transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
+Using R* (`dpb`, `duodenal`).
 
 ## Installation
 

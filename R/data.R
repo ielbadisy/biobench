@@ -802,3 +802,46 @@
 #'   the American Statistical Association}, 99, 832-844.
 #' @source \pkg{addhazard} package.
 "nwtsco"
+
+#' Diastolic blood pressure trial
+#'
+#' Small randomized hypertension trial comparing a new drug (`A`) with
+#' placebo (`B`), with supine diastolic blood pressure at baseline
+#' (`DBP1`) and monthly for four months (`DBP2` to `DBP5`), age, and sex.
+#' Regression (`DBP5`, diastolic blood pressure at month 4).
+#'
+#' @format A data frame with 40 rows and 9 variables.
+#' @references Peace, K. E., & Chen, D.-G. (2010). \emph{Clinical Trial
+#'   Data Analysis Using R}. Chapman & Hall/CRC. Table 3.1.
+#' @source Transcribed from Table 3.1 of the reference (via biostatlab).
+"dpb"
+
+#' Duodenal ulcer healing trial
+#'
+#' Multicenter, double-blind, placebo-controlled dose comparison of
+#' cimetidine (0, 400, 800, 1600 mg at night) for duodenal ulcer healing,
+#' with healing indicators at weeks 1, 2, and 4. Classification
+#' (`Healed_Week4`); drop `Healed_Week1`, `Healed_Week2`, and
+#' `Healing_Time` as predictors since they encode the outcome.
+#' Reconstructed at subject level from the published per-arm cumulative
+#' healing counts rather than extracted from raw patient-level data.
+#'
+#' @format A data frame with 703 rows and 7 variables.
+#' @references Peace, K. E., & Chen, D.-G. (2010). \emph{Clinical Trial
+#'   Data Analysis Using R}. Chapman & Hall/CRC. Table 3.2.
+#' @source Reconstructed from Table 3.2 of the reference (via biostatlab).
+"duodenal"
+
+#' Epilepsy progabide trial
+#'
+#' Randomized trial of the anti-epileptic drug progabide versus placebo,
+#' with seizure counts in four successive two-week periods (long format,
+#' repeated measures per subject), baseline seizure count, and age.
+#' Regression (`seizure.rate`, seizure count in the period).
+#'
+#' @format A data frame with 236 rows and 6 variables.
+#' @references Thall, P. F., & Vail, S. C. (1990). Some covariance models
+#'   for longitudinal count data with overdispersion. \emph{Biometrics},
+#'   46, 657-671.
+#' @source \pkg{HSAUR3} package.
+"epilepsy"

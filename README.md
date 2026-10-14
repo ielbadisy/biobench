@@ -21,7 +21,9 @@ terms: [mlbench](https://cran.r-project.org/package=mlbench),
 [aplore3](https://cran.r-project.org/package=aplore3),
 [casebase](https://cran.r-project.org/package=casebase),
 [addhazard](https://cran.r-project.org/package=addhazard), and
-[biostatlab](https://github.com/ielbadisy/biostatlab).
+[biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
+transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
+Using R* (`dpb`, `duodenal`).
 
 ## Installation
 
@@ -135,6 +137,9 @@ biobench_index()
 #> 61         bmtcrr       survival       casebase    177     7       FALSE
 #> 62         eprchd       survival       casebase  16608     3       FALSE
 #> 63         nwtsco       survival      addhazard   3915    12       FALSE
+#> 64            dpb     regression     biostatlab     40     9       FALSE
+#> 65       duodenal classification     biostatlab    703     7       FALSE
+#> 66       epilepsy     regression         HSAUR3    236     6       FALSE
 #>    highdim
 #> 1    FALSE
 #> 2    FALSE
@@ -199,6 +204,9 @@ biobench_index()
 #> 61   FALSE
 #> 62   FALSE
 #> 63   FALSE
+#> 64   FALSE
+#> 65   FALSE
+#> 66   FALSE
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
@@ -307,7 +315,7 @@ datasets go into `benchmark_sets` for a larger study.
 
 ## Datasets by task
 
-### Classification (n = 22)
+### Classification (n = 23)
 
 | Dataset          | Description                                        |     n |   p | Source      |
 |------------------|----------------------------------------------------|------:|----:|-------------|
@@ -316,6 +324,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `chdage`         | Coronary heart disease and age                     |   100 |   4 | aplore3     |
 | `covidtest`      | COVID-19 PCR testing cohort                        | 15524 |  17 | medicaldata |
 | `dna`            | Splice-junction gene sequences                     |  3186 | 181 | mlbench     |
+| `duodenal`       | Duodenal ulcer healing trial                       |   703 |   7 | biostatlab  |
 | `esophca`        | Esophageal cancer case-control study               |    88 |   5 | medicaldata |
 | `glow500`        | GLOW osteoporosis fracture risk                    |   500 |  15 | aplore3     |
 | `haberman`       | Haberman breast cancer survival                    |   306 |   4 | biostatlab  |
@@ -334,7 +343,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `tobaccomorocco` | Morocco youth tobacco survey                       |  3915 |  27 | biostatlab  |
 | `toenail`        | Toenail infection clinical trial                   |  1908 |   5 | HSAUR3      |
 
-### Regression (n = 10)
+### Regression (n = 12)
 
 | Dataset        | Description                                     |   n |   p | Source      |
 |----------------|-------------------------------------------------|----:|----:|-------------|
@@ -342,6 +351,8 @@ datasets go into `benchmark_sets` for a larger study.
 | `aidsdelay`    | AIDS reporting delay in England and Wales       | 570 |   6 | boot        |
 | `anorexia`     | Anorexia treatment weight change                |  72 |   3 | MASS        |
 | `birthwt`      | Risk factors for low infant birth weight        | 189 |  10 | MASS        |
+| `dpb`          | Diastolic blood pressure trial                  |  40 |   9 | biostatlab  |
+| `epilepsy`     | Epilepsy progabide trial                        | 236 |   6 | HSAUR3      |
 | `indometh`     | Indomethacin pharmacokinetics                   |  66 |   3 | medicaldata |
 | `laryngoscope` | Video vs standard laryngoscope RCT              |  99 |  22 | medicaldata |
 | `phosphate`    | Postprandial phosphate levels                   |  33 |   9 | HSAUR3      |
