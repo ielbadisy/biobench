@@ -145,7 +145,9 @@
 #' Periodontal therapy and preterm birth
 #'
 #' Obstetrics and Periodontal Therapy (OPT) trial data on maternal
-#' periodontal treatment and risk of preterm birth.
+#' periodontal treatment and risk of preterm birth. Factor levels are
+#' trimmed of stray whitespace (the source has both `"No"` and `"No "`)
+#' and blank entries are coded `NA`.
 #'
 #' @format A data frame with 823 rows and 171 variables.
 #' @references Michalowicz, B. S. et al. (2006). Treatment of periodontal

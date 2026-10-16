@@ -1,6 +1,8 @@
 # Build biobench data/*.rda from upstream source packages.
 # Run interactively: source("data-raw/build_data.R")
 
+source("data-raw/tidy_helpers.R")
+
 # mlbench --------------------------------------------------------------
 data("BreastCancer", package = "mlbench")
 breastcancer <- BreastCancer
@@ -35,6 +37,7 @@ data("licorice_gargle", package = "medicaldata")
 licorice <- licorice_gargle
 
 data("opt", package = "medicaldata")
+opt <- tidy_strings(opt)
 
 data("polyps", package = "medicaldata")
 
