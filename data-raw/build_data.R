@@ -21,7 +21,7 @@ data("covid_testing", package = "medicaldata")
 covidtest <- covid_testing
 
 data("cytomegalovirus", package = "medicaldata")
-cmv <- cytomegalovirus
+cmv <- rename_cols(tidy_strings(cytomegalovirus), c(C1_C2 = "C1/C2"))
 
 data("esoph_ca", package = "medicaldata")
 esophca <- esoph_ca
