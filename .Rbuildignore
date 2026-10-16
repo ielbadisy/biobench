@@ -1,1 +1,4 @@
 ^LICENSE\.md$
+^data-raw$
+^README\.Rmd$
+^\.ptrack-id$
