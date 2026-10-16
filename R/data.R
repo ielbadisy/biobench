@@ -319,7 +319,7 @@
 #' treatment, and diagnostic-delay covariates. Primary endpoint is
 #' right-censored survival (`time`/`event`); the `Delay` column (time to
 #' diagnosis or treatment) also supports a regression framing on the same
-#' data.
+#' data. Yes/no columns share the coding `"No"`/`"Yes"`.
 #'
 #' @format A data frame with 346 rows and 19 variables.
 #' @references Colorectal cancer cohort from Fez. \emph{Scientific

@@ -18,7 +18,7 @@ Clinical colorectal cancer cohort from Fez, Morocco, with tumour,
 treatment, and diagnostic-delay covariates. Primary endpoint is
 right-censored survival (\code{time}/\code{event}); the \code{Delay} column (time to
 diagnosis or treatment) also supports a regression framing on the same
-data.
+data. Yes/no columns share the coding \code{"No"}/\code{"Yes"}.
 }
 \references{
 Colorectal cancer cohort from Fez. \emph{Scientific

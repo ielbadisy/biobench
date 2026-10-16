@@ -10,7 +10,10 @@
 library(biostatlab)
 source("data-raw/tidy_helpers.R")
 
-crcfes <- crc_fes
+crcfes <- tidy_strings(crc_fes)
+# Ras.mutated is the only yes/no column coded in lower case
+crcfes$Ras.mutated <- c(no = "No", yes = "Yes")[crcfes$Ras.mutated]
+names(crcfes$Ras.mutated) <- NULL
 crcmondaca <- crc_mondaca2020
 names(crcmondaca)[1] <- "patient_id"
 framingham <- framingham
