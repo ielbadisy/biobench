@@ -28,7 +28,7 @@ highriskpreg <- rename_cols(high_risk_pregnancy, c(
 highriskpreg <- tidy_strings(highriskpreg)
 highriskpreg$risk_level <- factor(highriskpreg$risk_level, levels = c("Low", "High"))
 metabric <- metabric
-tobaccomorocco <- tobacco_morocco
+tobaccomorocco <- tidy_strings(tobacco_morocco)
 
 usethis::use_data(
   crcfes, crcmondaca, framingham, haberman, heartfailure, highriskpreg,
