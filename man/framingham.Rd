@@ -15,8 +15,9 @@ framingham
 }
 \description{
 Cardiovascular follow-up cohort with event time and cause-of-event
-fields. Right-censored survival. Missing values in \code{scl1}, \code{scl2}, and
-\code{smok} are coded \code{-1} in the original extract rather than \code{NA}.
+fields. Right-censored survival. The source extract codes missing
+values as \code{-1} in \code{ht}, \code{wt}, \code{scl1}, \code{scl2}, \code{mrw}, and \code{smok}; these
+are \code{NA} here.
 }
 \references{
 Dawber, T. R. (1980). \emph{The Framingham Study: The
