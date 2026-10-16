@@ -380,10 +380,24 @@
 #' Maternal health risk assessment
 #'
 #' Maternal vital-sign measurements (blood pressure, blood sugar, body
-#' temperature, heart rate) with a categorical pregnancy risk level.
-#' Multiclass classification.
+#' temperature, heart rate) and medical history with a binary pregnancy
+#' risk level. Binary classification.
 #'
-#' @format A data frame with 1205 rows and 13 variables.
+#' Column names are snake_case versions of the source names, and the 18
+#' records with a blank risk level are coded `NA`.
+#'
+#' @format A data frame with 1205 rows and 13 variables:
+#' \describe{
+#'   \item{study_id}{Record identifier.}
+#'   \item{age}{Age in years.}
+#'   \item{systolic_bp, diastolic_bp}{Blood pressure, mmHg.}
+#'   \item{blood_sugar}{Blood glucose, mmol/L.}
+#'   \item{body_temp}{Body temperature, degrees Fahrenheit.}
+#'   \item{bmi}{Body mass index, kg/m^2.}
+#'   \item{previous_complications, preexisting_diabetes, gestational_diabetes, mental_health}{History indicators, 0 = no, 1 = yes.}
+#'   \item{heart_rate}{Heart rate, beats per minute.}
+#'   \item{risk_level}{Pregnancy risk level, factor with levels `Low`, `High`.}
+#' }
 #' @references Maternal health risk assessment dataset. Mendeley Data.
 #' @source \pkg{biostatlab} package.
 "highriskpreg"

@@ -8,6 +8,7 @@
 # Run interactively: source("data-raw/build_data_biostatlab.R")
 
 library(biostatlab)
+source("data-raw/tidy_helpers.R")
 
 crcfes <- crc_fes
 crcmondaca <- crc_mondaca2020
@@ -15,7 +16,17 @@ names(crcmondaca)[1] <- "patient_id"
 framingham <- framingham
 haberman <- haberman
 heartfailure <- heart_failure
-highriskpreg <- high_risk_pregnancy
+highriskpreg <- rename_cols(high_risk_pregnancy, c(
+  age = "Age", systolic_bp = "Systolic BP", diastolic_bp = "Diastolic",
+  blood_sugar = "BS", body_temp = "Body Temp", bmi = "BMI",
+  previous_complications = "Previous Complications",
+  preexisting_diabetes = "Preexisting Diabetes",
+  gestational_diabetes = "Gestational Diabetes",
+  mental_health = "Mental Health", heart_rate = "Heart Rate",
+  risk_level = "Risk Level"
+))
+highriskpreg <- tidy_strings(highriskpreg)
+highriskpreg$risk_level <- factor(highriskpreg$risk_level, levels = c("Low", "High"))
 metabric <- metabric
 tobaccomorocco <- tobacco_morocco
 
