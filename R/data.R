@@ -69,7 +69,8 @@
 #'
 #' Retrospective cohort on donor killer immunoglobulin-like receptor (KIR)
 #' genotype and cytomegalovirus reactivation after allogeneic stem cell
-#' transplant.
+#' transplant. The source column `C1/C2` (HLA-Cw group, 0 = heterozygous,
+#' 1 = homozygous) is renamed `C1_C2`.
 #'
 #' @format A data frame with 64 rows and 26 variables.
 #' @references Sobecks, R. et al. (2011). Cytomegalovirus reactivation
