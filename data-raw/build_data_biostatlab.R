@@ -14,6 +14,10 @@ crcfes <- crc_fes
 crcmondaca <- crc_mondaca2020
 names(crcmondaca)[1] <- "patient_id"
 framingham <- framingham
+# scl1, scl2, smok (and a few ht, wt, mrw) code missing as -1
+for (v in c("ht", "wt", "scl1", "scl2", "mrw", "smok")) {
+  framingham[[v]][framingham[[v]] == -1] <- NA
+}
 haberman <- haberman
 heartfailure <- heart_failure
 highriskpreg <- rename_cols(high_risk_pregnancy, c(

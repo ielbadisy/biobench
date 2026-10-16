@@ -342,8 +342,9 @@
 #' Framingham Heart Study survival extract
 #'
 #' Cardiovascular follow-up cohort with event time and cause-of-event
-#' fields. Right-censored survival. Missing values in `scl1`, `scl2`, and
-#' `smok` are coded `-1` in the original extract rather than `NA`.
+#' fields. Right-censored survival. The source extract codes missing
+#' values as `-1` in `ht`, `wt`, `scl1`, `scl2`, `mrw`, and `smok`; these
+#' are `NA` here.
 #'
 #' @format A data frame with 5209 rows and 18 variables.
 #' @references Dawber, T. R. (1980). \emph{The Framingham Study: The
