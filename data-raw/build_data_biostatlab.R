@@ -34,7 +34,11 @@ highriskpreg <- rename_cols(high_risk_pregnancy, c(
 ))
 highriskpreg <- tidy_strings(highriskpreg)
 highriskpreg$risk_level <- factor(highriskpreg$risk_level, levels = c("Low", "High"))
-metabric <- metabric
+metabric <- rename_cols(tidy_strings(metabric), c(
+  pam50_claudin_low_subtype = "pam50_+_claudin-low_subtype",
+  three_gene_classifier_subtype = "3-gene_classifier_subtype",
+  hla_g = "hla-g"
+))
 tobaccomorocco <- tidy_strings(tobacco_morocco)
 
 usethis::use_data(

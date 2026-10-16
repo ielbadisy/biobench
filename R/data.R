@@ -409,7 +409,9 @@
 #'
 #' Molecular Taxonomy of Breast Cancer International Consortium cohort:
 #' clinical, gene-expression, and mutation variables with right-censored
-#' overall survival. High-dimensional (n < p).
+#' overall survival. High-dimensional. Three non-syntactic source names
+#' are renamed (`pam50_claudin_low_subtype`, `three_gene_classifier_subtype`,
+#' `hla_g`) and blank strings are coded `NA`.
 #'
 #' @format A data frame with 1904 rows and 693 variables.
 #' @references Curtis, C. et al. (2012). The genomic and transcriptomic

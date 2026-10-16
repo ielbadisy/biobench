@@ -16,7 +16,9 @@ metabric
 \description{
 Molecular Taxonomy of Breast Cancer International Consortium cohort:
 clinical, gene-expression, and mutation variables with right-censored
-overall survival. High-dimensional (n < p).
+overall survival. High-dimensional. Three non-syntactic source names
+are renamed (\code{pam50_claudin_low_subtype}, \code{three_gene_classifier_subtype},
+\code{hla_g}) and blank strings are coded \code{NA}.
 }
 \references{
 Curtis, C. et al. (2012). The genomic and transcriptomic
