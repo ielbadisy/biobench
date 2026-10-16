@@ -15,7 +15,9 @@ opt
 }
 \description{
 Obstetrics and Periodontal Therapy (OPT) trial data on maternal
-periodontal treatment and risk of preterm birth.
+periodontal treatment and risk of preterm birth. Factor levels are
+trimmed of stray whitespace (the source has both \code{"No"} and \code{"No "})
+and blank entries are coded \code{NA}.
 }
 \references{
 Michalowicz, B. S. et al. (2006). Treatment of periodontal
