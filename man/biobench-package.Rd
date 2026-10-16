@@ -11,6 +11,15 @@ classification, regression, and survival machine learning methods.
 Each dataset is documented with its canonical literature reference; see
 \code{\link[=biobench_index]{biobench_index()}} for a summary table.
 }
+\details{
+The shipped datasets are lightly cleaned (syntactic names, blanks and
+sentinel codes as \code{NA}). For teaching data import and cleaning, the
+untouched source versions of three of them are installed as CSV files:
+\code{highriskpreg_raw.csv} (names with spaces, blank outcome),
+\code{framingham_raw.csv} (missing coded \code{-1}), and \code{tobaccomorocco_raw.csv}
+(blank survey answers). Locate them with
+\code{system.file("extdata", "framingham_raw.csv", package = "biobench")}.
+}
 \seealso{
 Useful links:
 \itemize{
