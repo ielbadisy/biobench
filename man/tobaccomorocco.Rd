@@ -17,7 +17,9 @@ tobaccomorocco
 Global Youth Tobacco Survey extract for Morocco: demographic and
 household exposure variables. Primary outcome \code{cigar_use} (binary
 classification); the \code{age_first_cig} column also supports a regression
-framing on the same data.
+framing on the same data. \code{FinalWgt}, \code{Stratum}, and \code{PSU} are the
+survey weight, stratum, and primary sampling unit for design-based
+analysis. Blank answers in the source are coded \code{NA}.
 }
 \references{
 Global Youth Tobacco Survey, Morocco. World Health

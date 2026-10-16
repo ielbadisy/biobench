@@ -422,7 +422,9 @@
 #' Global Youth Tobacco Survey extract for Morocco: demographic and
 #' household exposure variables. Primary outcome `cigar_use` (binary
 #' classification); the `age_first_cig` column also supports a regression
-#' framing on the same data.
+#' framing on the same data. `FinalWgt`, `Stratum`, and `PSU` are the
+#' survey weight, stratum, and primary sampling unit for design-based
+#' analysis. Blank answers in the source are coded `NA`.
 #'
 #' @format A data frame with 3915 rows and 27 variables.
 #' @references Global Youth Tobacco Survey, Morocco. World Health
