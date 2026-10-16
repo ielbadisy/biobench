@@ -15,7 +15,7 @@ dna <- DNA
 
 # medicaldata ------------------------------------------------------------
 data("blood_storage", package = "medicaldata")
-bloodstorage <- blood_storage
+bloodstorage <- rename_cols(blood_storage, c(BN_pos = "BN+"))
 
 data("covid_testing", package = "medicaldata")
 covidtest <- covid_testing

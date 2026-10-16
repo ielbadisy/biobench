@@ -15,7 +15,8 @@ bloodstorage
 }
 \description{
 Retrospective cohort on red blood cell storage duration and biochemical
-recurrence of cancer after radical prostatectomy.
+recurrence of cancer after radical prostatectomy. The source column
+\verb{BN+} is renamed \code{BN_pos}.
 }
 \references{
 Cata, J. P. et al. (2011). Blood storage duration and
