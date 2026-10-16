@@ -44,7 +44,8 @@
 #' Blood storage duration and prostate cancer recurrence
 #'
 #' Retrospective cohort on red blood cell storage duration and biochemical
-#' recurrence of cancer after radical prostatectomy.
+#' recurrence of cancer after radical prostatectomy. The source column
+#' `BN+` is renamed `BN_pos`.
 #'
 #' @format A data frame with 316 rows and 20 variables.
 #' @references Cata, J. P. et al. (2011). Blood storage duration and
