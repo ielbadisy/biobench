@@ -25,6 +25,8 @@ data(list = c("icu", "glow500", "myopia", "nhanes", "polypharm", "chdage", "burn
 library(casebase)
 data(list = c("support", "ERSPC", "bmtcrr", "eprchd"), package = "casebase")
 erspc <- ERSPC
+source("data-raw/tidy_helpers.R")
+support <- tidy_strings(support)
 
 library(addhazard)
 data(list = "nwtsco", package = "addhazard")

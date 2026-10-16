@@ -19,6 +19,9 @@ Treatment (SUPPORT): seriously ill hospitalized adults with
 demographic, diagnostic, and day-3 physiology covariates.
 Right-censored survival, up to 5.56 years of follow-up.
 }
+\details{
+Blank \code{race} entries in the source (42) are coded \code{NA}.
+}
 \references{
 Knaus, W. A., Harrell, F. E., Lynn, J. et al. (1995). The
 SUPPORT prognostic model: objective estimates of survival for

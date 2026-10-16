@@ -762,6 +762,8 @@
 #' demographic, diagnostic, and day-3 physiology covariates.
 #' Right-censored survival, up to 5.56 years of follow-up.
 #'
+#' Blank `race` entries in the source (42) are coded `NA`.
+#'
 #' @format A data frame with 9104 rows and 34 variables.
 #' @references Knaus, W. A., Harrell, F. E., Lynn, J. et al. (1995). The
 #'   SUPPORT prognostic model: objective estimates of survival for
