@@ -1,3 +1,12 @@
+# biobench (development version)
+
+## New
+
+* `melgide` (Gide et al. 2019, 75 patients) and `melmsk` (Samstein et al. 2019,
+  320 melanoma patients): overall survival under immune checkpoint blockade,
+  from cBioPortal (ODbL 1.0). `biobench_index()` lists their source as
+  `"cbioportal"`.
+
 # biobench 0.2.0
 
 ## Breaking changes
