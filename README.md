@@ -6,8 +6,9 @@ benchmarking classification, regression, and survival machine learning
 methods. Every dataset is documented with its canonical literature
 reference (`?dataset_name`).
 
-Sourced from CRAN packages only, so every dataset carries clear reuse
-terms: [mlbench](https://cran.r-project.org/package=mlbench),
+Sourced from published, openly licensed releases, so every dataset
+carries clear reuse terms. Most come from CRAN packages:
+[mlbench](https://cran.r-project.org/package=mlbench),
 [medicaldata](https://higgi13425.github.io/medicaldata/),
 [survival](https://cran.r-project.org/package=survival),
 [TH.data](https://cran.r-project.org/package=TH.data),
@@ -23,7 +24,10 @@ terms: [mlbench](https://cran.r-project.org/package=mlbench),
 [addhazard](https://cran.r-project.org/package=addhazard), and
 [biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
 transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
-Using R* (`dpb`, `duodenal`).
+Using R* (`dpb`, `duodenal`). Two melanoma immunotherapy cohorts
+(`melgide`, `melmsk`) come from [cBioPortal](https://www.cbioportal.org)
+and are under the [ODC Open Database
+License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL) 1.0.
 
 ## Installation
 
@@ -101,12 +105,12 @@ biobench_index()
 #> 25          gbsg2       survival        TH.data    686    10       FALSE
 #> 26         crcfes       survival     biostatlab    346    19        TRUE
 #> 27     crcmondaca       survival     biostatlab    471    19        TRUE
-#> 28     framingham       survival     biostatlab   5209    18       FALSE
+#> 28     framingham       survival     biostatlab   5209    18        TRUE
 #> 29       haberman classification     biostatlab    306     4       FALSE
 #> 30   heartfailure       survival     biostatlab    299    13       FALSE
 #> 31   highriskpreg classification     biostatlab   1205    13        TRUE
 #> 32       metabric       survival     biostatlab   1904   693        TRUE
-#> 33 tobaccomorocco classification     biostatlab   3915    27       FALSE
+#> 33 tobaccomorocco classification     biostatlab   3915    27        TRUE
 #> 34            bmt       survival         KMsurv    137    22       FALSE
 #> 35        drug6mp       survival         KMsurv     21     5       FALSE
 #> 36         larynx       survival         KMsurv     90     5       FALSE
@@ -132,7 +136,7 @@ biobench_index()
 #> 56      polypharm classification        aplore3   3500    14        TRUE
 #> 57         chdage classification        aplore3    100     4       FALSE
 #> 58       burn1000 classification        aplore3   1000     9       FALSE
-#> 59        support       survival       casebase   9104    34       FALSE
+#> 59        support       survival       casebase   9104    34        TRUE
 #> 60          erspc       survival       casebase 159893     3       FALSE
 #> 61         bmtcrr       survival       casebase    177     7       FALSE
 #> 62         eprchd       survival       casebase  16608     3       FALSE
@@ -140,6 +144,8 @@ biobench_index()
 #> 64            dpb     regression     biostatlab     40     9       FALSE
 #> 65       duodenal classification     biostatlab    703     7       FALSE
 #> 66       epilepsy     regression         HSAUR3    236     6       FALSE
+#> 67        melgide       survival     cbioportal     75    11        TRUE
+#> 68         melmsk       survival     cbioportal    320    10        TRUE
 #>    highdim
 #> 1    FALSE
 #> 2    FALSE
@@ -207,6 +213,8 @@ biobench_index()
 #> 64   FALSE
 #> 65   FALSE
 #> 66   FALSE
+#> 67   FALSE
+#> 68   FALSE
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
@@ -217,23 +225,21 @@ biobench_index(outcome = "survival", missing = FALSE)
 #> 1       veteran survival       survival    137     8       FALSE   FALSE
 #> 2     rotterdam survival       survival   2982    15       FALSE   FALSE
 #> 3         gbsg2 survival        TH.data    686    10       FALSE   FALSE
-#> 4    framingham survival     biostatlab   5209    18       FALSE   FALSE
-#> 5  heartfailure survival     biostatlab    299    13       FALSE   FALSE
-#> 6           bmt survival         KMsurv    137    22       FALSE    TRUE
-#> 7       drug6mp survival         KMsurv     21     5       FALSE   FALSE
-#> 8        larynx survival         KMsurv     90     5       FALSE   FALSE
-#> 9        kidney survival         KMsurv    119     3       FALSE   FALSE
-#> 10          std survival         KMsurv    877    24       FALSE    TRUE
-#> 11     channing survival         KMsurv    462     6       FALSE   FALSE
-#> 12      mitrace survival        timereg   1878     9       FALSE   FALSE
-#> 13       stroke survival            pec    518    15       FALSE   FALSE
-#> 14     melanoma survival riskRegression    205    11       FALSE   FALSE
-#> 15       paquid survival riskRegression   2561     4       FALSE   FALSE
-#> 16      support survival       casebase   9104    34       FALSE    TRUE
-#> 17        erspc survival       casebase 159893     3       FALSE   FALSE
-#> 18       bmtcrr survival       casebase    177     7       FALSE   FALSE
-#> 19       eprchd survival       casebase  16608     3       FALSE   FALSE
-#> 20       nwtsco survival      addhazard   3915    12       FALSE   FALSE
+#> 4  heartfailure survival     biostatlab    299    13       FALSE   FALSE
+#> 5           bmt survival         KMsurv    137    22       FALSE    TRUE
+#> 6       drug6mp survival         KMsurv     21     5       FALSE   FALSE
+#> 7        larynx survival         KMsurv     90     5       FALSE   FALSE
+#> 8        kidney survival         KMsurv    119     3       FALSE   FALSE
+#> 9           std survival         KMsurv    877    24       FALSE    TRUE
+#> 10     channing survival         KMsurv    462     6       FALSE   FALSE
+#> 11      mitrace survival        timereg   1878     9       FALSE   FALSE
+#> 12       stroke survival            pec    518    15       FALSE   FALSE
+#> 13     melanoma survival riskRegression    205    11       FALSE   FALSE
+#> 14       paquid survival riskRegression   2561     4       FALSE   FALSE
+#> 15        erspc survival       casebase 159893     3       FALSE   FALSE
+#> 16       bmtcrr survival       casebase    177     7       FALSE   FALSE
+#> 17       eprchd survival       casebase  16608     3       FALSE   FALSE
+#> 18       nwtsco survival      addhazard   3915    12       FALSE   FALSE
 ```
 
 ## Using biobench in a benchmark study
@@ -360,38 +366,40 @@ datasets go into `benchmark_sets` for a larger study.
 | `smartpill`    | SmartPill gastric transit cohort                |  95 |  22 | medicaldata |
 | `theoph`       | Theophylline pharmacokinetics                   | 132 |   5 | medicaldata |
 
-### Survival (n = 31)
+### Survival (n = 33)
 
-| Dataset        | Description                                             |      n |   p | Source         |
-|----------------|---------------------------------------------------------|-------:|----:|----------------|
-| `bloodstorage` | Blood storage duration and prostate cancer recurrence   |    316 |  20 | medicaldata    |
-| `bmt`          | Bone marrow transplant for leukemia                     |    137 |  22 | KMsurv         |
-| `bmtcrr`       | Bone marrow transplant competing risks                  |    177 |   7 | casebase       |
-| `channing`     | Channing House retirement community mortality           |    462 |   6 | KMsurv         |
-| `cmv`          | Donor KIR genotype and CMV reactivation                 |     64 |  26 | medicaldata    |
-| `colon`        | Colon cancer adjuvant chemotherapy trial                |   1858 |  16 | survival       |
-| `crcfes`       | Fez colorectal cancer cohort                            |    346 |  19 | biostatlab     |
-| `crcmondaca`   | Colorectal cancer genomic cohort (Mondaca et al. 2020)  |    471 |  19 | biostatlab     |
-| `drug6mp`      | 6-MP leukemia remission trial                           |     21 |   5 | KMsurv         |
-| `eprchd`       | Estrogen plus progestin and coronary heart disease risk |  16608 |   3 | casebase       |
-| `erspc`        | European Randomized Study of Prostate Cancer Screening  | 159893 |   3 | casebase       |
-| `flchain`      | Serum free light chain assay cohort                     |   7874 |  11 | survival       |
-| `framingham`   | Framingham Heart Study survival extract                 |   5209 |  18 | biostatlab     |
-| `gbsg2`        | German Breast Cancer Study Group 2                      |    686 |  10 | TH.data        |
-| `heartfailure` | Heart failure clinical records                          |    299 |  13 | biostatlab     |
-| `kidney`       | Kidney dialysis catheter infection                      |    119 |   3 | KMsurv         |
-| `larynx`       | Larynx cancer survival                                  |     90 |   5 | KMsurv         |
-| `lung`         | NCCTG lung cancer survival                              |    228 |  10 | survival       |
-| `melanoma`     | Malignant melanoma cohort                               |    205 |  11 | riskRegression |
-| `metabric`     | METABRIC breast cancer cohort                           |   1904 | 693 | biostatlab     |
-| `mitrace`      | TRACE myocardial infarction study                       |   1878 |   9 | timereg        |
-| `nwtsco`       | National Wilms Tumor Study                              |   3915 |  12 | addhazard      |
-| `paquid`       | Paquid dementia cohort                                  |   2561 |   4 | riskRegression |
-| `pbc`          | Mayo Clinic primary biliary cholangitis trial           |    418 |  20 | survival       |
-| `pbc3`         | PBC3 multi-center cirrhosis trial                       |    349 |  15 | pec            |
-| `rotterdam`    | Rotterdam breast cancer cohort                          |   2982 |  15 | survival       |
-| `std`          | STD recurrence cohort                                   |    877 |  24 | KMsurv         |
-| `stroke`       | Copenhagen Stroke Study                                 |    518 |  15 | pec            |
-| `support`      | SUPPORT critically ill patients                         |   9104 |  34 | casebase       |
-| `supraclav`    | Supraclavicular nerve block anesthesia study            |    103 |  17 | medicaldata    |
-| `veteran`      | Veterans’ Administration lung cancer trial              |    137 |   8 | survival       |
+| Dataset        | Description                                              |      n |   p | Source         |
+|----------------|----------------------------------------------------------|-------:|----:|----------------|
+| `bloodstorage` | Blood storage duration and prostate cancer recurrence    |    316 |  20 | medicaldata    |
+| `bmt`          | Bone marrow transplant for leukemia                      |    137 |  22 | KMsurv         |
+| `bmtcrr`       | Bone marrow transplant competing risks                   |    177 |   7 | casebase       |
+| `channing`     | Channing House retirement community mortality            |    462 |   6 | KMsurv         |
+| `cmv`          | Donor KIR genotype and CMV reactivation                  |     64 |  26 | medicaldata    |
+| `colon`        | Colon cancer adjuvant chemotherapy trial                 |   1858 |  16 | survival       |
+| `crcfes`       | Fez colorectal cancer cohort                             |    346 |  19 | biostatlab     |
+| `crcmondaca`   | Colorectal cancer genomic cohort (Mondaca et al. 2020)   |    471 |  19 | biostatlab     |
+| `drug6mp`      | 6-MP leukemia remission trial                            |     21 |   5 | KMsurv         |
+| `eprchd`       | Estrogen plus progestin and coronary heart disease risk  |  16608 |   3 | casebase       |
+| `erspc`        | European Randomized Study of Prostate Cancer Screening   | 159893 |   3 | casebase       |
+| `flchain`      | Serum free light chain assay cohort                      |   7874 |  11 | survival       |
+| `framingham`   | Framingham Heart Study survival extract                  |   5209 |  18 | biostatlab     |
+| `gbsg2`        | German Breast Cancer Study Group 2                       |    686 |  10 | TH.data        |
+| `heartfailure` | Heart failure clinical records                           |    299 |  13 | biostatlab     |
+| `kidney`       | Kidney dialysis catheter infection                       |    119 |   3 | KMsurv         |
+| `larynx`       | Larynx cancer survival                                   |     90 |   5 | KMsurv         |
+| `lung`         | NCCTG lung cancer survival                               |    228 |  10 | survival       |
+| `melanoma`     | Malignant melanoma cohort                                |    205 |  11 | riskRegression |
+| `melgide`      | Metastatic melanoma on immune checkpoint blockade (Gide) |     75 |  11 | cbioportal     |
+| `melmsk`       | Melanoma on immune checkpoint blockade at MSK (Samstein) |    320 |  10 | cbioportal     |
+| `metabric`     | METABRIC breast cancer cohort                            |   1904 | 693 | biostatlab     |
+| `mitrace`      | TRACE myocardial infarction study                        |   1878 |   9 | timereg        |
+| `nwtsco`       | National Wilms Tumor Study                               |   3915 |  12 | addhazard      |
+| `paquid`       | Paquid dementia cohort                                   |   2561 |   4 | riskRegression |
+| `pbc`          | Mayo Clinic primary biliary cholangitis trial            |    418 |  20 | survival       |
+| `pbc3`         | PBC3 multi-center cirrhosis trial                        |    349 |  15 | pec            |
+| `rotterdam`    | Rotterdam breast cancer cohort                           |   2982 |  15 | survival       |
+| `std`          | STD recurrence cohort                                    |    877 |  24 | KMsurv         |
+| `stroke`       | Copenhagen Stroke Study                                  |    518 |  15 | pec            |
+| `support`      | SUPPORT critically ill patients                          |   9104 |  34 | casebase       |
+| `supraclav`    | Supraclavicular nerve block anesthesia study             |    103 |  17 | medicaldata    |
+| `veteran`      | Veterans’ Administration lung cancer trial               |    137 |   8 | survival       |
