@@ -870,3 +870,42 @@
 #'   46, 657-671.
 #' @source \pkg{HSAUR3} package.
 "epilepsy"
+
+#' Metastatic melanoma on immune checkpoint blockade (Gide)
+#'
+#' Stage IV melanoma patients treated with anti-PD-1 alone (pembrolizumab
+#' or nivolumab) or combined with ipilimumab, at Melanoma Institute
+#' Australia and other centres. Right-censored overall survival (`time`
+#' in months, `status` 1 = death). `treatment` gives the two regimens;
+#' `response` is the RECIST best response, so it is measured after
+#' baseline and is not a baseline predictor. The neoantigen counts come
+#' from pre-treatment tumour RNA. The released progression-free status
+#' only repeats the best response, so it is not included.
+#'
+#' @format A data frame with 75 rows and 11 variables.
+#' @references Gide, T. N. et al. (2019). Distinct immune cell populations
+#'   define response to anti-PD-1 monotherapy and anti-PD-1/anti-CTLA-4
+#'   combined therapy. \emph{Cancer Cell}, 35(2), 238-255.
+#' @source cBioPortal study `mel_iatlas_gide_2019` (iAtlas harmonized),
+#'   <https://www.cbioportal.org>, under the ODC Open Database License
+#'   (ODbL) 1.0.
+"melgide"
+
+#' Melanoma on immune checkpoint blockade at MSK (Samstein)
+#'
+#' Melanoma patients from the Memorial Sloan Kettering cohort treated with
+#' anti-PD-(L)1, anti-CTLA-4 or the combination, with tumours sequenced by
+#' MSK-IMPACT. Right-censored overall survival from the first checkpoint
+#' inhibitor dose (`time` in whole months, three patients with 0;
+#' `status` 1 = death). `tmb` is the tumour mutational burden (mutations
+#' per megabase); `tumor_purity` and `gene_panel` describe the sequenced
+#' sample.
+#'
+#' @format A data frame with 320 rows and 10 variables.
+#' @references Samstein, R. M. et al. (2019). Tumor mutational load
+#'   predicts survival after immunotherapy across multiple cancer types.
+#'   \emph{Nature Genetics}, 51(2), 202-206.
+#' @source cBioPortal study `tmb_mskcc_2018`, melanoma patients only,
+#'   <https://www.cbioportal.org>, under the ODC Open Database License
+#'   (ODbL) 1.0.
+"melmsk"
