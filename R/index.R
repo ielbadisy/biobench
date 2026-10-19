@@ -18,8 +18,8 @@
 #'   package a dataset was sourced from (`"mlbench"`, `"medicaldata"`,
 #'   `"survival"`, `"TH.data"`, `"biostatlab"`, `"KMsurv"`, `"timereg"`,
 #'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`,
-#'   `"aplore3"`, `"casebase"`, `"addhazard"`). Default `NULL` (no
-#'   filter).
+#'   `"aplore3"`, `"casebase"`, `"addhazard"`, `"cbioportal"`). Default
+#'   `NULL` (no filter).
 #' @param n_min Integer, minimum number of rows required. Default `NULL`.
 #' @param n_max Integer, maximum number of rows allowed. Default `NULL`.
 #' @param missing Logical. If `TRUE`, keep only datasets containing
@@ -55,7 +55,7 @@ biobench_index <- function(outcome = NULL,
       "birthwt", "anorexia", "aidsdelay", "agefat", "phosphate",
       "icu", "glow500", "myopia", "nhanes", "polypharm", "chdage",
       "burn1000", "support", "erspc", "bmtcrr", "eprchd", "nwtsco",
-      "dpb", "duodenal", "epilepsy"
+      "dpb", "duodenal", "epilepsy", "melgide", "melmsk"
     ),
     task = c(
       "classification", "classification", "classification",
@@ -77,7 +77,8 @@ biobench_index <- function(outcome = NULL,
       "classification", "classification", "classification",
       "classification",
       "survival", "survival", "survival", "survival", "survival",
-      "regression", "classification", "regression"
+      "regression", "classification", "regression",
+      "survival", "survival"
     ),
     source_package = c(
       "mlbench", "mlbench", "mlbench",
@@ -97,7 +98,8 @@ biobench_index <- function(outcome = NULL,
       rep("casebase", 4),
       "addhazard",
       rep("biostatlab", 2),
-      "HSAUR3"
+      "HSAUR3",
+      rep("cbioportal", 2)
     ),
     stringsAsFactors = FALSE
   )
