@@ -909,3 +909,32 @@
 #'   <https://www.cbioportal.org>, under the ODC Open Database License
 #'   (ODbL) 1.0.
 "melmsk"
+
+#' Rehospitalizations after colorectal cancer surgery
+#'
+#' Hospital readmissions after surgery in 403 patients diagnosed with
+#' colorectal cancer, the standard example for recurrent events in the
+#' presence of a terminal event (death). Long counting-process format:
+#' one row per gap between readmissions, `enum` numbering the gaps within
+#' `id`. Each gap runs from `t_start` to `t_stop` (days since surgery),
+#' `time` is its length and `event` is 1 for a readmission and 0 on the
+#' last, censored gap. `death` is 1 on the last row of a patient who died.
+#' Covariates are `sex`, `chemo` (chemotherapy), `dukes` (Dukes' tumour
+#' stage A-B, C, D) and `charlson` (Charlson comorbidity index 0, 1-2,
+#' 3+), which is time-dependent. There are 458 readmissions (0 to 22 per
+#' patient, 199 patients with none) and 109 deaths. Survival (recurrent
+#' events with a terminal event).
+#'
+#' @format A data frame with 861 rows and 11 variables.
+#' @references Gonzalez, J. R., Fernandez, E., Moreno, V., Ribes, J.,
+#'   Peris, M., Navarro, M., Cambray, M., & Borras, J. M. (2005). Sex
+#'   differences in hospital readmission among colorectal cancer
+#'   patients. \emph{Journal of Epidemiology and Community Health},
+#'   59(6), 506-511.
+#'
+#'   Rondeau, V., Mazroui, Y., & Gonzalez, J. R. (2012). frailtypack: An R
+#'   package for the analysis of correlated survival data with frailty
+#'   models using penalized likelihood estimation or parametrical
+#'   estimation. \emph{Journal of Statistical Software}, 47(4), 1-28.
+#' @source \pkg{frailtypack} package.
+"readmission"
