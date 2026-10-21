@@ -31,7 +31,8 @@ carries clear reuse terms. Most come from CRAN packages: [mlbench](https://cran.
 [boot](https://cran.r-project.org/package=boot),
 [aplore3](https://cran.r-project.org/package=aplore3),
 [casebase](https://cran.r-project.org/package=casebase),
-[addhazard](https://cran.r-project.org/package=addhazard), and
+[addhazard](https://cran.r-project.org/package=addhazard),
+[frailtypack](https://cran.r-project.org/package=frailtypack), and
 [biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
 transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
 Using R* (`dpb`, `duodenal`). Two melanoma immunotherapy cohorts (`melgide`,
