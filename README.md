@@ -21,7 +21,8 @@ carries clear reuse terms. Most come from CRAN packages:
 [boot](https://cran.r-project.org/package=boot),
 [aplore3](https://cran.r-project.org/package=aplore3),
 [casebase](https://cran.r-project.org/package=casebase),
-[addhazard](https://cran.r-project.org/package=addhazard), and
+[addhazard](https://cran.r-project.org/package=addhazard),
+[frailtypack](https://cran.r-project.org/package=frailtypack), and
 [biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
 transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
 Using R* (`dpb`, `duodenal`). Two melanoma immunotherapy cohorts
@@ -146,6 +147,7 @@ biobench_index()
 #> 66       epilepsy     regression         HSAUR3    236     6       FALSE
 #> 67        melgide       survival     cbioportal     75    11        TRUE
 #> 68         melmsk       survival     cbioportal    320    10        TRUE
+#> 69    readmission       survival    frailtypack    861    11       FALSE
 #>    highdim
 #> 1    FALSE
 #> 2    FALSE
@@ -215,6 +217,7 @@ biobench_index()
 #> 66   FALSE
 #> 67   FALSE
 #> 68   FALSE
+#> 69   FALSE
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
@@ -240,6 +243,7 @@ biobench_index(outcome = "survival", missing = FALSE)
 #> 16       bmtcrr survival       casebase    177     7       FALSE   FALSE
 #> 17       eprchd survival       casebase  16608     3       FALSE   FALSE
 #> 18       nwtsco survival      addhazard   3915    12       FALSE   FALSE
+#> 19  readmission survival    frailtypack    861    11       FALSE   FALSE
 ```
 
 ## Using biobench in a benchmark study
@@ -366,7 +370,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `smartpill`    | SmartPill gastric transit cohort                |  95 |  22 | medicaldata |
 | `theoph`       | Theophylline pharmacokinetics                   | 132 |   5 | medicaldata |
 
-### Survival (n = 33)
+### Survival (n = 34)
 
 | Dataset        | Description                                              |      n |   p | Source         |
 |----------------|----------------------------------------------------------|-------:|----:|----------------|
@@ -397,6 +401,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `paquid`       | Paquid dementia cohort                                   |   2561 |   4 | riskRegression |
 | `pbc`          | Mayo Clinic primary biliary cholangitis trial            |    418 |  20 | survival       |
 | `pbc3`         | PBC3 multi-center cirrhosis trial                        |    349 |  15 | pec            |
+| `readmission`  | Rehospitalizations after colorectal cancer surgery       |    861 |  11 | frailtypack    |
 | `rotterdam`    | Rotterdam breast cancer cohort                           |   2982 |  15 | survival       |
 | `std`          | STD recurrence cohort                                    |    877 |  24 | KMsurv         |
 | `stroke`       | Copenhagen Stroke Study                                  |    518 |  15 | pec            |
