@@ -6,6 +6,9 @@
   320 melanoma patients): overall survival under immune checkpoint blockade,
   from cBioPortal (ODbL 1.0). `biobench_index()` lists their source as
   `"cbioportal"`.
+* `readmission` (Gonzalez et al. 2005, 403 colorectal cancer patients):
+  rehospitalizations after surgery with death as a terminal event, in long
+  counting-process format, from frailtypack.
 
 # biobench 0.2.0
 
