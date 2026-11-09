@@ -7,7 +7,7 @@
 biobench_index(
   outcome = NULL,
   highdim = NULL,
-  highdim_threshold = 20L,
+  highdim_threshold = 100L,
   source_package = NULL,
   n_min = NULL,
   n_max = NULL,
@@ -20,11 +20,14 @@ biobench_index(
 task are returned. Default \code{NULL} (no filter).}
 
 \item{highdim}{Logical. If \code{TRUE}, keep only high-dimensional datasets
-(more than \code{highdim_threshold} predictor columns); if \code{FALSE}, keep
-only low-dimensional ones. Default \code{NULL} (no filter).}
+(more than \code{highdim_threshold} columns, or at least as many columns as
+rows); if \code{FALSE}, keep only low-dimensional ones. Default \code{NULL}
+(no filter).}
 
 \item{highdim_threshold}{Integer number of columns above which a
-dataset is considered high-dimensional. Default \code{20}.}
+dataset is considered high-dimensional regardless of its number of
+rows. Default \code{100}, so ordinary clinical datasets with a few dozen
+covariates are not flagged.}
 
 \item{source_package}{Character vector filtering on the upstream
 package a dataset was sourced from (\code{"mlbench"}, \code{"medicaldata"},
