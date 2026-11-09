@@ -10,10 +10,13 @@
 #'   `"regression"`, `"survival"`. If given, only datasets with a matching
 #'   task are returned. Default `NULL` (no filter).
 #' @param highdim Logical. If `TRUE`, keep only high-dimensional datasets
-#'   (more than `highdim_threshold` predictor columns); if `FALSE`, keep
-#'   only low-dimensional ones. Default `NULL` (no filter).
+#'   (more than `highdim_threshold` columns, or at least as many columns as
+#'   rows); if `FALSE`, keep only low-dimensional ones. Default `NULL`
+#'   (no filter).
 #' @param highdim_threshold Integer number of columns above which a
-#'   dataset is considered high-dimensional. Default `20`.
+#'   dataset is considered high-dimensional regardless of its number of
+#'   rows. Default `100`, so ordinary clinical datasets with a few dozen
+#'   covariates are not flagged.
 #' @param source_package Character vector filtering on the upstream
 #'   package a dataset was sourced from (`"mlbench"`, `"medicaldata"`,
 #'   `"survival"`, `"TH.data"`, `"biostatlab"`, `"KMsurv"`, `"timereg"`,
@@ -37,7 +40,7 @@
 #' biobench_index(highdim = TRUE)
 biobench_index <- function(outcome = NULL,
                             highdim = NULL,
-                            highdim_threshold = 20L,
+                            highdim_threshold = 100L,
                             source_package = NULL,
                             n_min = NULL,
                             n_max = NULL,
@@ -117,7 +120,7 @@ biobench_index <- function(outcome = NULL,
   }))
 
   out <- cbind(meta, stats)
-  out$highdim <- out$n_col > highdim_threshold
+  out$highdim <- out$n_col > highdim_threshold | out$n_col >= out$n_row
 
   if (!is.null(outcome)) {
     outcome <- match.arg(outcome, c("classification", "regression", "survival"),
