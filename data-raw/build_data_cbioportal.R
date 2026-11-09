@@ -1,9 +1,10 @@
-# Build biobench data/*.rda for two anti-PD-1 era melanoma cohorts
+# Build biobench data/*.rda for three anti-PD-1 era melanoma cohorts
 # released on cBioPortal (https://www.cbioportal.org), whose data are
 # under the ODC Open Database License (ODbL) 1.0:
 #   - melgide: Gide et al. 2019, Cancer Cell (study mel_iatlas_gide_2019)
 #   - melmsk:  Samstein et al. 2019, Nat Genet (study tmb_mskcc_2018),
 #              melanoma patients only
+#   - melliu:  Liu et al. 2019, Nat Med (study mel_dfci_2019)
 # Gide's released PFS status equals "progressive disease" as best response
 # (24 of 24), so it is not a time-to-progression outcome and is left out.
 # Run interactively: source("data-raw/build_data_cbioportal.R")
@@ -67,5 +68,47 @@ melmsk <- data.frame(
   gene_panel = factor(s$GENE_PANEL)
 )
 
-rownames(melgide) <- rownames(melmsk) <- NULL
-usethis::use_data(melgide, melmsk, overwrite = TRUE, compress = "xz")
+# ---- melliu ----
+# Missing ECOG ("x" or blank), LDH and "Unknown" LDH status stay NA (no
+# imputation). Post-baseline fields (cycles on therapy, time to best
+# response, post-progression CTLA-4/MAPK therapy) are left out.
+yn <- function(x) factor(x, levels = c("No", "Yes"))
+l <- fetch_clinical("mel_dfci_2019")
+l <- l[order(num(sub("\\D+", "", l$patientId))), ]
+melliu <- data.frame(
+  time = num(l$OS_MONTHS),
+  status = status01(l$OS_STATUS),
+  pfs_time = num(l$PFS_MONTHS),
+  pfs_status = status01(l$PFS_STATUS),
+  sex = factor(l$SEX),
+  primary_type = factor(c(skin = "Cutaneous", acral = "Acral", mucosal = "Mucosal",
+                          occult = "Occult")[l$PRIMARY_TYPE],
+                        levels = c("Cutaneous", "Acral", "Mucosal", "Occult")),
+  m_stage = factor(l$M_STAGE, levels = c("IIIC", "M1a", "M1b", "M1c")),
+  ecog = as.integer(num(l$TX_START_ECOG)),
+  ldh_elevated = yn(l$LDH_ELEVATED),
+  ldh = num(l$TX_START_LDH),
+  lung_met = yn(l$LUNG_MET),
+  liver_visceral_met = yn(l$LIVER_VISC_MET),
+  bone_met = yn(l$MET_BONE),
+  brain_met = yn(l$MET_BRAIN),
+  lymph_node_met = yn(l$LN_MET),
+  cut_subq_met = yn(l$CUT_SUBQ_MET),
+  drug = factor(ifelse(grepl("nivo", l$IO_THERAPY, ignore.case = TRUE),
+                       "Nivolumab", "Pembrolizumab")),
+  prior_ctla4 = yn(l$PRIOR_CTLA4),
+  prior_mapk = yn(l$PRIOR_MAPK_TX),
+  n_prior_therapies = as.integer(num(l$NUM_PRIOR_THERAPIES)),
+  response = factor(l$BR, levels = c("Complete Response", "Partial Response",
+                                     "Stable Disease", "Mixed Response",
+                                     "Progressive Disease")),
+  tmb = num(l$TMB_NONSYNONYMOUS),
+  heterogeneity = num(l$HETEROGENEITY),
+  purity = num(l$PURITY),
+  ploidy = num(l$PLOIDY)
+)
+stopifnot(nrow(melliu) == 144, sum(melliu$status) == 72,
+          !anyNA(melliu[, c("time", "status", "pfs_time", "pfs_status")]))
+
+rownames(melgide) <- rownames(melmsk) <- rownames(melliu) <- NULL
+usethis::use_data(melgide, melmsk, melliu, overwrite = TRUE, compress = "xz")
