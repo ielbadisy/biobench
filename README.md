@@ -26,10 +26,15 @@ carries clear reuse terms. Most come from CRAN packages:
 [biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
 transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
 Using R* (`dpb`, `duodenal`). Three melanoma immunotherapy cohorts
-(`melgide`, `melmsk`, `melliu`) come from
-[cBioPortal](https://www.cbioportal.org) and are under the [ODC Open
-Database License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL)
-1.0.
+(`melgide`, `melmsk`, `melliu`) and the TCGA lung adenocarcinoma panel
+(`tcgaluad`) come from [cBioPortal](https://www.cbioportal.org) and are
+under the [ODC Open Database
+License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL) 1.0.
+`miceprotein` comes from the [UCI Machine Learning
+Repository](https://archive.ics.uci.edu/dataset/342) (CC BY 4.0) and
+`geolung` from the [Gene Expression
+Omnibus](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE10072)
+(GSE10072).
 
 ## Installation
 
@@ -150,6 +155,10 @@ biobench_index()
 #> 68         melmsk       survival     cbioportal    320    10        TRUE
 #> 69    readmission       survival    frailtypack    861    11       FALSE
 #> 70         melliu       survival     cbioportal    144    25        TRUE
+#> 71      arthritis classification     biostatlab   4856    12       FALSE
+#> 72    miceprotein classification            uci   1080    82        TRUE
+#> 73       tcgaluad       survival     cbioportal    566    11        TRUE
+#> 74        geolung classification            geo    107   107       FALSE
 #>    highdim
 #> 1    FALSE
 #> 2    FALSE
@@ -221,6 +230,10 @@ biobench_index()
 #> 68   FALSE
 #> 69   FALSE
 #> 70   FALSE
+#> 71   FALSE
+#> 72   FALSE
+#> 73   FALSE
+#> 74    TRUE
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
@@ -328,33 +341,36 @@ datasets go into `benchmark_sets` for a larger study.
 
 ## Datasets by task
 
-### Classification (n = 23)
+### Classification (n = 26)
 
-| Dataset          | Description                                        |     n |   p | Source      |
-|------------------|----------------------------------------------------|------:|----:|-------------|
-| `breastcancer`   | Wisconsin breast cancer cytology                   |   699 |  11 | mlbench     |
-| `burn1000`       | National Burn Repository mortality                 |  1000 |   9 | aplore3     |
-| `chdage`         | Coronary heart disease and age                     |   100 |   4 | aplore3     |
-| `covidtest`      | COVID-19 PCR testing cohort                        | 15524 |  17 | medicaldata |
-| `dna`            | Splice-junction gene sequences                     |  3186 | 181 | mlbench     |
-| `duodenal`       | Duodenal ulcer healing trial                       |   703 |   7 | biostatlab  |
-| `esophca`        | Esophageal cancer case-control study               |    88 |   5 | medicaldata |
-| `glow500`        | GLOW osteoporosis fracture risk                    |   500 |  15 | aplore3     |
-| `haberman`       | Haberman breast cancer survival                    |   306 |   4 | biostatlab  |
-| `highriskpreg`   | Maternal health risk assessment                    |  1205 |  13 | biostatlab  |
-| `icu`            | ICU mortality                                      |   200 |  21 | aplore3     |
-| `indorct`        | Rectal indomethacin RCT for post-ERCP pancreatitis |   602 |  33 | medicaldata |
-| `licorice`       | Licorice gargle RCT for post-extubation cough      |   235 |  19 | medicaldata |
-| `myopia`         | Orinda myopia study                                |   618 |  18 | aplore3     |
-| `nhanes`         | NHANES obesity survey extract                      |  6482 |  21 | aplore3     |
-| `opt`            | Periodontal therapy and preterm birth              |   823 | 171 | medicaldata |
-| `pima2`          | Pima Indians diabetes (corrected)                  |   768 |   9 | mlbench     |
-| `polypharm`      | Polypharmacy in mental health services             |  3500 |  14 | aplore3     |
-| `respiratory`    | Respiratory illness clinical trial                 |   555 |   7 | HSAUR3      |
-| `scurvy`         | James Lind’s scurvy trial (1757)                   |    12 |   8 | medicaldata |
-| `streptb`        | Streptomycin RCT for pulmonary tuberculosis (1948) |   107 |  13 | medicaldata |
-| `tobaccomorocco` | Morocco youth tobacco survey                       |  3915 |  27 | biostatlab  |
-| `toenail`        | Toenail infection clinical trial                   |  1908 |   5 | HSAUR3      |
+| Dataset          | Description                                                    |     n |   p | Source      |
+|------------------|----------------------------------------------------------------|------:|----:|-------------|
+| `arthritis`      | Arthritis in NHANES 2007-2008                                  |  4856 |  12 | biostatlab  |
+| `breastcancer`   | Wisconsin breast cancer cytology                               |   699 |  11 | mlbench     |
+| `burn1000`       | National Burn Repository mortality                             |  1000 |   9 | aplore3     |
+| `chdage`         | Coronary heart disease and age                                 |   100 |   4 | aplore3     |
+| `covidtest`      | COVID-19 PCR testing cohort                                    | 15524 |  17 | medicaldata |
+| `dna`            | Splice-junction gene sequences                                 |  3186 | 181 | mlbench     |
+| `duodenal`       | Duodenal ulcer healing trial                                   |   703 |   7 | biostatlab  |
+| `esophca`        | Esophageal cancer case-control study                           |    88 |   5 | medicaldata |
+| `geolung`        | Lung adenocarcinoma and normal lung gene expression (GSE10072) |   107 | 107 | geo         |
+| `glow500`        | GLOW osteoporosis fracture risk                                |   500 |  15 | aplore3     |
+| `haberman`       | Haberman breast cancer survival                                |   306 |   4 | biostatlab  |
+| `highriskpreg`   | Maternal health risk assessment                                |  1205 |  13 | biostatlab  |
+| `icu`            | ICU mortality                                                  |   200 |  21 | aplore3     |
+| `indorct`        | Rectal indomethacin RCT for post-ERCP pancreatitis             |   602 |  33 | medicaldata |
+| `licorice`       | Licorice gargle RCT for post-extubation cough                  |   235 |  19 | medicaldata |
+| `miceprotein`    | Mouse cortex protein expression (Down syndrome model)          |  1080 |  82 | uci         |
+| `myopia`         | Orinda myopia study                                            |   618 |  18 | aplore3     |
+| `nhanes`         | NHANES obesity survey extract                                  |  6482 |  21 | aplore3     |
+| `opt`            | Periodontal therapy and preterm birth                          |   823 | 171 | medicaldata |
+| `pima2`          | Pima Indians diabetes (corrected)                              |   768 |   9 | mlbench     |
+| `polypharm`      | Polypharmacy in mental health services                         |  3500 |  14 | aplore3     |
+| `respiratory`    | Respiratory illness clinical trial                             |   555 |   7 | HSAUR3      |
+| `scurvy`         | James Lind’s scurvy trial (1757)                               |    12 |   8 | medicaldata |
+| `streptb`        | Streptomycin RCT for pulmonary tuberculosis (1948)             |   107 |  13 | medicaldata |
+| `tobaccomorocco` | Morocco youth tobacco survey                                   |  3915 |  27 | biostatlab  |
+| `toenail`        | Toenail infection clinical trial                               |  1908 |   5 | HSAUR3      |
 
 ### Regression (n = 12)
 
@@ -373,7 +389,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `smartpill`    | SmartPill gastric transit cohort                |  95 |  22 | medicaldata |
 | `theoph`       | Theophylline pharmacokinetics                   | 132 |   5 | medicaldata |
 
-### Survival (n = 35)
+### Survival (n = 36)
 
 | Dataset        | Description                                              |      n |   p | Source         |
 |----------------|----------------------------------------------------------|-------:|----:|----------------|
@@ -411,4 +427,5 @@ datasets go into `benchmark_sets` for a larger study.
 | `stroke`       | Copenhagen Stroke Study                                  |    518 |  15 | pec            |
 | `support`      | SUPPORT critically ill patients                          |   9104 |  34 | casebase       |
 | `supraclav`    | Supraclavicular nerve block anesthesia study             |    103 |  17 | medicaldata    |
+| `tcgaluad`     | Lung adenocarcinoma (TCGA PanCancer Atlas)               |    566 |  11 | cbioportal     |
 | `veteran`      | Veterans’ Administration lung cancer trial               |    137 |   8 | survival       |
