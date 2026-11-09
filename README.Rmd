@@ -35,8 +35,8 @@ carries clear reuse terms. Most come from CRAN packages: [mlbench](https://cran.
 [frailtypack](https://cran.r-project.org/package=frailtypack), and
 [biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
 transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
-Using R* (`dpb`, `duodenal`). Two melanoma immunotherapy cohorts (`melgide`,
-`melmsk`) come from [cBioPortal](https://www.cbioportal.org) and are under
+Using R* (`dpb`, `duodenal`). Three melanoma immunotherapy cohorts (`melgide`,
+`melmsk`, `melliu`) come from [cBioPortal](https://www.cbioportal.org) and are under
 the [ODC Open Database License](https://opendatacommons.org/licenses/odbl/1-0/)
 (ODbL) 1.0.
 
