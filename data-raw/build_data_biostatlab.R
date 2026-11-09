@@ -2,9 +2,11 @@
 # from the biostatlab package. Datasets that duplicated an existing,
 # smaller biobench dataset (breast/gbsg2, colon_cancer/colon, pbc/pbc,
 # pima_diabetes/pima2) and datasets without an identified canonical
-# reference (arthritis, diabetes_prediction) or off-domain (kickstarter)
-# were excluded. maternal_bangladesh was dropped as an exact row-for-row
+# reference (diabetes_prediction) or off-domain (kickstarter) were
+# excluded. maternal_bangladesh was dropped as an exact row-for-row
 # duplicate of high_risk_pregnancy (kept, larger citation trail).
+# arthritis was added later, once traced to NHANES 2007-2008: its
+# respondent identifiers (41475 to 51623) are the SEQN range of that cycle.
 # Run interactively: source("data-raw/build_data_biostatlab.R")
 
 library(biostatlab)
@@ -46,3 +48,11 @@ usethis::use_data(
   metabric, tobaccomorocco,
   overwrite = TRUE, compress = "xz"
 )
+
+# arthritis: NHANES 2007-2008 adult extract (complete cases). id is the
+# NHANES respondent sequence number SEQN; dotted names become snake_case.
+arthritis <- rename_cols(tidy_strings(biostatlab::arthritis), c(
+  seqn = "id", heart_attack_relative = "heart.attack.relative",
+  covered_health = "covered.health"
+))
+usethis::use_data(arthritis, overwrite = TRUE, compress = "xz")
