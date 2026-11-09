@@ -25,10 +25,11 @@ carries clear reuse terms. Most come from CRAN packages:
 [frailtypack](https://cran.r-project.org/package=frailtypack), and
 [biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
 transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
-Using R* (`dpb`, `duodenal`). Two melanoma immunotherapy cohorts
-(`melgide`, `melmsk`) come from [cBioPortal](https://www.cbioportal.org)
-and are under the [ODC Open Database
-License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL) 1.0.
+Using R* (`dpb`, `duodenal`). Three melanoma immunotherapy cohorts
+(`melgide`, `melmsk`, `melliu`) come from
+[cBioPortal](https://www.cbioportal.org) and are under the [ODC Open
+Database License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL)
+1.0.
 
 ## Installation
 
@@ -148,22 +149,23 @@ biobench_index()
 #> 67        melgide       survival     cbioportal     75    11        TRUE
 #> 68         melmsk       survival     cbioportal    320    10        TRUE
 #> 69    readmission       survival    frailtypack    861    11       FALSE
+#> 70         melliu       survival     cbioportal    144    25        TRUE
 #>    highdim
 #> 1    FALSE
 #> 2    FALSE
 #> 3     TRUE
 #> 4    FALSE
 #> 5    FALSE
-#> 6     TRUE
+#> 6    FALSE
 #> 7    FALSE
-#> 8     TRUE
+#> 8    FALSE
 #> 9    FALSE
-#> 10    TRUE
+#> 10   FALSE
 #> 11   FALSE
 #> 12    TRUE
 #> 13   FALSE
 #> 14   FALSE
-#> 15    TRUE
+#> 15   FALSE
 #> 16   FALSE
 #> 17   FALSE
 #> 18   FALSE
@@ -181,12 +183,12 @@ biobench_index()
 #> 30   FALSE
 #> 31   FALSE
 #> 32    TRUE
-#> 33    TRUE
-#> 34    TRUE
+#> 33   FALSE
+#> 34   FALSE
 #> 35   FALSE
 #> 36   FALSE
 #> 37   FALSE
-#> 38    TRUE
+#> 38   FALSE
 #> 39   FALSE
 #> 40   FALSE
 #> 41   FALSE
@@ -200,14 +202,14 @@ biobench_index()
 #> 49   FALSE
 #> 50   FALSE
 #> 51   FALSE
-#> 52    TRUE
+#> 52   FALSE
 #> 53   FALSE
 #> 54   FALSE
-#> 55    TRUE
+#> 55   FALSE
 #> 56   FALSE
 #> 57   FALSE
 #> 58   FALSE
-#> 59    TRUE
+#> 59   FALSE
 #> 60   FALSE
 #> 61   FALSE
 #> 62   FALSE
@@ -218,6 +220,7 @@ biobench_index()
 #> 67   FALSE
 #> 68   FALSE
 #> 69   FALSE
+#> 70   FALSE
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
@@ -229,11 +232,11 @@ biobench_index(outcome = "survival", missing = FALSE)
 #> 2     rotterdam survival       survival   2982    15       FALSE   FALSE
 #> 3         gbsg2 survival        TH.data    686    10       FALSE   FALSE
 #> 4  heartfailure survival     biostatlab    299    13       FALSE   FALSE
-#> 5           bmt survival         KMsurv    137    22       FALSE    TRUE
+#> 5           bmt survival         KMsurv    137    22       FALSE   FALSE
 #> 6       drug6mp survival         KMsurv     21     5       FALSE   FALSE
 #> 7        larynx survival         KMsurv     90     5       FALSE   FALSE
 #> 8        kidney survival         KMsurv    119     3       FALSE   FALSE
-#> 9           std survival         KMsurv    877    24       FALSE    TRUE
+#> 9           std survival         KMsurv    877    24       FALSE   FALSE
 #> 10     channing survival         KMsurv    462     6       FALSE   FALSE
 #> 11      mitrace survival        timereg   1878     9       FALSE   FALSE
 #> 12       stroke survival            pec    518    15       FALSE   FALSE
@@ -370,7 +373,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `smartpill`    | SmartPill gastric transit cohort                |  95 |  22 | medicaldata |
 | `theoph`       | Theophylline pharmacokinetics                   | 132 |   5 | medicaldata |
 
-### Survival (n = 34)
+### Survival (n = 35)
 
 | Dataset        | Description                                              |      n |   p | Source         |
 |----------------|----------------------------------------------------------|-------:|----:|----------------|
@@ -394,6 +397,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `lung`         | NCCTG lung cancer survival                               |    228 |  10 | survival       |
 | `melanoma`     | Malignant melanoma cohort                                |    205 |  11 | riskRegression |
 | `melgide`      | Metastatic melanoma on immune checkpoint blockade (Gide) |     75 |  11 | cbioportal     |
+| `melliu`       | Metastatic melanoma on anti-PD-1 therapy (Liu)           |    144 |  25 | cbioportal     |
 | `melmsk`       | Melanoma on immune checkpoint blockade at MSK (Samstein) |    320 |  10 | cbioportal     |
 | `metabric`     | METABRIC breast cancer cohort                            |   1904 | 693 | biostatlab     |
 | `mitrace`      | TRACE myocardial infarction study                        |   1878 |   9 | timereg        |
