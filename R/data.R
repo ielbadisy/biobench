@@ -969,3 +969,88 @@
 #'   estimation. \emph{Journal of Statistical Software}, 47(4), 1-28.
 #' @source \pkg{frailtypack} package.
 "readmission"
+
+#' Arthritis in NHANES 2007-2008
+#'
+#' Adult respondents (aged 20 to 80, 80 meaning 80 or older) of the
+#' National Health and Nutrition Examination Survey 2007-2008, complete
+#' cases only. `status` is self-reported doctor-diagnosed arthritis
+#' (`Yes`/`No`; 1416 `Yes`). Covariates are `gender`, `age`, `bmi`
+#' (kg/m2) and `Yes`/`No` indicators for a close relative with a heart
+#' attack (`heart_attack_relative`), diabetes, alcohol use, smoking,
+#' prehypertension, vegetarian diet and health insurance cover
+#' (`covered_health`). `seqn` is the NHANES respondent sequence number,
+#' so further NHANES variables can be merged in. Survey weights are not
+#' included. Binary classification.
+#'
+#' @format A data frame with 4856 rows and 12 variables.
+#' @references Centers for Disease Control and Prevention, National
+#'   Center for Health Statistics (2009). \emph{National Health and
+#'   Nutrition Examination Survey 2007-2008}.
+#'   <https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2007>
+#' @source \pkg{biostatlab} package (<https://github.com/ielbadisy/biostatlab>).
+"arthritis"
+
+#' Mouse cortex protein expression (Down syndrome model)
+#'
+#' Expression levels of 77 proteins and protein modifications measured in
+#' the nuclear fraction of the cortex of control and trisomic (Ts65Dn)
+#' mice, 15 measurements per mouse (`mouse_id` is mouse and replicate).
+#' Mice were trained in context fear conditioning (`behavior`: `C/S`
+#' context-shock, `S/C` shock-context) and injected with memantine or
+#' saline (`treatment`). `class` combines genotype, behavior and
+#' treatment into eight groups. Values are as released; 528 rows have at
+#' least one missing protein level. Multiclass classification.
+#'
+#' @format A data frame with 1080 rows and 82 variables.
+#' @references Higuera, C., Gardiner, K. J., & Cios, K. J. (2015).
+#'   Self-organizing feature maps identify proteins critical to learning
+#'   in a mouse model of Down syndrome. \emph{PLoS ONE}, 10(6), e0129126.
+#' @source UCI Machine Learning Repository, Mice Protein Expression
+#'   (dataset 342), \doi{10.24432/C50S3Z}, under CC BY 4.0.
+"miceprotein"
+
+#' Lung adenocarcinoma (TCGA PanCancer Atlas)
+#'
+#' Clinical and genomic summary panel of the TCGA lung adenocarcinoma
+#' PanCancer Atlas cohort, one row per tumour sample: `age`, `sex`,
+#' `race`, AJCC pathologic `stage`, `mutation_count`,
+#' `fraction_genome_altered`, `aneuploidy_score` and
+#' `tmb_nonsynonymous` (non-synonymous mutations per megabase), with
+#' right-censored overall survival (`time` in months, `status` 1 =
+#' death; 186 deaths). Missing values are kept as `NA`; 426 rows are
+#' complete. Survival.
+#'
+#' @format A data frame with 566 rows and 11 variables.
+#' @references Cancer Genome Atlas Research Network (2014). Comprehensive
+#'   molecular profiling of lung adenocarcinoma. \emph{Nature}, 511,
+#'   543-550.
+#'
+#'   Hoadley, K. A. et al. (2018). Cell-of-origin patterns dominate the
+#'   molecular classification of 10,000 tumors from 33 types of cancer.
+#'   \emph{Cell}, 173(2), 291-304.
+#' @source cBioPortal study `luad_tcga_pan_can_atlas_2018`,
+#'   <https://www.cbioportal.org>, under the ODC Open Database License
+#'   (ODbL) 1.0.
+"tcgaluad"
+
+#' Lung adenocarcinoma and normal lung gene expression (GSE10072)
+#'
+#' Affymetrix HG-U133A expression (as released in the series matrix) of lung
+#' adenocarcinoma and non-tumour lung tissue from the Environment And
+#' Genetics in Lung cancer Etiology (EAGLE) study, restricted to the 100
+#' probes with the largest variance across samples (columns named after
+#' the probe identifiers, prefixed with `X`). `tissue` is `Tumor` (58) or
+#' `Normal` (49); most patients (`patient_id`) contribute a tumour and a
+#' paired normal sample. Patient covariates are `sex`, `age` at
+#' diagnosis, `smoking` (never, former, current) and tumour `stage`.
+#' Binary classification (tumour vs normal) or high-dimensional
+#' benchmark.
+#'
+#' @format A data frame with 107 rows and 107 variables.
+#' @references Landi, M. T. et al. (2008). Gene expression signature of
+#'   cigarette smoking and its role in lung adenocarcinoma development and
+#'   survival. \emph{PLoS ONE}, 3(2), e1651.
+#' @source NCBI Gene Expression Omnibus, series GSE10072,
+#'   <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE10072>.
+"geolung"
