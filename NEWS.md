@@ -6,9 +6,21 @@
   320 melanoma patients): overall survival under immune checkpoint blockade,
   from cBioPortal (ODbL 1.0). `biobench_index()` lists their source as
   `"cbioportal"`.
+* `melliu` (Liu et al. 2019, 144 patients): overall survival (72 deaths) and
+  progression-free survival under anti-PD-1 therapy, with baseline clinical
+  variables and whole-exome tumour features (TMB, heterogeneity, purity,
+  ploidy), from cBioPortal (ODbL 1.0). Missing ECOG and LDH are left as `NA`.
 * `readmission` (Gonzalez et al. 2005, 403 colorectal cancer patients):
   rehospitalizations after surgery with death as a terminal event, in long
   counting-process format, from frailtypack.
+
+## Changes
+
+* `biobench_index()`: a dataset is now high-dimensional when it has more
+  than `highdim_threshold` columns (default raised from 20 to 100) or at
+  least as many columns as rows. Clinical datasets with a few dozen
+  covariates (e.g. `nhanes`, `support`, `icu`, `melliu`) are no longer
+  flagged.
 
 # biobench 0.2.0
 
