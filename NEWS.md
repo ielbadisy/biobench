@@ -1,4 +1,4 @@
-# biobench (development version)
+# biobench 0.3.0
 
 ## New
 
@@ -13,6 +13,17 @@
 * `readmission` (Gonzalez et al. 2005, 403 colorectal cancer patients):
   rehospitalizations after surgery with death as a terminal event, in long
   counting-process format, from frailtypack.
+* `arthritis` (NHANES 2007-2008, 4856 adults): self-reported arthritis with
+  demographic, lifestyle and comorbidity indicators, from biostatlab.
+* `miceprotein` (Higuera et al. 2015, 1080 measurements): 77 cortex protein
+  levels in a mouse model of Down syndrome, with the released missing values,
+  from the UCI Machine Learning Repository (CC BY 4.0).
+* `tcgaluad` (TCGA PanCancer Atlas, 566 lung adenocarcinoma samples):
+  clinical and genomic summary variables with overall survival, from
+  cBioPortal (ODbL 1.0).
+* `geolung` (Landi et al. 2008, GEO GSE10072, 107 samples): the 100 most
+  variable expression probes in lung adenocarcinoma and paired normal lung.
+* `biobench_index()` gains the source labels `"uci"` and `"geo"`.
 
 ## Changes
 
