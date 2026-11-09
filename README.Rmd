@@ -36,9 +36,14 @@ carries clear reuse terms. Most come from CRAN packages: [mlbench](https://cran.
 [biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
 transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
 Using R* (`dpb`, `duodenal`). Three melanoma immunotherapy cohorts (`melgide`,
-`melmsk`, `melliu`) come from [cBioPortal](https://www.cbioportal.org) and are under
+`melmsk`, `melliu`) and the TCGA lung adenocarcinoma panel (`tcgaluad`) come
+from [cBioPortal](https://www.cbioportal.org) and are under
 the [ODC Open Database License](https://opendatacommons.org/licenses/odbl/1-0/)
-(ODbL) 1.0.
+(ODbL) 1.0. `miceprotein` comes from the
+[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/342)
+(CC BY 4.0) and `geolung` from the
+[Gene Expression Omnibus](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE10072)
+(GSE10072).
 
 ## Installation
 
