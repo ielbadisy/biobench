@@ -910,6 +910,37 @@
 #'   (ODbL) 1.0.
 "melmsk"
 
+#' Metastatic melanoma on anti-PD-1 therapy (Liu)
+#'
+#' Metastatic melanoma patients treated with anti-PD-1 (nivolumab or
+#' pembrolizumab), with whole-exome sequencing of a tumour biopsy taken
+#' mostly before anti-PD-1. Right-censored overall survival (`time` in
+#' months, `status` 1 = death; 72 deaths) and progression-free survival
+#' (`pfs_time` in months, `pfs_status` 1 = progression; 103
+#' events). Baseline clinical variables are sex, `primary_type`
+#' (primary melanoma site), `m_stage` (AJCC M stage, `IIIC` for
+#' unresectable stage III), `ecog` (ECOG performance status at treatment
+#' start), `ldh_elevated` and `ldh` (serum LDH in U/L at treatment start),
+#' metastatic sites (`*_met`), `drug`, `prior_ctla4`, `prior_mapk`
+#' (prior BRAF/MEK inhibitor) and `n_prior_therapies`. `tmb` is the
+#' tumour mutational burden (non-synonymous mutations per megabase);
+#' `heterogeneity` (fraction of subclonal mutations), `purity` and
+#' `ploidy` describe the sequenced tumour. `response` is the RECIST best
+#' response, so it is measured after baseline and is not a baseline
+#' predictor. Missing values are kept as `NA`: `ecog` (5), `ldh_elevated`
+#' and `ldh` (3, the same patients). Post-baseline fields of the release
+#' (cycles on therapy, time to best response, later CTLA-4 or MAPK
+#' therapy) are not included.
+#'
+#' @format A data frame with 144 rows and 25 variables.
+#' @references Liu, D. et al. (2019). Integrative molecular and clinical
+#'   modeling of clinical outcomes to PD1 blockade in patients with
+#'   metastatic melanoma. \emph{Nature Medicine}, 25(12), 1916-1927.
+#' @source cBioPortal study `mel_dfci_2019`,
+#'   <https://www.cbioportal.org>, under the ODC Open Database License
+#'   (ODbL) 1.0.
+"melliu"
+
 #' Rehospitalizations after colorectal cancer surgery
 #'
 #' Hospital readmissions after surgery in 403 patients diagnosed with
