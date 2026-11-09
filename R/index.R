@@ -56,7 +56,8 @@ biobench_index <- function(outcome = NULL,
       "birthwt", "anorexia", "aidsdelay", "agefat", "phosphate",
       "icu", "glow500", "myopia", "nhanes", "polypharm", "chdage",
       "burn1000", "support", "erspc", "bmtcrr", "eprchd", "nwtsco",
-      "dpb", "duodenal", "epilepsy", "melgide", "melmsk", "readmission"
+      "dpb", "duodenal", "epilepsy", "melgide", "melmsk", "readmission",
+      "melliu"
     ),
     task = c(
       "classification", "classification", "classification",
@@ -79,7 +80,8 @@ biobench_index <- function(outcome = NULL,
       "classification",
       "survival", "survival", "survival", "survival", "survival",
       "regression", "classification", "regression",
-      "survival", "survival", "survival"
+      "survival", "survival", "survival",
+      "survival"
     ),
     source_package = c(
       "mlbench", "mlbench", "mlbench",
@@ -101,7 +103,8 @@ biobench_index <- function(outcome = NULL,
       rep("biostatlab", 2),
       "HSAUR3",
       rep("cbioportal", 2),
-      "frailtypack"
+      "frailtypack",
+      "cbioportal"
     ),
     stringsAsFactors = FALSE
   )
