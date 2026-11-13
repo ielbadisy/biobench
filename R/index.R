@@ -4,7 +4,7 @@
 #' including its task type, dimensions, missingness, and source package.
 #' Optional arguments filter the table down to datasets matching given
 #' criteria, so a benchmark suite can be assembled programmatically, e.g.
-#' `biobench_index(outcome = "survival", highdim = FALSE)`.
+#' `biobenchindex(outcome = "survival", highdim = FALSE)`.
 #'
 #' @param outcome Character vector, one or more of `"classification"`,
 #'   `"regression"`, `"survival"`. If given, only datasets with a matching
@@ -35,10 +35,10 @@
 #'   `highdim`.
 #' @export
 #' @examples
-#' biobench_index()
-#' biobench_index(outcome = "survival", missing = FALSE)
-#' biobench_index(highdim = TRUE)
-biobench_index <- function(outcome = NULL,
+#' biobenchindex()
+#' biobenchindex(outcome = "survival", missing = FALSE)
+#' biobenchindex(highdim = TRUE)
+biobenchindex <- function(outcome = NULL,
                             highdim = NULL,
                             highdim_threshold = 100L,
                             source_package = NULL,

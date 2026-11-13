@@ -1,3 +1,11 @@
+# biobench 0.3.1
+
+* `biobench_index()` is renamed to `biobenchindex()` (glued lowercase). The old name remains as a deprecated wrapper for one release.
+
+| Old | New |
+|---|---|
+| `biobench_index` | `biobenchindex` |
+
 # biobench 0.3.0
 
 ## New

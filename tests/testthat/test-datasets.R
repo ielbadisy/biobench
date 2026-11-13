@@ -1,4 +1,4 @@
-datasets <- biobench_index()$dataset
+datasets <- biobenchindex()$dataset
 
 test_that("every indexed dataset loads and is a non-empty data frame", {
   for (nm in datasets) {
@@ -11,7 +11,7 @@ test_that("every indexed dataset loads and is a non-empty data frame", {
   }
 })
 
-test_that("biobench_index covers all shipped datasets", {
+test_that("biobenchindex covers all shipped datasets", {
   shipped <- data(package = "biobench")$results[, "Item"]
   expect_setequal(datasets, shipped)
 })

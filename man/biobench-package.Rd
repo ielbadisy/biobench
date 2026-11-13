@@ -9,7 +9,7 @@
 A curated collection of real biomedical datasets for benchmarking
 classification, regression, and survival machine learning methods.
 Each dataset is documented with its canonical literature reference; see
-\code{\link[=biobench_index]{biobench_index()}} for a summary table.
+\code{\link[=biobenchindex]{biobenchindex()}} for a summary table.
 }
 \details{
 The shipped datasets are lightly cleaned (syntactic names, blanks and
