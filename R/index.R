@@ -7,8 +7,10 @@
 #' `biobenchindex(outcome = "survival", highdim = FALSE)`.
 #'
 #' @param outcome Character vector, one or more of `"classification"`,
-#'   `"regression"`, `"survival"`. If given, only datasets with a matching
-#'   task are returned. Default `NULL` (no filter).
+#'   `"binary"`, `"regression"`, `"survival"`. If given, only datasets with
+#'   a matching task are returned. `"binary"` is an alias for
+#'   `"classification"`; note that this task also covers the two multiclass
+#'   datasets (`dna`, `miceprotein`). Default `NULL` (no filter).
 #' @param highdim Logical. If `TRUE`, keep only high-dimensional datasets
 #'   (more than `highdim_threshold` columns, or at least as many columns as
 #'   rows); if `FALSE`, keep only low-dimensional ones. Default `NULL`
@@ -19,11 +21,13 @@
 #'   covariates are not flagged.
 #' @param source_package Character vector filtering on the upstream
 #'   package a dataset was sourced from (`"mlbench"`, `"medicaldata"`,
-#'   `"survival"`, `"TH.data"`, `"biostatlab"`, `"KMsurv"`, `"timereg"`,
+#'   `"survival"`, `"TH.data"`, `"biobench"`, `"KMsurv"`, `"timereg"`,
 #'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`,
 #'   `"aplore3"`, `"casebase"`, `"addhazard"`, `"cbioportal"`,
 #'   `"frailtypack"`, `"uci"`, `"geo"`). Default
-#'   `NULL` (no filter).
+#'   `NULL` (no filter). `"biobench"` marks datasets curated directly in
+#'   biobench from their original publications, with no upstream R package;
+#'   the former label `"biostatlab"` is still accepted, with a warning.
 #' @param n_min Integer, minimum number of rows required. Default `NULL`.
 #' @param n_max Integer, maximum number of rows allowed. Default `NULL`.
 #' @param missing Logical. If `TRUE`, keep only datasets containing
@@ -31,8 +35,13 @@
 #'   Default `NULL` (no filter).
 #'
 #' @return A data frame with one row per matching dataset: `dataset`,
-#'   `task`, `source_package`, `n_row`, `n_col`, `has_missing`, and
-#'   `highdim`.
+#'   `task`, `outcome_var`, `source_package`, `n_row`, `n_col`,
+#'   `has_missing`, and `highdim`. `outcome_var` names the outcome column(s)
+#'   given in the dataset's help page: one column for classification and
+#'   regression, `"time, event"` for survival (for competing risks the event
+#'   column holds the cause, for `readmission` the gap start, stop and event
+#'   columns). It is `NA` when the help page does not identify a single
+#'   outcome.
 #' @export
 #' @examples
 #' biobenchindex()
@@ -92,7 +101,7 @@ biobenchindex <- function(outcome = NULL,
       rep("medicaldata", 15),
       rep("survival", 6),
       "TH.data",
-      rep("biostatlab", 8),
+      rep("biobench", 8),
       rep("KMsurv", 6),
       "timereg",
       rep("HSAUR3", 2),
@@ -104,13 +113,53 @@ biobenchindex <- function(outcome = NULL,
       rep("aplore3", 7),
       rep("casebase", 4),
       "addhazard",
-      rep("biostatlab", 2),
+      rep("biobench", 2),
       "HSAUR3",
       rep("cbioportal", 2),
       "frailtypack",
       "cbioportal",
-      "biostatlab", "uci", "cbioportal", "geo"
+      "biobench", "uci", "cbioportal", "geo"
     ),
+    stringsAsFactors = FALSE
+  )
+
+  outcome_vars <- c(
+    breastcancer = "Class", pima2 = "diabetes", dna = "Class",
+    bloodstorage = "TimeToRecurrence, Recurrence", covidtest = "result",
+    cmv = "time.to.cmv, cmv", esophca = "ncases, ncontrols",
+    indorct = "outcome", indometh = "conc", laryngoscope = NA,
+    licorice = NA, opt = "Preg.ended...37.wk", polyps = NA, scurvy = NA,
+    smartpill = NA, streptb = NA, supraclav = NA, theoph = "conc",
+    lung = "time, status", veteran = "time, status", pbc = "time, status",
+    colon = "time, status", flchain = "futime, death",
+    rotterdam = "dtime, death", gbsg2 = "time, cens",
+    crcfes = "time, event", crcmondaca = "time, status",
+    framingham = "time, status", haberman = "survival_status",
+    heartfailure = "time, DEATH_EVENT", highriskpreg = "risk_level",
+    metabric = "overall_survival_months, overall_survival",
+    tobaccomorocco = "cigar_use",
+    bmt = "t2, d3", drug6mp = NA, larynx = "time, delta",
+    kidney = "time, delta", std = "time, rinfct", channing = "time, death",
+    mitrace = "time, status", respiratory = "status", toenail = "outcome",
+    stroke = "time, status", pbc3 = "days, status",
+    melanoma = "time, status", paquid = "time, status",
+    birthwt = "bwt", anorexia = "Postwt", aidsdelay = "y", agefat = "fat",
+    phosphate = NA,
+    icu = "sta", glow500 = "fracture", myopia = "myopic", nhanes = "obese",
+    polypharm = "polypharmacy", chdage = "chd", burn1000 = "death",
+    support = "d.time, death", erspc = "Follow.Up.Time, DeadOfPrCa",
+    bmtcrr = "ftime, Status", eprchd = "time, status",
+    nwtsco = "tsur, dead",
+    dpb = "DBP5", duodenal = "Healed_Week4", epilepsy = "seizure.rate",
+    melgide = "time, status", melmsk = "time, status",
+    readmission = "t_start, t_stop, event",
+    melliu = "time, status", arthritis = "status", miceprotein = "class",
+    tcgaluad = "time, status", geolung = "tissue"
+  )
+  meta <- data.frame(
+    meta[c("dataset", "task")],
+    outcome_var = unname(outcome_vars[meta$dataset]),
+    source_package = meta$source_package,
     stringsAsFactors = FALSE
   )
 
@@ -125,14 +174,21 @@ biobenchindex <- function(outcome = NULL,
   out$highdim <- out$n_col > highdim_threshold | out$n_col >= out$n_row
 
   if (!is.null(outcome)) {
-    outcome <- match.arg(outcome, c("classification", "regression", "survival"),
-                          several.ok = TRUE)
+    outcome <- match.arg(outcome,
+                         c("classification", "binary", "regression", "survival"),
+                         several.ok = TRUE)
+    outcome[outcome == "binary"] <- "classification"
     out <- out[out$task %in% outcome, ]
   }
   if (!is.null(highdim)) {
     out <- out[out$highdim == highdim, ]
   }
   if (!is.null(source_package)) {
+    if ("biostatlab" %in% source_package) {
+      warning("source_package \"biostatlab\" is now labelled \"biobench\".",
+              call. = FALSE)
+      source_package[source_package == "biostatlab"] <- "biobench"
+    }
     out <- out[out$source_package %in% source_package, ]
   }
   if (!is.null(n_min)) {

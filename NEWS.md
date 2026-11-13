@@ -1,3 +1,15 @@
+# biobench 0.3.2
+
+* `biobenchindex(outcome = "binary")` is accepted as an alias for
+  `"classification"`; the allowed values are now documented.
+* `biobenchindex()` gains an `outcome_var` column naming each dataset's
+  outcome column(s) as given in its help page (`NA` where the help page
+  does not identify a single outcome).
+* Datasets with no upstream R package (the eleven formerly labelled
+  `"biostatlab"`) now have `source_package = "biobench"`;
+  `source_package = "biostatlab"` still works, with a warning. The README
+  no longer lists biostatlab as a source.
+
 # biobench 0.3.1
 
 * `biobench_index()` is renamed to `biobenchindex()` (glued lowercase). The old name remains as a deprecated wrapper for one release.

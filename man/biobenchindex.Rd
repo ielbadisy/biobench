@@ -16,8 +16,10 @@ biobenchindex(
 }
 \arguments{
 \item{outcome}{Character vector, one or more of \code{"classification"},
-\code{"regression"}, \code{"survival"}. If given, only datasets with a matching
-task are returned. Default \code{NULL} (no filter).}
+\code{"binary"}, \code{"regression"}, \code{"survival"}. If given, only datasets with
+a matching task are returned. \code{"binary"} is an alias for
+\code{"classification"}; note that this task also covers the two multiclass
+datasets (\code{dna}, \code{miceprotein}). Default \code{NULL} (no filter).}
 
 \item{highdim}{Logical. If \code{TRUE}, keep only high-dimensional datasets
 (more than \code{highdim_threshold} columns, or at least as many columns as
@@ -31,11 +33,13 @@ covariates are not flagged.}
 
 \item{source_package}{Character vector filtering on the upstream
 package a dataset was sourced from (\code{"mlbench"}, \code{"medicaldata"},
-\code{"survival"}, \code{"TH.data"}, \code{"biostatlab"}, \code{"KMsurv"}, \code{"timereg"},
+\code{"survival"}, \code{"TH.data"}, \code{"biobench"}, \code{"KMsurv"}, \code{"timereg"},
 \code{"HSAUR3"}, \code{"pec"}, \code{"riskRegression"}, \code{"MASS"}, \code{"boot"},
 \code{"aplore3"}, \code{"casebase"}, \code{"addhazard"}, \code{"cbioportal"},
 \code{"frailtypack"}, \code{"uci"}, \code{"geo"}). Default
-\code{NULL} (no filter).}
+\code{NULL} (no filter). \code{"biobench"} marks datasets curated directly in
+biobench from their original publications, with no upstream R package;
+the former label \code{"biostatlab"} is still accepted, with a warning.}
 
 \item{n_min}{Integer, minimum number of rows required. Default \code{NULL}.}
 
@@ -47,8 +51,13 @@ Default \code{NULL} (no filter).}
 }
 \value{
 A data frame with one row per matching dataset: \code{dataset},
-\code{task}, \code{source_package}, \code{n_row}, \code{n_col}, \code{has_missing}, and
-\code{highdim}.
+\code{task}, \code{outcome_var}, \code{source_package}, \code{n_row}, \code{n_col},
+\code{has_missing}, and \code{highdim}. \code{outcome_var} names the outcome column(s)
+given in the dataset's help page: one column for classification and
+regression, \code{"time, event"} for survival (for competing risks the event
+column holds the cause, for \code{readmission} the gap start, stop and event
+columns). It is \code{NA} when the help page does not identify a single
+outcome.
 }
 \description{
 Returns a summary table of every dataset shipped in the package,
