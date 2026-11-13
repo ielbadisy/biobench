@@ -21,16 +21,18 @@ carries clear reuse terms. Most come from CRAN packages:
 [boot](https://cran.r-project.org/package=boot),
 [aplore3](https://cran.r-project.org/package=aplore3),
 [casebase](https://cran.r-project.org/package=casebase),
-[addhazard](https://cran.r-project.org/package=addhazard),
-[frailtypack](https://cran.r-project.org/package=frailtypack), and
-[biostatlab](https://github.com/ielbadisy/biostatlab), plus two trials
-transcribed from Peace and Chen (2010), *Clinical Trial Data Analysis
-Using R* (`dpb`, `duodenal`). Three melanoma immunotherapy cohorts
-(`melgide`, `melmsk`, `melliu`) and the TCGA lung adenocarcinoma panel
-(`tcgaluad`) come from [cBioPortal](https://www.cbioportal.org) and are
-under the [ODC Open Database
-License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL) 1.0.
-`miceprotein` comes from the [UCI Machine Learning
+[addhazard](https://cran.r-project.org/package=addhazard), and
+[frailtypack](https://cran.r-project.org/package=frailtypack). Eleven
+datasets with no upstream R package are curated in biobench itself from
+their original publications (source label `"biobench"`): cohorts and
+surveys such as `crcfes`, `framingham`, `metabric` and `arthritis`
+(NHANES 2007-2008), plus two trials transcribed from Peace and Chen
+(2010), *Clinical Trial Data Analysis Using R* (`dpb`, `duodenal`).
+Three melanoma immunotherapy cohorts (`melgide`, `melmsk`, `melliu`) and
+the TCGA lung adenocarcinoma panel (`tcgaluad`) come from
+[cBioPortal](https://www.cbioportal.org) and are under the [ODC Open
+Database License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL)
+1.0. `miceprotein` comes from the [UCI Machine Learning
 Repository](https://archive.ics.uci.edu/dataset/342) (CC BY 4.0) and
 `geolung` from the [Gene Expression
 Omnibus](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE10072)
@@ -84,182 +86,202 @@ str(gbsg2)
 
 ``` r
 biobenchindex()
-#>           dataset           task source_package  n_row n_col has_missing
-#> 1    breastcancer classification        mlbench    699    11        TRUE
-#> 2           pima2 classification        mlbench    768     9        TRUE
-#> 3             dna classification        mlbench   3186   181       FALSE
-#> 4    bloodstorage       survival    medicaldata    316    20        TRUE
-#> 5       covidtest classification    medicaldata  15524    17        TRUE
-#> 6             cmv       survival    medicaldata     64    26        TRUE
-#> 7         esophca classification    medicaldata     88     5       FALSE
-#> 8         indorct classification    medicaldata    602    33        TRUE
-#> 9        indometh     regression    medicaldata     66     3       FALSE
-#> 10   laryngoscope     regression    medicaldata     99    22        TRUE
-#> 11       licorice classification    medicaldata    235    19        TRUE
-#> 12            opt classification    medicaldata    823   171        TRUE
-#> 13         polyps     regression    medicaldata     22     7        TRUE
-#> 14         scurvy classification    medicaldata     12     8       FALSE
-#> 15      smartpill     regression    medicaldata     95    22        TRUE
-#> 16        streptb classification    medicaldata    107    13        TRUE
-#> 17      supraclav       survival    medicaldata    103    17        TRUE
-#> 18         theoph     regression    medicaldata    132     5       FALSE
-#> 19           lung       survival       survival    228    10        TRUE
-#> 20        veteran       survival       survival    137     8       FALSE
-#> 21            pbc       survival       survival    418    20        TRUE
-#> 22          colon       survival       survival   1858    16        TRUE
-#> 23        flchain       survival       survival   7874    11        TRUE
-#> 24      rotterdam       survival       survival   2982    15       FALSE
-#> 25          gbsg2       survival        TH.data    686    10       FALSE
-#> 26         crcfes       survival     biostatlab    346    19        TRUE
-#> 27     crcmondaca       survival     biostatlab    471    19        TRUE
-#> 28     framingham       survival     biostatlab   5209    18        TRUE
-#> 29       haberman classification     biostatlab    306     4       FALSE
-#> 30   heartfailure       survival     biostatlab    299    13       FALSE
-#> 31   highriskpreg classification     biostatlab   1205    13        TRUE
-#> 32       metabric       survival     biostatlab   1904   693        TRUE
-#> 33 tobaccomorocco classification     biostatlab   3915    27        TRUE
-#> 34            bmt       survival         KMsurv    137    22       FALSE
-#> 35        drug6mp       survival         KMsurv     21     5       FALSE
-#> 36         larynx       survival         KMsurv     90     5       FALSE
-#> 37         kidney       survival         KMsurv    119     3       FALSE
-#> 38            std       survival         KMsurv    877    24       FALSE
-#> 39       channing       survival         KMsurv    462     6       FALSE
-#> 40        mitrace       survival        timereg   1878     9       FALSE
-#> 41    respiratory classification         HSAUR3    555     7       FALSE
-#> 42        toenail classification         HSAUR3   1908     5       FALSE
-#> 43         stroke       survival            pec    518    15       FALSE
-#> 44           pbc3       survival            pec    349    15        TRUE
-#> 45       melanoma       survival riskRegression    205    11       FALSE
-#> 46         paquid       survival riskRegression   2561     4       FALSE
-#> 47        birthwt     regression           MASS    189    10       FALSE
-#> 48       anorexia     regression           MASS     72     3       FALSE
-#> 49      aidsdelay     regression           boot    570     6       FALSE
-#> 50         agefat     regression         HSAUR3     25     3       FALSE
-#> 51      phosphate     regression         HSAUR3     33     9       FALSE
-#> 52            icu classification        aplore3    200    21       FALSE
-#> 53        glow500 classification        aplore3    500    15       FALSE
-#> 54         myopia classification        aplore3    618    18       FALSE
-#> 55         nhanes classification        aplore3   6482    21        TRUE
-#> 56      polypharm classification        aplore3   3500    14        TRUE
-#> 57         chdage classification        aplore3    100     4       FALSE
-#> 58       burn1000 classification        aplore3   1000     9       FALSE
-#> 59        support       survival       casebase   9104    34        TRUE
-#> 60          erspc       survival       casebase 159893     3       FALSE
-#> 61         bmtcrr       survival       casebase    177     7       FALSE
-#> 62         eprchd       survival       casebase  16608     3       FALSE
-#> 63         nwtsco       survival      addhazard   3915    12       FALSE
-#> 64            dpb     regression     biostatlab     40     9       FALSE
-#> 65       duodenal classification     biostatlab    703     7       FALSE
-#> 66       epilepsy     regression         HSAUR3    236     6       FALSE
-#> 67        melgide       survival     cbioportal     75    11        TRUE
-#> 68         melmsk       survival     cbioportal    320    10        TRUE
-#> 69    readmission       survival    frailtypack    861    11       FALSE
-#> 70         melliu       survival     cbioportal    144    25        TRUE
-#> 71      arthritis classification     biostatlab   4856    12       FALSE
-#> 72    miceprotein classification            uci   1080    82        TRUE
-#> 73       tcgaluad       survival     cbioportal    566    11        TRUE
-#> 74        geolung classification            geo    107   107       FALSE
-#>    highdim
-#> 1    FALSE
-#> 2    FALSE
-#> 3     TRUE
-#> 4    FALSE
-#> 5    FALSE
-#> 6    FALSE
-#> 7    FALSE
-#> 8    FALSE
-#> 9    FALSE
-#> 10   FALSE
-#> 11   FALSE
-#> 12    TRUE
-#> 13   FALSE
-#> 14   FALSE
-#> 15   FALSE
-#> 16   FALSE
-#> 17   FALSE
-#> 18   FALSE
-#> 19   FALSE
-#> 20   FALSE
-#> 21   FALSE
-#> 22   FALSE
-#> 23   FALSE
-#> 24   FALSE
-#> 25   FALSE
-#> 26   FALSE
-#> 27   FALSE
-#> 28   FALSE
-#> 29   FALSE
-#> 30   FALSE
-#> 31   FALSE
-#> 32    TRUE
-#> 33   FALSE
-#> 34   FALSE
-#> 35   FALSE
-#> 36   FALSE
-#> 37   FALSE
-#> 38   FALSE
-#> 39   FALSE
-#> 40   FALSE
-#> 41   FALSE
-#> 42   FALSE
-#> 43   FALSE
-#> 44   FALSE
-#> 45   FALSE
-#> 46   FALSE
-#> 47   FALSE
-#> 48   FALSE
-#> 49   FALSE
-#> 50   FALSE
-#> 51   FALSE
-#> 52   FALSE
-#> 53   FALSE
-#> 54   FALSE
-#> 55   FALSE
-#> 56   FALSE
-#> 57   FALSE
-#> 58   FALSE
-#> 59   FALSE
-#> 60   FALSE
-#> 61   FALSE
-#> 62   FALSE
-#> 63   FALSE
-#> 64   FALSE
-#> 65   FALSE
-#> 66   FALSE
-#> 67   FALSE
-#> 68   FALSE
-#> 69   FALSE
-#> 70   FALSE
-#> 71   FALSE
-#> 72   FALSE
-#> 73   FALSE
-#> 74    TRUE
+#>           dataset           task                               outcome_var
+#> 1    breastcancer classification                                     Class
+#> 2           pima2 classification                                  diabetes
+#> 3             dna classification                                     Class
+#> 4    bloodstorage       survival              TimeToRecurrence, Recurrence
+#> 5       covidtest classification                                    result
+#> 6             cmv       survival                          time.to.cmv, cmv
+#> 7         esophca classification                         ncases, ncontrols
+#> 8         indorct classification                                   outcome
+#> 9        indometh     regression                                      conc
+#> 10   laryngoscope     regression                                      <NA>
+#> 11       licorice classification                                      <NA>
+#> 12            opt classification                        Preg.ended...37.wk
+#> 13         polyps     regression                                      <NA>
+#> 14         scurvy classification                                      <NA>
+#> 15      smartpill     regression                                      <NA>
+#> 16        streptb classification                                      <NA>
+#> 17      supraclav       survival                                      <NA>
+#> 18         theoph     regression                                      conc
+#> 19           lung       survival                              time, status
+#> 20        veteran       survival                              time, status
+#> 21            pbc       survival                              time, status
+#> 22          colon       survival                              time, status
+#> 23        flchain       survival                             futime, death
+#> 24      rotterdam       survival                              dtime, death
+#> 25          gbsg2       survival                                time, cens
+#> 26         crcfes       survival                               time, event
+#> 27     crcmondaca       survival                              time, status
+#> 28     framingham       survival                              time, status
+#> 29       haberman classification                           survival_status
+#> 30   heartfailure       survival                         time, DEATH_EVENT
+#> 31   highriskpreg classification                                risk_level
+#> 32       metabric       survival overall_survival_months, overall_survival
+#> 33 tobaccomorocco classification                                 cigar_use
+#> 34            bmt       survival                                    t2, d3
+#> 35        drug6mp       survival                                      <NA>
+#> 36         larynx       survival                               time, delta
+#> 37         kidney       survival                               time, delta
+#> 38            std       survival                              time, rinfct
+#> 39       channing       survival                               time, death
+#> 40        mitrace       survival                              time, status
+#> 41    respiratory classification                                    status
+#> 42        toenail classification                                   outcome
+#> 43         stroke       survival                              time, status
+#> 44           pbc3       survival                              days, status
+#> 45       melanoma       survival                              time, status
+#> 46         paquid       survival                              time, status
+#> 47        birthwt     regression                                       bwt
+#> 48       anorexia     regression                                    Postwt
+#> 49      aidsdelay     regression                                         y
+#> 50         agefat     regression                                       fat
+#> 51      phosphate     regression                                      <NA>
+#> 52            icu classification                                       sta
+#> 53        glow500 classification                                  fracture
+#> 54         myopia classification                                    myopic
+#> 55         nhanes classification                                     obese
+#> 56      polypharm classification                              polypharmacy
+#> 57         chdage classification                                       chd
+#> 58       burn1000 classification                                     death
+#> 59        support       survival                             d.time, death
+#> 60          erspc       survival                Follow.Up.Time, DeadOfPrCa
+#> 61         bmtcrr       survival                             ftime, Status
+#> 62         eprchd       survival                              time, status
+#> 63         nwtsco       survival                                tsur, dead
+#> 64            dpb     regression                                      DBP5
+#> 65       duodenal classification                              Healed_Week4
+#> 66       epilepsy     regression                              seizure.rate
+#> 67        melgide       survival                              time, status
+#> 68         melmsk       survival                              time, status
+#> 69    readmission       survival                    t_start, t_stop, event
+#> 70         melliu       survival                              time, status
+#> 71      arthritis classification                                    status
+#> 72    miceprotein classification                                     class
+#> 73       tcgaluad       survival                              time, status
+#> 74        geolung classification                                    tissue
+#>    source_package  n_row n_col has_missing highdim
+#> 1         mlbench    699    11        TRUE   FALSE
+#> 2         mlbench    768     9        TRUE   FALSE
+#> 3         mlbench   3186   181       FALSE    TRUE
+#> 4     medicaldata    316    20        TRUE   FALSE
+#> 5     medicaldata  15524    17        TRUE   FALSE
+#> 6     medicaldata     64    26        TRUE   FALSE
+#> 7     medicaldata     88     5       FALSE   FALSE
+#> 8     medicaldata    602    33        TRUE   FALSE
+#> 9     medicaldata     66     3       FALSE   FALSE
+#> 10    medicaldata     99    22        TRUE   FALSE
+#> 11    medicaldata    235    19        TRUE   FALSE
+#> 12    medicaldata    823   171        TRUE    TRUE
+#> 13    medicaldata     22     7        TRUE   FALSE
+#> 14    medicaldata     12     8       FALSE   FALSE
+#> 15    medicaldata     95    22        TRUE   FALSE
+#> 16    medicaldata    107    13        TRUE   FALSE
+#> 17    medicaldata    103    17        TRUE   FALSE
+#> 18    medicaldata    132     5       FALSE   FALSE
+#> 19       survival    228    10        TRUE   FALSE
+#> 20       survival    137     8       FALSE   FALSE
+#> 21       survival    418    20        TRUE   FALSE
+#> 22       survival   1858    16        TRUE   FALSE
+#> 23       survival   7874    11        TRUE   FALSE
+#> 24       survival   2982    15       FALSE   FALSE
+#> 25        TH.data    686    10       FALSE   FALSE
+#> 26       biobench    346    19        TRUE   FALSE
+#> 27       biobench    471    19        TRUE   FALSE
+#> 28       biobench   5209    18        TRUE   FALSE
+#> 29       biobench    306     4       FALSE   FALSE
+#> 30       biobench    299    13       FALSE   FALSE
+#> 31       biobench   1205    13        TRUE   FALSE
+#> 32       biobench   1904   693        TRUE    TRUE
+#> 33       biobench   3915    27        TRUE   FALSE
+#> 34         KMsurv    137    22       FALSE   FALSE
+#> 35         KMsurv     21     5       FALSE   FALSE
+#> 36         KMsurv     90     5       FALSE   FALSE
+#> 37         KMsurv    119     3       FALSE   FALSE
+#> 38         KMsurv    877    24       FALSE   FALSE
+#> 39         KMsurv    462     6       FALSE   FALSE
+#> 40        timereg   1878     9       FALSE   FALSE
+#> 41         HSAUR3    555     7       FALSE   FALSE
+#> 42         HSAUR3   1908     5       FALSE   FALSE
+#> 43            pec    518    15       FALSE   FALSE
+#> 44            pec    349    15        TRUE   FALSE
+#> 45 riskRegression    205    11       FALSE   FALSE
+#> 46 riskRegression   2561     4       FALSE   FALSE
+#> 47           MASS    189    10       FALSE   FALSE
+#> 48           MASS     72     3       FALSE   FALSE
+#> 49           boot    570     6       FALSE   FALSE
+#> 50         HSAUR3     25     3       FALSE   FALSE
+#> 51         HSAUR3     33     9       FALSE   FALSE
+#> 52        aplore3    200    21       FALSE   FALSE
+#> 53        aplore3    500    15       FALSE   FALSE
+#> 54        aplore3    618    18       FALSE   FALSE
+#> 55        aplore3   6482    21        TRUE   FALSE
+#> 56        aplore3   3500    14        TRUE   FALSE
+#> 57        aplore3    100     4       FALSE   FALSE
+#> 58        aplore3   1000     9       FALSE   FALSE
+#> 59       casebase   9104    34        TRUE   FALSE
+#> 60       casebase 159893     3       FALSE   FALSE
+#> 61       casebase    177     7       FALSE   FALSE
+#> 62       casebase  16608     3       FALSE   FALSE
+#> 63      addhazard   3915    12       FALSE   FALSE
+#> 64       biobench     40     9       FALSE   FALSE
+#> 65       biobench    703     7       FALSE   FALSE
+#> 66         HSAUR3    236     6       FALSE   FALSE
+#> 67     cbioportal     75    11        TRUE   FALSE
+#> 68     cbioportal    320    10        TRUE   FALSE
+#> 69    frailtypack    861    11       FALSE   FALSE
+#> 70     cbioportal    144    25        TRUE   FALSE
+#> 71       biobench   4856    12       FALSE   FALSE
+#> 72            uci   1080    82        TRUE   FALSE
+#> 73     cbioportal    566    11        TRUE   FALSE
+#> 74            geo    107   107       FALSE    TRUE
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
 
 ``` r
 biobenchindex(outcome = "survival", missing = FALSE)
-#>         dataset     task source_package  n_row n_col has_missing highdim
-#> 1       veteran survival       survival    137     8       FALSE   FALSE
-#> 2     rotterdam survival       survival   2982    15       FALSE   FALSE
-#> 3         gbsg2 survival        TH.data    686    10       FALSE   FALSE
-#> 4  heartfailure survival     biostatlab    299    13       FALSE   FALSE
-#> 5           bmt survival         KMsurv    137    22       FALSE   FALSE
-#> 6       drug6mp survival         KMsurv     21     5       FALSE   FALSE
-#> 7        larynx survival         KMsurv     90     5       FALSE   FALSE
-#> 8        kidney survival         KMsurv    119     3       FALSE   FALSE
-#> 9           std survival         KMsurv    877    24       FALSE   FALSE
-#> 10     channing survival         KMsurv    462     6       FALSE   FALSE
-#> 11      mitrace survival        timereg   1878     9       FALSE   FALSE
-#> 12       stroke survival            pec    518    15       FALSE   FALSE
-#> 13     melanoma survival riskRegression    205    11       FALSE   FALSE
-#> 14       paquid survival riskRegression   2561     4       FALSE   FALSE
-#> 15        erspc survival       casebase 159893     3       FALSE   FALSE
-#> 16       bmtcrr survival       casebase    177     7       FALSE   FALSE
-#> 17       eprchd survival       casebase  16608     3       FALSE   FALSE
-#> 18       nwtsco survival      addhazard   3915    12       FALSE   FALSE
-#> 19  readmission survival    frailtypack    861    11       FALSE   FALSE
+#>         dataset     task                outcome_var source_package  n_row n_col
+#> 1       veteran survival               time, status       survival    137     8
+#> 2     rotterdam survival               dtime, death       survival   2982    15
+#> 3         gbsg2 survival                 time, cens        TH.data    686    10
+#> 4  heartfailure survival          time, DEATH_EVENT       biobench    299    13
+#> 5           bmt survival                     t2, d3         KMsurv    137    22
+#> 6       drug6mp survival                       <NA>         KMsurv     21     5
+#> 7        larynx survival                time, delta         KMsurv     90     5
+#> 8        kidney survival                time, delta         KMsurv    119     3
+#> 9           std survival               time, rinfct         KMsurv    877    24
+#> 10     channing survival                time, death         KMsurv    462     6
+#> 11      mitrace survival               time, status        timereg   1878     9
+#> 12       stroke survival               time, status            pec    518    15
+#> 13     melanoma survival               time, status riskRegression    205    11
+#> 14       paquid survival               time, status riskRegression   2561     4
+#> 15        erspc survival Follow.Up.Time, DeadOfPrCa       casebase 159893     3
+#> 16       bmtcrr survival              ftime, Status       casebase    177     7
+#> 17       eprchd survival               time, status       casebase  16608     3
+#> 18       nwtsco survival                 tsur, dead      addhazard   3915    12
+#> 19  readmission survival     t_start, t_stop, event    frailtypack    861    11
+#>    has_missing highdim
+#> 1        FALSE   FALSE
+#> 2        FALSE   FALSE
+#> 3        FALSE   FALSE
+#> 4        FALSE   FALSE
+#> 5        FALSE   FALSE
+#> 6        FALSE   FALSE
+#> 7        FALSE   FALSE
+#> 8        FALSE   FALSE
+#> 9        FALSE   FALSE
+#> 10       FALSE   FALSE
+#> 11       FALSE   FALSE
+#> 12       FALSE   FALSE
+#> 13       FALSE   FALSE
+#> 14       FALSE   FALSE
+#> 15       FALSE   FALSE
+#> 16       FALSE   FALSE
+#> 17       FALSE   FALSE
+#> 18       FALSE   FALSE
+#> 19       FALSE   FALSE
 ```
 
 ## Using biobench in a benchmark study
@@ -288,10 +310,10 @@ compare(
 #>     model   metric   mean     sd n std_error conf_level conf_low conf_high
 #> 1     glm accuracy 0.9298 0.0108 5    0.0049       0.95   0.9163    0.9432
 #> 2     glm      auc 0.9466 0.0065 5    0.0029       0.95   0.9385    0.9546
-#> 3  ranger accuracy 0.9605 0.0229 5    0.0102       0.95   0.9320    0.9889
-#> 4  ranger      auc 0.9922 0.0046 5    0.0020       0.95   0.9866    0.9979
-#> 5 xgboost accuracy 0.9547 0.0221 5    0.0099       0.95   0.9273    0.9822
-#> 6 xgboost      auc 0.9904 0.0063 5    0.0028       0.95   0.9827    0.9982
+#> 3  ranger accuracy 0.9620 0.0119 5    0.0053       0.95   0.9472    0.9768
+#> 4  ranger      auc 0.9916 0.0033 5    0.0015       0.95   0.9876    0.9956
+#> 5 xgboost accuracy 0.9576 0.0188 5    0.0084       0.95   0.9342    0.9809
+#> 6 xgboost      auc 0.9853 0.0118 5    0.0053       0.95   0.9706    1.0000
 #>   tuned rank
 #> 1 FALSE    3
 #> 2 FALSE    3
@@ -328,11 +350,11 @@ results <- lapply(names(benchmark_sets), function(nm) {
 do.call(rbind, results)[, c("dataset", "model", "mean", "sd", "rank")]
 #>        dataset   model      mean          sd rank
 #> 1 breastcancer  ranger 0.9604974 0.014152343    1
-#> 2 breastcancer xgboost 0.9501703 0.016075343    2
-#> 3        pima2  ranger 0.7779617 0.049728946    2
-#> 4        pima2 xgboost 0.7883804 0.030990694    1
+#> 2 breastcancer xgboost 0.9575777 0.018819337    2
+#> 3        pima2  ranger 0.7779617 0.049728946    1
+#> 4        pima2 xgboost 0.7524505 0.028908051    2
 #> 5          dna  ranger 0.9526035 0.003243635    2
-#> 6          dna xgboost 0.9629616 0.008718564    1
+#> 6          dna xgboost 0.9610783 0.007729777    1
 ```
 
 `biobenchindex(outcome = "classification", missing = FALSE)` (or
@@ -345,18 +367,18 @@ datasets go into `benchmark_sets` for a larger study.
 
 | Dataset          | Description                                                    |     n |   p | Source      |
 |------------------|----------------------------------------------------------------|------:|----:|-------------|
-| `arthritis`      | Arthritis in NHANES 2007-2008                                  |  4856 |  12 | biostatlab  |
+| `arthritis`      | Arthritis in NHANES 2007-2008                                  |  4856 |  12 | biobench    |
 | `breastcancer`   | Wisconsin breast cancer cytology                               |   699 |  11 | mlbench     |
 | `burn1000`       | National Burn Repository mortality                             |  1000 |   9 | aplore3     |
 | `chdage`         | Coronary heart disease and age                                 |   100 |   4 | aplore3     |
 | `covidtest`      | COVID-19 PCR testing cohort                                    | 15524 |  17 | medicaldata |
 | `dna`            | Splice-junction gene sequences                                 |  3186 | 181 | mlbench     |
-| `duodenal`       | Duodenal ulcer healing trial                                   |   703 |   7 | biostatlab  |
+| `duodenal`       | Duodenal ulcer healing trial                                   |   703 |   7 | biobench    |
 | `esophca`        | Esophageal cancer case-control study                           |    88 |   5 | medicaldata |
 | `geolung`        | Lung adenocarcinoma and normal lung gene expression (GSE10072) |   107 | 107 | geo         |
 | `glow500`        | GLOW osteoporosis fracture risk                                |   500 |  15 | aplore3     |
-| `haberman`       | Haberman breast cancer survival                                |   306 |   4 | biostatlab  |
-| `highriskpreg`   | Maternal health risk assessment                                |  1205 |  13 | biostatlab  |
+| `haberman`       | Haberman breast cancer survival                                |   306 |   4 | biobench    |
+| `highriskpreg`   | Maternal health risk assessment                                |  1205 |  13 | biobench    |
 | `icu`            | ICU mortality                                                  |   200 |  21 | aplore3     |
 | `indorct`        | Rectal indomethacin RCT for post-ERCP pancreatitis             |   602 |  33 | medicaldata |
 | `licorice`       | Licorice gargle RCT for post-extubation cough                  |   235 |  19 | medicaldata |
@@ -369,7 +391,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `respiratory`    | Respiratory illness clinical trial                             |   555 |   7 | HSAUR3      |
 | `scurvy`         | James Lind’s scurvy trial (1757)                               |    12 |   8 | medicaldata |
 | `streptb`        | Streptomycin RCT for pulmonary tuberculosis (1948)             |   107 |  13 | medicaldata |
-| `tobaccomorocco` | Morocco youth tobacco survey                                   |  3915 |  27 | biostatlab  |
+| `tobaccomorocco` | Morocco youth tobacco survey                                   |  3915 |  27 | biobench    |
 | `toenail`        | Toenail infection clinical trial                               |  1908 |   5 | HSAUR3      |
 
 ### Regression (n = 12)
@@ -380,7 +402,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `aidsdelay`    | AIDS reporting delay in England and Wales       | 570 |   6 | boot        |
 | `anorexia`     | Anorexia treatment weight change                |  72 |   3 | MASS        |
 | `birthwt`      | Risk factors for low infant birth weight        | 189 |  10 | MASS        |
-| `dpb`          | Diastolic blood pressure trial                  |  40 |   9 | biostatlab  |
+| `dpb`          | Diastolic blood pressure trial                  |  40 |   9 | biobench    |
 | `epilepsy`     | Epilepsy progabide trial                        | 236 |   6 | HSAUR3      |
 | `indometh`     | Indomethacin pharmacokinetics                   |  66 |   3 | medicaldata |
 | `laryngoscope` | Video vs standard laryngoscope RCT              |  99 |  22 | medicaldata |
@@ -399,15 +421,15 @@ datasets go into `benchmark_sets` for a larger study.
 | `channing`     | Channing House retirement community mortality            |    462 |   6 | KMsurv         |
 | `cmv`          | Donor KIR genotype and CMV reactivation                  |     64 |  26 | medicaldata    |
 | `colon`        | Colon cancer adjuvant chemotherapy trial                 |   1858 |  16 | survival       |
-| `crcfes`       | Fez colorectal cancer cohort                             |    346 |  19 | biostatlab     |
-| `crcmondaca`   | Colorectal cancer genomic cohort (Mondaca et al. 2020)   |    471 |  19 | biostatlab     |
+| `crcfes`       | Fez colorectal cancer cohort                             |    346 |  19 | biobench       |
+| `crcmondaca`   | Colorectal cancer genomic cohort (Mondaca et al. 2020)   |    471 |  19 | biobench       |
 | `drug6mp`      | 6-MP leukemia remission trial                            |     21 |   5 | KMsurv         |
 | `eprchd`       | Estrogen plus progestin and coronary heart disease risk  |  16608 |   3 | casebase       |
 | `erspc`        | European Randomized Study of Prostate Cancer Screening   | 159893 |   3 | casebase       |
 | `flchain`      | Serum free light chain assay cohort                      |   7874 |  11 | survival       |
-| `framingham`   | Framingham Heart Study survival extract                  |   5209 |  18 | biostatlab     |
+| `framingham`   | Framingham Heart Study survival extract                  |   5209 |  18 | biobench       |
 | `gbsg2`        | German Breast Cancer Study Group 2                       |    686 |  10 | TH.data        |
-| `heartfailure` | Heart failure clinical records                           |    299 |  13 | biostatlab     |
+| `heartfailure` | Heart failure clinical records                           |    299 |  13 | biobench       |
 | `kidney`       | Kidney dialysis catheter infection                       |    119 |   3 | KMsurv         |
 | `larynx`       | Larynx cancer survival                                   |     90 |   5 | KMsurv         |
 | `lung`         | NCCTG lung cancer survival                               |    228 |  10 | survival       |
@@ -415,7 +437,7 @@ datasets go into `benchmark_sets` for a larger study.
 | `melgide`      | Metastatic melanoma on immune checkpoint blockade (Gide) |     75 |  11 | cbioportal     |
 | `melliu`       | Metastatic melanoma on anti-PD-1 therapy (Liu)           |    144 |  25 | cbioportal     |
 | `melmsk`       | Melanoma on immune checkpoint blockade at MSK (Samstein) |    320 |  10 | cbioportal     |
-| `metabric`     | METABRIC breast cancer cohort                            |   1904 | 693 | biostatlab     |
+| `metabric`     | METABRIC breast cancer cohort                            |   1904 | 693 | biobench       |
 | `mitrace`      | TRACE myocardial infarction study                        |   1878 |   9 | timereg        |
 | `nwtsco`       | National Wilms Tumor Study                               |   3915 |  12 | addhazard      |
 | `paquid`       | Paquid dementia cohort                                   |   2561 |   4 | riskRegression |
