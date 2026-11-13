@@ -3,7 +3,7 @@
 #' A curated collection of real biomedical datasets for benchmarking
 #' classification, regression, and survival machine learning methods.
 #' Each dataset is documented with its canonical literature reference; see
-#' [biobench_index()] for a summary table.
+#' [biobenchindex()] for a summary table.
 #'
 #' The shipped datasets are lightly cleaned (syntactic names, blanks and
 #' sentinel codes as `NA`). For teaching data import and cleaning, the

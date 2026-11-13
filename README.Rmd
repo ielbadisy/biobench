@@ -67,13 +67,13 @@ str(gbsg2)
 ## Dataset index
 
 ```{r index}
-biobench_index()
+biobenchindex()
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
 
 ```{r filter-example}
-biobench_index(outcome = "survival", missing = FALSE)
+biobenchindex(outcome = "survival", missing = FALSE)
 ```
 
 ## Using biobench in a benchmark study
@@ -101,7 +101,7 @@ compare(
 ```
 
 The same recipe scales to a multi-dataset benchmark study: pick datasets
-from `biobench_index()`, pair each with its outcome formula, and loop
+from `biobenchindex()`, pair each with its outcome formula, and loop
 `compare()` over them to get one long-format results table.
 
 ```{r funcml-loop, message = FALSE}
@@ -127,14 +127,14 @@ results <- lapply(names(benchmark_sets), function(nm) {
 do.call(rbind, results)[, c("dataset", "model", "mean", "sd", "rank")]
 ```
 
-`biobench_index(outcome = "classification", missing = FALSE)` (or
+`biobenchindex(outcome = "classification", missing = FALSE)` (or
 `"regression"` / `"survival"`) is the natural way to select which datasets
 go into `benchmark_sets` for a larger study.
 
 ## Datasets by task
 
 ```{r datasets-by-task, echo = FALSE, results = "asis"}
-idx <- biobench_index()
+idx <- biobenchindex()
 idx <- idx[order(idx$task, idx$dataset), ]
 db <- tools::Rd_db("biobench")
 idx$title <- vapply(idx$dataset, function(nm) {

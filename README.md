@@ -83,7 +83,7 @@ str(gbsg2)
 ## Dataset index
 
 ``` r
-biobench_index()
+biobenchindex()
 #>           dataset           task source_package  n_row n_col has_missing
 #> 1    breastcancer classification        mlbench    699    11        TRUE
 #> 2           pima2 classification        mlbench    768     9        TRUE
@@ -239,7 +239,7 @@ biobench_index()
 Filter by task, dimensionality, source, size, or missingness:
 
 ``` r
-biobench_index(outcome = "survival", missing = FALSE)
+biobenchindex(outcome = "survival", missing = FALSE)
 #>         dataset     task source_package  n_row n_col has_missing highdim
 #> 1       veteran survival       survival    137     8       FALSE   FALSE
 #> 2     rotterdam survival       survival   2982    15       FALSE   FALSE
@@ -302,7 +302,7 @@ compare(
 ```
 
 The same recipe scales to a multi-dataset benchmark study: pick datasets
-from `biobench_index()`, pair each with its outcome formula, and loop
+from `biobenchindex()`, pair each with its outcome formula, and loop
 `compare()` over them to get one long-format results table.
 
 ``` r
@@ -335,7 +335,7 @@ do.call(rbind, results)[, c("dataset", "model", "mean", "sd", "rank")]
 #> 6          dna xgboost 0.9629616 0.008718564    1
 ```
 
-`biobench_index(outcome = "classification", missing = FALSE)` (or
+`biobenchindex(outcome = "classification", missing = FALSE)` (or
 `"regression"` / `"survival"`) is the natural way to select which
 datasets go into `benchmark_sets` for a larger study.
 
