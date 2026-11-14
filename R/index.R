@@ -27,7 +27,7 @@
 #'   `"survival"`, `"TH.data"`, `"biobench"`, `"KMsurv"`, `"timereg"`,
 #'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`,
 #'   `"aplore3"`, `"casebase"`, `"addhazard"`, `"cbioportal"`,
-#'   `"frailtypack"`, `"uci"`, `"geo"`, `"datasets"`, `"panglm"`, `"CEACT"`, `"metadat"`). Default
+#'   `"frailtypack"`, `"uci"`, `"geo"`, `"datasets"`, `"panglm"`, `"CEACT"`, `"metadat"`, `"mada"`). Default
 #'   `NULL` (no filter). `"biobench"` marks datasets curated directly in
 #'   biobench from their original publications, with no upstream R package;
 #'   the former label `"biostatlab"` is still accepted, with a warning.
@@ -167,7 +167,8 @@ biobenchindex <- function(outcome = NULL,
     "healthspend", "regression", "panglm", "chepc",
     "medicaid", "regression", "panglm", "uninsadult",
     "trialcea", "regression", "CEACT", "qaly",
-    "bcg", "other", "metadat", NA
+    "bcg", "other", "metadat", NA,
+    "auditc", "other", "mada", NA
   ), ncol = 4, byrow = TRUE)
   meta <- rbind(meta, data.frame(dataset = more[, 1], task = more[, 2],
                                  source_package = more[, 3],

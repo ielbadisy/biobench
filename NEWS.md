@@ -2,6 +2,7 @@
 
 ## New datasets
 
+* `auditc`: 14 diagnostic accuracy 2x2 tables of the AUDIT-C alcohol screening questionnaire (Kriston et al. 2008), for bivariate meta-analysis of sensitivity and specificity, copied from mada.
 * `bcg`: 13 BCG vaccine trials against tuberculosis (Colditz et al. 1994), for meta-analysis and meta-regression, copied from metadat. `biobenchindex()` gains the task `"other"` for datasets made for analyses other than prediction.
 * `trialcea`: patient-level trial-based cost-effectiveness teaching dataset (500 patients, cost and QALY; Glick et al., Economic Evaluation in Clinical Trials), copied from CEACT.
 * `medicaid`: US state-year panel of health insurance coverage and the staggered ACA Medicaid expansion (51 states, 2009-2019; ACS, public domain; KFF expansion dates), copied from panglm.
