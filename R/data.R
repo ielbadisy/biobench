@@ -345,14 +345,56 @@
 
 #' Framingham Heart Study survival extract
 #'
-#' Cardiovascular follow-up cohort with event time and cause-of-event
-#' fields. Right-censored survival. The source extract codes missing
-#' values as `-1` in `ht`, `wt`, `scl1`, `scl2`, `mrw`, and `smok`; these
-#' are `NA` here.
+#' Mortality follow-up of the 5209 participants of the original
+#' Framingham Heart Study cohort, with baseline (exam 1) risk factors and
+#' cause of death. Right-censored survival. The source extract codes
+#' missing values as `-1` in `ht`, `wt`, `scl1`, `scl2`, `mrw`, and
+#' `smok`; these are `NA` here.
 #'
-#' @format A data frame with 5209 rows and 18 variables.
+#' **Time unit.** `time` is not in years. It is the number of the last
+#' biennial examination attended (2 to 16): for the 1991 participants who
+#' died before exam 16 it is the last exam before death, and the 3218
+#' alive at exam 16 are censored at 16. Exams were about two years apart,
+#' so approximate follow-up in years from exam 1 is `2 * (time - 1)`; the
+#' course notes this coding comes from place a death one year before the
+#' next exam, `2 * (time - 1) - status` years. Event times are therefore
+#' interval-censored on a two-year grid.
+#'
+#' **Events.** `status` is death from any cause. `chd`, `cva`, `ca` and
+#' `oth` are cause-of-death indicators, not incident disease: `chd` is
+#' death from coronary heart disease (`cause` 1 or 2). The exam at which
+#' CHD was first diagnosed, fatal or not, is `cexam`.
+#'
+#' @format A data frame with 5209 rows and 18 variables:
+#' \describe{
+#'   \item{time}{Last biennial exam attended, 2 to 16 (see Details).}
+#'   \item{status}{Vital status at exam 16: 1 died before exam 16, 0 alive.}
+#'   \item{cause}{Cause of death: 0 alive, 1 sudden CHD death, 2 other CHD
+#'     death, 3 stroke, 4 other cerebrovascular disease, 5 cancer, 6 other
+#'     cause, 9 unknown.}
+#'   \item{cexam}{Exam at which CHD was first diagnosed (1 to 16); 0 never
+#'     diagnosed.}
+#'   \item{chd}{Death from CHD (`cause` 1 or 2), 0/1.}
+#'   \item{cva}{Death from cerebrovascular disease (`cause` 3 or 4), 0/1.}
+#'   \item{ca}{Death from cancer (`cause` 5), 0/1.}
+#'   \item{oth}{Death from a cause other than CHD (`cause` 3 to 9), 0/1.}
+#'   \item{sex}{1 male, 2 female.}
+#'   \item{age}{Age at exam 1, years (28 to 62).}
+#'   \item{ht}{Height at exam 1, inches.}
+#'   \item{wt}{Weight at exam 1, pounds.}
+#'   \item{scl1, scl2}{Serum cholesterol at exams 1 and 2, mg/100 ml
+#'     (2037 and 626 missing).}
+#'   \item{dbp, sbp}{Diastolic and systolic blood pressure at exam 1, mmHg.}
+#'   \item{mrw}{Metropolitan relative weight at exam 1, percent of the
+#'     reference weight for height.}
+#'   \item{smok}{Cigarettes smoked per day at exam 1.}
+#' }
 #' @references Dawber, T. R. (1980). \emph{The Framingham Study: The
 #'   Epidemiology of Atherosclerotic Disease}. Harvard University Press.
+#'
+#'   Variable coding (the "Framingham data file: 5209 records" code sheet):
+#'   Hanley, J. A., course EPIB 681, McGill University,
+#'   <https://jhanley.biostat.mcgill.ca/c681/cox/fram_sas_pgm.txt>.
 #' @source \pkg{biostatlab} package.
 "framingham"
 

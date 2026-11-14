@@ -11,6 +11,14 @@
   Implausible ages (10 to 13, and 55 to 65 with heaping at 60) are kept
   and documented.
 
+## Documentation
+
+* `framingham`: `time` is the last biennial exam attended (2 to 16), not
+  years; approximate follow-up in years is `2 * (time - 1)`. `chd`,
+  `cva`, `ca` and `oth` flag the cause of death, not incident disease.
+  All 18 variables are now documented, with units, from the source code
+  sheet.
+
 # biobench 0.3.2
 
 * `biobenchindex(outcome = "binary")` is accepted as an alias for
