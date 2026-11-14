@@ -2,6 +2,7 @@
 
 ## New datasets
 
+* `bcg`: 13 BCG vaccine trials against tuberculosis (Colditz et al. 1994), for meta-analysis and meta-regression, copied from metadat. `biobenchindex()` gains the task `"other"` for datasets made for analyses other than prediction.
 * `trialcea`: patient-level trial-based cost-effectiveness teaching dataset (500 patients, cost and QALY; Glick et al., Economic Evaluation in Clinical Trials), copied from CEACT.
 * `medicaid`: US state-year panel of health insurance coverage and the staggered ACA Medicaid expansion (51 states, 2009-2019; ACS, public domain; KFF expansion dates), copied from panglm.
 * `healthspend`: country-year panel of health expenditure, income and population health (193 countries, 2000-2022; World Bank WDI, CC BY 4.0), copied from panglm.
