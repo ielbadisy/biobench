@@ -29,3 +29,10 @@ test_that("biostatlab is no longer listed as a source", {
   skip_if_not(file.exists(rmd))
   expect_false(any(grepl("biostatlab", readLines(rmd))))
 })
+
+test_that("outcome = 'other' selects the non-prediction datasets", {
+  o <- biobenchindex(outcome = "other")
+  expect_gt(nrow(o), 0)
+  expect_true(all(o$task == "other"))
+  expect_true("bcg" %in% o$dataset)
+})

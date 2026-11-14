@@ -7,10 +7,13 @@
 #' `biobenchindex(outcome = "survival", highdim = FALSE)`.
 #'
 #' @param outcome Character vector, one or more of `"classification"`,
-#'   `"binary"`, `"regression"`, `"survival"`. If given, only datasets with
-#'   a matching task are returned. `"binary"` is an alias for
+#'   `"binary"`, `"regression"`, `"survival"`, `"other"`. If given, only
+#'   datasets with a matching task are returned. `"binary"` is an alias for
 #'   `"classification"`; note that this task also covers the two multiclass
-#'   datasets (`dna`, `miceprotein`). Default `NULL` (no filter).
+#'   datasets (`dna`, `miceprotein`). `"other"` marks datasets made for
+#'   other analyses (meta-analysis, diagnostic accuracy, rater agreement,
+#'   psychometrics, reference tables), usually with no single outcome
+#'   column. Default `NULL` (no filter).
 #' @param highdim Logical. If `TRUE`, keep only high-dimensional datasets
 #'   (more than `highdim_threshold` columns, or at least as many columns as
 #'   rows); if `FALSE`, keep only low-dimensional ones. Default `NULL`
@@ -24,7 +27,7 @@
 #'   `"survival"`, `"TH.data"`, `"biobench"`, `"KMsurv"`, `"timereg"`,
 #'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`,
 #'   `"aplore3"`, `"casebase"`, `"addhazard"`, `"cbioportal"`,
-#'   `"frailtypack"`, `"uci"`, `"geo"`, `"datasets"`, `"panglm"`, `"CEACT"`). Default
+#'   `"frailtypack"`, `"uci"`, `"geo"`, `"datasets"`, `"panglm"`, `"CEACT"`, `"metadat"`). Default
 #'   `NULL` (no filter). `"biobench"` marks datasets curated directly in
 #'   biobench from their original publications, with no upstream R package;
 #'   the former label `"biostatlab"` is still accepted, with a warning.
@@ -163,7 +166,8 @@ biobenchindex <- function(outcome = NULL,
     "respdeaths", "regression", "datasets", "deaths",
     "healthspend", "regression", "panglm", "chepc",
     "medicaid", "regression", "panglm", "uninsadult",
-    "trialcea", "regression", "CEACT", "qaly"
+    "trialcea", "regression", "CEACT", "qaly",
+    "bcg", "other", "metadat", NA
   ), ncol = 4, byrow = TRUE)
   meta <- rbind(meta, data.frame(dataset = more[, 1], task = more[, 2],
                                  source_package = more[, 3],
@@ -191,7 +195,8 @@ biobenchindex <- function(outcome = NULL,
 
   if (!is.null(outcome)) {
     outcome <- match.arg(outcome,
-                         c("classification", "binary", "regression", "survival"),
+                         c("classification", "binary", "regression", "survival",
+                           "other"),
                          several.ok = TRUE)
     outcome[outcome == "binary"] <- "classification"
     out <- out[out$task %in% outcome, ]

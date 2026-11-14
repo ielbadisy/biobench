@@ -16,10 +16,13 @@ biobenchindex(
 }
 \arguments{
 \item{outcome}{Character vector, one or more of \code{"classification"},
-\code{"binary"}, \code{"regression"}, \code{"survival"}. If given, only datasets with
-a matching task are returned. \code{"binary"} is an alias for
+\code{"binary"}, \code{"regression"}, \code{"survival"}, \code{"other"}. If given, only
+datasets with a matching task are returned. \code{"binary"} is an alias for
 \code{"classification"}; note that this task also covers the two multiclass
-datasets (\code{dna}, \code{miceprotein}). Default \code{NULL} (no filter).}
+datasets (\code{dna}, \code{miceprotein}). \code{"other"} marks datasets made for
+other analyses (meta-analysis, diagnostic accuracy, rater agreement,
+psychometrics, reference tables), usually with no single outcome
+column. Default \code{NULL} (no filter).}
 
 \item{highdim}{Logical. If \code{TRUE}, keep only high-dimensional datasets
 (more than \code{highdim_threshold} columns, or at least as many columns as
@@ -36,7 +39,7 @@ package a dataset was sourced from (\code{"mlbench"}, \code{"medicaldata"},
 \code{"survival"}, \code{"TH.data"}, \code{"biobench"}, \code{"KMsurv"}, \code{"timereg"},
 \code{"HSAUR3"}, \code{"pec"}, \code{"riskRegression"}, \code{"MASS"}, \code{"boot"},
 \code{"aplore3"}, \code{"casebase"}, \code{"addhazard"}, \code{"cbioportal"},
-\code{"frailtypack"}, \code{"uci"}, \code{"geo"}, \code{"datasets"}, \code{"panglm"}, \code{"CEACT"}). Default
+\code{"frailtypack"}, \code{"uci"}, \code{"geo"}, \code{"datasets"}, \code{"panglm"}, \code{"CEACT"}, \code{"metadat"}). Default
 \code{NULL} (no filter). \code{"biobench"} marks datasets curated directly in
 biobench from their original publications, with no upstream R package;
 the former label \code{"biostatlab"} is still accepted, with a warning.}
