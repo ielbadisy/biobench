@@ -1,5 +1,12 @@
 # biobench 0.4.0
 
+## New datasets
+
+* `seatbelts` (Harvey and Durbin 1986): monthly road casualties in Great
+  Britain, 1969 to 1984, with the January 1983 seat-belt law, from the R
+  `datasets` package (`Seatbelts`), as a data frame with `year` and
+  `month`. Source label `"datasets"`.
+
 ## Data fixes
 
 * `chdage`: the first level of `agegrp` is now `"20-29"`, as in Hosmer,

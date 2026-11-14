@@ -24,7 +24,7 @@
 #'   `"survival"`, `"TH.data"`, `"biobench"`, `"KMsurv"`, `"timereg"`,
 #'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`,
 #'   `"aplore3"`, `"casebase"`, `"addhazard"`, `"cbioportal"`,
-#'   `"frailtypack"`, `"uci"`, `"geo"`). Default
+#'   `"frailtypack"`, `"uci"`, `"geo"`, `"datasets"`). Default
 #'   `NULL` (no filter). `"biobench"` marks datasets curated directly in
 #'   biobench from their original publications, with no upstream R package;
 #'   the former label `"biostatlab"` is still accepted, with a warning.
@@ -156,6 +156,18 @@ biobenchindex <- function(outcome = NULL,
     melliu = "time, status", arthritis = "status", miceprotein = "class",
     tcgaluad = "time, status", geolung = "tissue"
   )
+  # Datasets added from biobench 0.4.0 on, one row each: name, task,
+  # source package, outcome column(s).
+  more <- matrix(c(
+    "seatbelts", "regression", "datasets", "DriversKilled"
+  ), ncol = 4, byrow = TRUE)
+  meta <- rbind(meta, data.frame(dataset = more[, 1], task = more[, 2],
+                                 source_package = more[, 3],
+                                 stringsAsFactors = FALSE))
+  more_out <- more[, 4]
+  names(more_out) <- more[, 1]
+  outcome_vars <- c(outcome_vars, more_out)
+
   meta <- data.frame(
     meta[c("dataset", "task")],
     outcome_var = unname(outcome_vars[meta$dataset]),
