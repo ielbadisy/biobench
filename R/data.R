@@ -1064,6 +1064,15 @@
 #' treatment into eight groups. Values are as released; 528 rows have at
 #' least one missing protein level. Multiclass classification.
 #'
+#' In the released file the columns `ARC_N` and `pS6_N` are identical in
+#' all 1080 rows (no missing values in either), most likely a duplicated
+#' column in the source spreadsheet. Both are kept as released. The
+#' correlation matrix of the 77 proteins is therefore singular (rank 76):
+#' drop one of the two before methods that need a full-rank design or an
+#' invertible covariance matrix (linear and discriminant models, VIFs,
+#' Mahalanobis distances), and do not read the two as independent
+#' evidence in feature-importance or network analyses.
+#'
 #' @format A data frame with 1080 rows and 82 variables.
 #' @references Higuera, C., Gardiner, K. J., & Cios, K. J. (2015).
 #'   Self-organizing feature maps identify proteins critical to learning
