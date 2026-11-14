@@ -159,7 +159,8 @@ biobenchindex <- function(outcome = NULL,
   # Datasets added from biobench 0.4.0 on, one row each: name, task,
   # source package, outcome column(s).
   more <- matrix(c(
-    "seatbelts", "regression", "datasets", "DriversKilled"
+    "seatbelts", "regression", "datasets", "DriversKilled",
+    "respdeaths", "regression", "datasets", "deaths"
   ), ncol = 4, byrow = TRUE)
   meta <- rbind(meta, data.frame(dataset = more[, 1], task = more[, 2],
                                  source_package = more[, 3],

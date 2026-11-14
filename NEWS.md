@@ -2,6 +2,9 @@
 
 ## New datasets
 
+* `respdeaths` (Diggle 1990): monthly deaths from bronchitis, emphysema
+  and asthma in the UK, 1974 to 1979, total and by sex, from the R
+  `datasets` package (`ldeaths`, `mdeaths`, `fdeaths`).
 * `seatbelts` (Harvey and Durbin 1986): monthly road casualties in Great
   Britain, 1969 to 1984, with the January 1983 seat-belt law, from the R
   `datasets` package (`Seatbelts`), as a data frame with `year` and
