@@ -2,6 +2,7 @@
 
 ## New datasets
 
+* `trialcea`: patient-level trial-based cost-effectiveness teaching dataset (500 patients, cost and QALY; Glick et al., Economic Evaluation in Clinical Trials), copied from CEACT.
 * `medicaid`: US state-year panel of health insurance coverage and the staggered ACA Medicaid expansion (51 states, 2009-2019; ACS, public domain; KFF expansion dates), copied from panglm.
 * `healthspend`: country-year panel of health expenditure, income and population health (193 countries, 2000-2022; World Bank WDI, CC BY 4.0), copied from panglm.
 * `respdeaths` (Diggle 1990): monthly deaths from bronchitis, emphysema
