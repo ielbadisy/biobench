@@ -1,6 +1,6 @@
 #' Medical expenditure in the RAND Health Insurance Experiment
 #'
-#' Annual medical expenditure of 5,574 person-years from the RAND Health
+#' Annual medical expenditure of 5,574 observations from the RAND Health
 #' Insurance Experiment, with insurance plan features (coinsurance,
 #' deductible, participation incentive), health status and
 #' sociodemographic covariates, as analysed by Deb and Trivedi (2002).
@@ -9,7 +9,8 @@
 #' example for two-part and generalised linear models of health care
 #' costs. Regression (cost outcome).
 #'
-#' @format A data frame with 5,574 rows and 15 variables:
+#' @format A data frame with 5,574 rows (observations; the source does not
+#'   say whether a person contributes more than one year) and 15 variables:
 #' \describe{
 #'   \item{med}{Annual medical expenditure in constant dollars, excluding
 #'     dental and outpatient mental health care; 0 for non-users.}
