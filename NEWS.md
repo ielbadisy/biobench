@@ -2,6 +2,7 @@
 
 ## New datasets
 
+* `diagnoses`: nominal psychiatric diagnoses of 30 patients by six raters (Fleiss 1971), for multi-rater kappa, copied from irr with harmonised factor levels.
 * `medexp`: annual medical expenditure in the RAND Health Insurance Experiment (5,574 observations, 23 percent zeros; Deb and Trivedi 2002), for two-part and GLM cost models, copied from Ecdat.
 * `auditc`: 14 diagnostic accuracy 2x2 tables of the AUDIT-C alcohol screening questionnaire (Kriston et al. 2008), for bivariate meta-analysis of sensitivity and specificity, copied from mada.
 * `bcg`: 13 BCG vaccine trials against tuberculosis (Colditz et al. 1994), for meta-analysis and meta-regression, copied from metadat. `biobenchindex()` gains the task `"other"` for datasets made for analyses other than prediction.
