@@ -14,7 +14,9 @@ knitr::opts_chunk$set(
 
 A curated collection of **real (non-synthetic) biomedical datasets** for
 benchmarking classification, regression, and survival machine learning
-methods. Every dataset is documented with its canonical literature
+methods, plus a few classic datasets for other analyses (meta-analysis,
+diagnostic accuracy, rater agreement, psychometrics, age
+standardisation; task `"other"`). Every dataset is documented with its canonical literature
 reference (`?dataset_name`).
 
 Sourced from published, openly licensed releases, so every dataset
@@ -32,13 +34,24 @@ carries clear reuse terms. Most come from CRAN packages: [mlbench](https://cran.
 [aplore3](https://cran.r-project.org/package=aplore3),
 [casebase](https://cran.r-project.org/package=casebase),
 [addhazard](https://cran.r-project.org/package=addhazard),
-and [frailtypack](https://cran.r-project.org/package=frailtypack).
-Eleven datasets with no upstream R package are curated in biobench
+[frailtypack](https://cran.r-project.org/package=frailtypack),
+[metadat](https://cran.r-project.org/package=metadat),
+[mada](https://cran.r-project.org/package=mada),
+[Ecdat](https://cran.r-project.org/package=Ecdat),
+[irr](https://cran.r-project.org/package=irr),
+[MPsychoR](https://cran.r-project.org/package=MPsychoR),
+[AER](https://cran.r-project.org/package=AER),
+[panglm](https://github.com/ielbadisy/panglm) (`healthspend`, World Bank
+WDI, CC BY 4.0; `medicaid`, US Census ACS),
+[CEACT](https://github.com/ielbadisy/CEACT) (`trialcea`),
+and the R `datasets` package (`seatbelts`, `respdeaths`).
+Twelve datasets with no upstream R package are curated in biobench
 itself from their original publications (source label `"biobench"`):
 cohorts and surveys such as `crcfes`, `framingham`, `metabric` and
 `arthritis` (NHANES 2007-2008), plus two trials transcribed from Peace
 and Chen (2010), *Clinical Trial Data Analysis Using R* (`dpb`,
-`duodenal`). Three melanoma immunotherapy cohorts (`melgide`,
+`duodenal`), and the WHO World Standard Population
+(`whostdpop`). Three melanoma immunotherapy cohorts (`melgide`,
 `melmsk`, `melliu`) and the TCGA lung adenocarcinoma panel (`tcgaluad`) come
 from [cBioPortal](https://www.cbioportal.org) and are under
 the [ODC Open Database License](https://opendatacommons.org/licenses/odbl/1-0/)
@@ -146,7 +159,7 @@ idx$title <- vapply(idx$dataset, function(nm) {
   paste(unlist(rd[[which(tags == "\\title")]]), collapse = "")
 }, character(1))
 
-for (tsk in c("classification", "regression", "survival")) {
+for (tsk in c("classification", "regression", "survival", "other")) {
   sub <- idx[idx$task == tsk, ]
   cat("\n### ", tools::toTitleCase(tsk), " (n = ", nrow(sub), ")\n\n", sep = "")
   cat("| Dataset | Description | n | p | Source |\n|---|---|---:|---:|---|\n")

@@ -33,6 +33,7 @@
 
 ## Documentation
 
+* README lists the new sources and a table of the `"other"` datasets.
 * `framingham`: `time` is the last biennial exam attended (2 to 16), not
   years; approximate follow-up in years is `2 * (time - 1)`. `chd`,
   `cva`, `ca` and `oth` flag the cause of death, not incident disease.
