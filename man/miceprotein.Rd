@@ -24,6 +24,16 @@ saline (\code{treatment}). \code{class} combines genotype, behavior and
 treatment into eight groups. Values are as released; 528 rows have at
 least one missing protein level. Multiclass classification.
 }
+\details{
+In the released file the columns \code{ARC_N} and \code{pS6_N} are identical in
+all 1080 rows (no missing values in either), most likely a duplicated
+column in the source spreadsheet. Both are kept as released. The
+correlation matrix of the 77 proteins is therefore singular (rank 76):
+drop one of the two before methods that need a full-rank design or an
+invertible covariance matrix (linear and discriminant models, VIFs,
+Mahalanobis distances), and do not read the two as independent
+evidence in feature-importance or network analyses.
+}
 \references{
 Higuera, C., Gardiner, K. J., & Cios, K. J. (2015).
 Self-organizing feature maps identify proteins critical to learning

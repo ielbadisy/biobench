@@ -18,6 +18,9 @@
   `cva`, `ca` and `oth` flag the cause of death, not incident disease.
   All 18 variables are now documented, with units, from the source code
   sheet.
+* `miceprotein`: documents that `ARC_N` and `pS6_N` are identical in the
+  released file (kept as released), so the protein correlation matrix
+  has rank 76.
 
 # biobench 0.3.2
 
