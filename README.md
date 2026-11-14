@@ -3,8 +3,10 @@
 
 A curated collection of **real (non-synthetic) biomedical datasets** for
 benchmarking classification, regression, and survival machine learning
-methods. Every dataset is documented with its canonical literature
-reference (`?dataset_name`).
+methods, plus a few classic datasets for other analyses (meta-analysis,
+diagnostic accuracy, rater agreement, psychometrics, age
+standardisation; task `"other"`). Every dataset is documented with its
+canonical literature reference (`?dataset_name`).
 
 Sourced from published, openly licensed releases, so every dataset
 carries clear reuse terms. Most come from CRAN packages:
@@ -21,18 +23,29 @@ carries clear reuse terms. Most come from CRAN packages:
 [boot](https://cran.r-project.org/package=boot),
 [aplore3](https://cran.r-project.org/package=aplore3),
 [casebase](https://cran.r-project.org/package=casebase),
-[addhazard](https://cran.r-project.org/package=addhazard), and
-[frailtypack](https://cran.r-project.org/package=frailtypack). Eleven
-datasets with no upstream R package are curated in biobench itself from
-their original publications (source label `"biobench"`): cohorts and
-surveys such as `crcfes`, `framingham`, `metabric` and `arthritis`
-(NHANES 2007-2008), plus two trials transcribed from Peace and Chen
-(2010), *Clinical Trial Data Analysis Using R* (`dpb`, `duodenal`).
-Three melanoma immunotherapy cohorts (`melgide`, `melmsk`, `melliu`) and
-the TCGA lung adenocarcinoma panel (`tcgaluad`) come from
-[cBioPortal](https://www.cbioportal.org) and are under the [ODC Open
-Database License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL)
-1.0. `miceprotein` comes from the [UCI Machine Learning
+[addhazard](https://cran.r-project.org/package=addhazard),
+[frailtypack](https://cran.r-project.org/package=frailtypack),
+[metadat](https://cran.r-project.org/package=metadat),
+[mada](https://cran.r-project.org/package=mada),
+[Ecdat](https://cran.r-project.org/package=Ecdat),
+[irr](https://cran.r-project.org/package=irr),
+[MPsychoR](https://cran.r-project.org/package=MPsychoR),
+[AER](https://cran.r-project.org/package=AER),
+[panglm](https://github.com/ielbadisy/panglm) (`healthspend`, World Bank
+WDI, CC BY 4.0; `medicaid`, US Census ACS),
+[CEACT](https://github.com/ielbadisy/CEACT) (`trialcea`), and the R
+`datasets` package (`seatbelts`, `respdeaths`). Twelve datasets with no
+upstream R package are curated in biobench itself from their original
+publications (source label `"biobench"`): cohorts and surveys such as
+`crcfes`, `framingham`, `metabric` and `arthritis` (NHANES 2007-2008),
+plus two trials transcribed from Peace and Chen (2010), *Clinical Trial
+Data Analysis Using R* (`dpb`, `duodenal`), and the WHO World Standard
+Population (`whostdpop`). Three melanoma immunotherapy cohorts
+(`melgide`, `melmsk`, `melliu`) and the TCGA lung adenocarcinoma panel
+(`tcgaluad`) come from [cBioPortal](https://www.cbioportal.org) and are
+under the [ODC Open Database
+License](https://opendatacommons.org/licenses/odbl/1-0/) (ODbL) 1.0.
+`miceprotein` comes from the [UCI Machine Learning
 Repository](https://archive.ics.uci.edu/dataset/342) (CC BY 4.0) and
 `geolung` from the [Gene Expression
 Omnibus](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE10072)
@@ -161,6 +174,18 @@ biobenchindex()
 #> 72    miceprotein classification                                     class
 #> 73       tcgaluad       survival                              time, status
 #> 74        geolung classification                                    tissue
+#> 75      seatbelts     regression                             DriversKilled
+#> 76     respdeaths     regression                                    deaths
+#> 77    healthspend     regression                                     chepc
+#> 78       medicaid     regression                                uninsadult
+#> 79       trialcea     regression                                      qaly
+#> 80            bcg          other                                      <NA>
+#> 81         auditc          other                                      <NA>
+#> 82         medexp     regression                                       med
+#> 83      diagnoses          other                                      <NA>
+#> 84       wenchuan          other                                      <NA>
+#> 85     cigarettes     regression                                     packs
+#> 86      whostdpop          other                                      <NA>
 #>    source_package  n_row n_col has_missing highdim
 #> 1         mlbench    699    11        TRUE   FALSE
 #> 2         mlbench    768     9        TRUE   FALSE
@@ -236,6 +261,18 @@ biobenchindex()
 #> 72            uci   1080    82        TRUE   FALSE
 #> 73     cbioportal    566    11        TRUE   FALSE
 #> 74            geo    107   107       FALSE    TRUE
+#> 75       datasets    192    10       FALSE   FALSE
+#> 76       datasets     72     5       FALSE   FALSE
+#> 77         panglm   4439    15        TRUE   FALSE
+#> 78         panglm    561    20        TRUE   FALSE
+#> 79          CEACT    500    10       FALSE   FALSE
+#> 80        metadat     13     9       FALSE   FALSE
+#> 81           mada     14     4       FALSE   FALSE
+#> 82          Ecdat   5574    15       FALSE   FALSE
+#> 83            irr     30     6       FALSE   FALSE
+#> 84       MPsychoR    362    17        TRUE   FALSE
+#> 85            AER     96     9       FALSE   FALSE
+#> 86       biobench     21     5        TRUE   FALSE
 ```
 
 Filter by task, dimensionality, source, size, or missingness:
@@ -394,22 +431,29 @@ datasets go into `benchmark_sets` for a larger study.
 | `tobaccomorocco` | Morocco youth tobacco survey                                   |  3915 |  27 | biobench    |
 | `toenail`        | Toenail infection clinical trial                               |  1908 |   5 | HSAUR3      |
 
-### Regression (n = 12)
+### Regression (n = 19)
 
-| Dataset        | Description                                     |   n |   p | Source      |
-|----------------|-------------------------------------------------|----:|----:|-------------|
-| `agefat`       | Age and body fat percentage                     |  25 |   3 | HSAUR3      |
-| `aidsdelay`    | AIDS reporting delay in England and Wales       | 570 |   6 | boot        |
-| `anorexia`     | Anorexia treatment weight change                |  72 |   3 | MASS        |
-| `birthwt`      | Risk factors for low infant birth weight        | 189 |  10 | MASS        |
-| `dpb`          | Diastolic blood pressure trial                  |  40 |   9 | biobench    |
-| `epilepsy`     | Epilepsy progabide trial                        | 236 |   6 | HSAUR3      |
-| `indometh`     | Indomethacin pharmacokinetics                   |  66 |   3 | medicaldata |
-| `laryngoscope` | Video vs standard laryngoscope RCT              |  99 |  22 | medicaldata |
-| `phosphate`    | Postprandial phosphate levels                   |  33 |   9 | HSAUR3      |
-| `polyps`       | Sulindac RCT for familial adenomatous polyposis |  22 |   7 | medicaldata |
-| `smartpill`    | SmartPill gastric transit cohort                |  95 |  22 | medicaldata |
-| `theoph`       | Theophylline pharmacokinetics                   | 132 |   5 | medicaldata |
+| Dataset        | Description                                                                   |    n |   p | Source      |
+|----------------|-------------------------------------------------------------------------------|-----:|----:|-------------|
+| `agefat`       | Age and body fat percentage                                                   |   25 |   3 | HSAUR3      |
+| `aidsdelay`    | AIDS reporting delay in England and Wales                                     |  570 |   6 | boot        |
+| `anorexia`     | Anorexia treatment weight change                                              |   72 |   3 | MASS        |
+| `birthwt`      | Risk factors for low infant birth weight                                      |  189 |  10 | MASS        |
+| `cigarettes`   | Cigarette consumption, prices and taxes in 48 US states, 1985 and 1995        |   96 |   9 | AER         |
+| `dpb`          | Diastolic blood pressure trial                                                |   40 |   9 | biobench    |
+| `epilepsy`     | Epilepsy progabide trial                                                      |  236 |   6 | HSAUR3      |
+| `healthspend`  | Health expenditure, income and population health: a country-year panel        | 4439 |  15 | panglm      |
+| `indometh`     | Indomethacin pharmacokinetics                                                 |   66 |   3 | medicaldata |
+| `laryngoscope` | Video vs standard laryngoscope RCT                                            |   99 |  22 | medicaldata |
+| `medexp`       | Medical expenditure in the RAND Health Insurance Experiment                   | 5574 |  15 | Ecdat       |
+| `medicaid`     | Health insurance coverage and the ACA Medicaid expansion, US states 2009-2019 |  561 |  20 | panglm      |
+| `phosphate`    | Postprandial phosphate levels                                                 |   33 |   9 | HSAUR3      |
+| `polyps`       | Sulindac RCT for familial adenomatous polyposis                               |   22 |   7 | medicaldata |
+| `respdeaths`   | Deaths from lung diseases in the UK, 1974 to 1979                             |   72 |   5 | datasets    |
+| `seatbelts`    | Road casualties in Great Britain and the 1983 seat-belt law                   |  192 |  10 | datasets    |
+| `smartpill`    | SmartPill gastric transit cohort                                              |   95 |  22 | medicaldata |
+| `theoph`       | Theophylline pharmacokinetics                                                 |  132 |   5 | medicaldata |
+| `trialcea`     | Trial-based cost-effectiveness teaching dataset                               |  500 |  10 | CEACT       |
 
 ### Survival (n = 36)
 
@@ -451,3 +495,13 @@ datasets go into `benchmark_sets` for a larger study.
 | `supraclav`    | Supraclavicular nerve block anesthesia study             |    103 |  17 | medicaldata    |
 | `tcgaluad`     | Lung adenocarcinoma (TCGA PanCancer Atlas)               |    566 |  11 | cbioportal     |
 | `veteran`      | Veterans’ Administration lung cancer trial               |    137 |   8 | survival       |
+
+### Other (n = 5)
+
+| Dataset     | Description                                                      |   n |   p | Source   |
+|-------------|------------------------------------------------------------------|----:|----:|----------|
+| `auditc`    | AUDIT-C screening for unhealthy alcohol use: 14 accuracy studies |  14 |   4 | mada     |
+| `bcg`       | BCG vaccine against tuberculosis: 13 trials for meta-analysis    |  13 |   9 | metadat  |
+| `diagnoses` | Psychiatric diagnoses of 30 patients by six raters               |  30 |   6 | irr      |
+| `wenchuan`  | PTSD symptoms of Wenchuan earthquake survivors (PCL-C, 17 items) | 362 |  17 | MPsychoR |
+| `whostdpop` | WHO World Standard Population (2000-2025)                        |  21 |   5 | biobench |
