@@ -2,6 +2,7 @@
 
 ## New datasets
 
+* `whostdpop`: WHO World Standard Population 2000-2025 (Ahmad et al. 2001), 21 age groups as percentages and as a standard million, for direct age standardisation; curated from the SEER standard populations page.
 * `cigarettes`: cigarette packs per capita, prices and taxes in 48 US states, 1985 and 1995 (Stock and Watson 2007), for instrumental variables, copied from AER.
 * `wenchuan`: 17 PCL-C PTSD symptom items (5-point Likert) of 362 Wenchuan earthquake survivors (McNally et al. 2015), copied from MPsychoR.
 * `diagnoses`: nominal psychiatric diagnoses of 30 patients by six raters (Fleiss 1971), for multi-rater kappa, copied from irr with harmonised factor levels.
