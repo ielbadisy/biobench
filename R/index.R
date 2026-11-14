@@ -172,7 +172,8 @@ biobenchindex <- function(outcome = NULL,
     "medexp", "regression", "Ecdat", "med",
     "diagnoses", "other", "irr", NA,
     "wenchuan", "other", "MPsychoR", NA,
-    "cigarettes", "regression", "AER", "packs"
+    "cigarettes", "regression", "AER", "packs",
+    "whostdpop", "other", "biobench", NA
   ), ncol = 4, byrow = TRUE)
   meta <- rbind(meta, data.frame(dataset = more[, 1], task = more[, 2],
                                  source_package = more[, 3],
