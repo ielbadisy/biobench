@@ -50,7 +50,7 @@ died before exam 16 it is the last exam before death, and the 3218
 alive at exam 16 are censored at 16. Exams were about two years apart,
 so approximate follow-up in years from exam 1 is \code{2 * (time - 1)}; the
 course notes this coding comes from place a death one year before the
-next exam, \code{2 * (time - 1) - status} years. Event times are therefore
+next exam, \code{2 * (time - 1) + status} years. Event times are therefore
 interval-censored on a two-year grid.
 
 \strong{Events.} \code{status} is death from any cause. \code{chd}, \code{cva}, \code{ca} and
