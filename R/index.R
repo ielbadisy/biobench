@@ -24,7 +24,7 @@
 #'   `"survival"`, `"TH.data"`, `"biobench"`, `"KMsurv"`, `"timereg"`,
 #'   `"HSAUR3"`, `"pec"`, `"riskRegression"`, `"MASS"`, `"boot"`,
 #'   `"aplore3"`, `"casebase"`, `"addhazard"`, `"cbioportal"`,
-#'   `"frailtypack"`, `"uci"`, `"geo"`, `"datasets"`). Default
+#'   `"frailtypack"`, `"uci"`, `"geo"`, `"datasets"`, `"panglm"`). Default
 #'   `NULL` (no filter). `"biobench"` marks datasets curated directly in
 #'   biobench from their original publications, with no upstream R package;
 #'   the former label `"biostatlab"` is still accepted, with a warning.
@@ -160,7 +160,8 @@ biobenchindex <- function(outcome = NULL,
   # source package, outcome column(s).
   more <- matrix(c(
     "seatbelts", "regression", "datasets", "DriversKilled",
-    "respdeaths", "regression", "datasets", "deaths"
+    "respdeaths", "regression", "datasets", "deaths",
+    "healthspend", "regression", "panglm", "chepc"
   ), ncol = 4, byrow = TRUE)
   meta <- rbind(meta, data.frame(dataset = more[, 1], task = more[, 2],
                                  source_package = more[, 3],
