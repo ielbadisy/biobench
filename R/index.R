@@ -161,7 +161,8 @@ biobenchindex <- function(outcome = NULL,
   more <- matrix(c(
     "seatbelts", "regression", "datasets", "DriversKilled",
     "respdeaths", "regression", "datasets", "deaths",
-    "healthspend", "regression", "panglm", "chepc"
+    "healthspend", "regression", "panglm", "chepc",
+    "medicaid", "regression", "panglm", "uninsadult"
   ), ncol = 4, byrow = TRUE)
   meta <- rbind(meta, data.frame(dataset = more[, 1], task = more[, 2],
                                  source_package = more[, 3],
