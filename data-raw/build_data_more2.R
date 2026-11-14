@@ -22,6 +22,10 @@ library(aplore3)
 data(list = c("icu", "glow500", "myopia", "nhanes", "polypharm", "chdage", "burn1000"),
      package = "aplore3")
 
+# aplore3 labels the first chdage age group "20-39"; the ages in it are 20
+# to 29 and Hosmer, Lemeshow & Sturdivant (2013, Table 1.2) print "20-29".
+levels(chdage$agegrp)[levels(chdage$agegrp) == "20-39"] <- "20-29"
+
 library(casebase)
 data(list = c("support", "ERSPC", "bmtcrr", "eprchd"), package = "casebase")
 erspc <- ERSPC

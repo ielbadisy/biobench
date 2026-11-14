@@ -1,6 +1,6 @@
 Package: biobench
 Title: Biomedical Datasets for Machine Learning Benchmarking
-Version: 0.3.2
+Version: 0.4.0
 Authors@R:
     person("Imad", "El Badisy", , "elbadisyimad@gmail.com", role = c("aut", "cre"))
 Description: A curated collection of real (non-synthetic) biomedical

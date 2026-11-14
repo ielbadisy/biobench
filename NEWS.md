@@ -1,3 +1,11 @@
+# biobench 0.4.0
+
+## Data fixes
+
+* `chdage`: the first level of `agegrp` is now `"20-29"`, as in Hosmer,
+  Lemeshow and Sturdivant (2013, Table 1.2). aplore3 labels it `"20-39"`
+  although it holds ages 20 to 29.
+
 # biobench 0.3.2
 
 * `biobenchindex(outcome = "binary")` is accepted as an alias for

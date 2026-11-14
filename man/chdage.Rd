@@ -5,7 +5,14 @@
 \alias{chdage}
 \title{Coronary heart disease and age}
 \format{
-A data frame with 100 rows and 4 variables.
+A data frame with 100 rows and 4 variables:
+\describe{
+\item{id}{Subject identifier.}
+\item{age}{Age in years.}
+\item{agegrp}{Age group, factor: \code{20-29}, \code{30-34}, \code{35-39}, \code{40-44},
+\code{45-49}, \code{50-54}, \code{55-59}, \code{60-69}.}
+\item{chd}{Evidence of coronary heart disease, factor \code{No}/\code{Yes}.}
+}
 }
 \source{
 \pkg{aplore3} package.
@@ -16,6 +23,11 @@ chdage
 \description{
 Classic small dataset relating age to presence of coronary heart
 disease. Binary classification.
+}
+\details{
+\code{agegrp} has the eight age groups of Hosmer, Lemeshow and Sturdivant
+(2013, Table 1.2). The first level is \code{"20-29"}; aplore3 labels it
+\code{"20-39"}, a typo corrected here (biobench 0.4.0).
 }
 \references{
 Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
