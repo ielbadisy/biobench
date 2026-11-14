@@ -5,6 +5,11 @@
 * `chdage`: the first level of `agegrp` is now `"20-29"`, as in Hosmer,
   Lemeshow and Sturdivant (2013, Table 1.2). aplore3 labels it `"20-39"`
   although it holds ages 20 to 29.
+* `highriskpreg`: two impossible values are recoded to `NA`, an age of
+  325 years (`study_id` 480) and a BMI of 0 (`study_id` 953). The
+  released values remain in `inst/extdata/highriskpreg_raw.csv`.
+  Implausible ages (10 to 13, and 55 to 65 with heaping at 60) are kept
+  and documented.
 
 # biobench 0.3.2
 

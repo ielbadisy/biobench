@@ -391,14 +391,23 @@
 #' Column names are snake_case versions of the source names, and the 18
 #' records with a blank risk level are coded `NA`.
 #'
+#' Two impossible values of the source release are recoded to `NA` (since
+#' biobench 0.4.0): an age of 325 years (`study_id` 480) and a BMI of 0
+#' (`study_id` 953). The released values are kept in
+#' `system.file("extdata", "highriskpreg_raw.csv", package = "biobench")`,
+#' for data-cleaning exercises. Other ages are implausible for a pregnancy
+#' cohort but not impossible, and are kept as released: 14 records aged 10
+#' to 13 and 30 aged 55 to 65, with heaping at 60 (15 records). Query them
+#' before use, or restrict the analysis age range.
+#'
 #' @format A data frame with 1205 rows and 13 variables:
 #' \describe{
 #'   \item{study_id}{Record identifier.}
-#'   \item{age}{Age in years.}
+#'   \item{age}{Age in years (one impossible value set to `NA`).}
 #'   \item{systolic_bp, diastolic_bp}{Blood pressure, mmHg.}
 #'   \item{blood_sugar}{Blood glucose, mmol/L.}
 #'   \item{body_temp}{Body temperature, degrees Fahrenheit.}
-#'   \item{bmi}{Body mass index, kg/m^2.}
+#'   \item{bmi}{Body mass index, kg/m^2 (one value of 0 set to `NA`).}
 #'   \item{previous_complications, preexisting_diabetes, gestational_diabetes, mental_health}{History indicators, 0 = no, 1 = yes.}
 #'   \item{heart_rate}{Heart rate, beats per minute.}
 #'   \item{risk_level}{Pregnancy risk level, factor with levels `Low`, `High`.}

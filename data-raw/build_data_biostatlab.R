@@ -36,6 +36,11 @@ highriskpreg <- rename_cols(high_risk_pregnancy, c(
 ))
 highriskpreg <- tidy_strings(highriskpreg)
 highriskpreg$risk_level <- factor(highriskpreg$risk_level, levels = c("Low", "High"))
+# Impossible values recoded to NA (biobench 0.4.0); the released values
+# stay in inst/extdata/highriskpreg_raw.csv. Implausible but possible ages
+# (10 to 13, 55 to 65) are kept and documented.
+highriskpreg$age[highriskpreg$study_id == 480 & highriskpreg$age == 325] <- NA
+highriskpreg$bmi[highriskpreg$study_id == 953 & highriskpreg$bmi == 0] <- NA
 metabric <- rename_cols(tidy_strings(metabric), c(
   pam50_claudin_low_subtype = "pam50_+_claudin-low_subtype",
   three_gene_classifier_subtype = "3-gene_classifier_subtype",
