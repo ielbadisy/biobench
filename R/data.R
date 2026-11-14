@@ -737,7 +737,18 @@
 #' Classic small dataset relating age to presence of coronary heart
 #' disease. Binary classification.
 #'
-#' @format A data frame with 100 rows and 4 variables.
+#' `agegrp` has the eight age groups of Hosmer, Lemeshow and Sturdivant
+#' (2013, Table 1.2). The first level is `"20-29"`; aplore3 labels it
+#' `"20-39"`, a typo corrected here (biobench 0.4.0).
+#'
+#' @format A data frame with 100 rows and 4 variables:
+#' \describe{
+#'   \item{id}{Subject identifier.}
+#'   \item{age}{Age in years.}
+#'   \item{agegrp}{Age group, factor: `20-29`, `30-34`, `35-39`, `40-44`,
+#'     `45-49`, `50-54`, `55-59`, `60-69`.}
+#'   \item{chd}{Evidence of coronary heart disease, factor `No`/`Yes`.}
+#' }
 #' @references Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013).
 #'   \emph{Applied Logistic Regression} (3rd ed.). Wiley.
 #' @source \pkg{aplore3} package.
