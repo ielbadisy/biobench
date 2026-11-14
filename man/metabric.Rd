@@ -5,7 +5,12 @@
 \alias{metabric}
 \title{METABRIC breast cancer cohort}
 \format{
-A data frame with 1904 rows and 693 variables.
+A data frame with 1904 rows and 693 variables. Survival
+outcome columns: \code{overall_survival_months} (follow-up time from
+diagnosis, months, 0 to 355); \code{overall_survival} (vital status, 1 =
+alive and censored, 0 = died; the event indicator is
+\code{1 - overall_survival}); \code{death_from_cancer} (\code{"Living"},
+\code{"Died of Disease"}, \code{"Died of Other Causes"}).
 }
 \source{
 \pkg{biostatlab} package.
@@ -19,6 +24,16 @@ clinical, gene-expression, and mutation variables with right-censored
 overall survival. High-dimensional. Three non-syntactic source names
 are renamed (\code{pam50_claudin_low_subtype}, \code{three_gene_classifier_subtype},
 \code{hla_g}) and blank strings are coded \code{NA}.
+}
+\details{
+\strong{Survival coding.} \code{overall_survival} is a vital-status flag, not an
+event indicator: 1 = alive at last follow-up (censored), 0 = died (any
+cause). Use \code{1 - overall_survival} as the event indicator, e.g.
+\code{survival::Surv(overall_survival_months, 1 - overall_survival)}. The
+column is kept as released. 801 patients are alive (median follow-up
+158 months) and 1,103 died (median 86 months); \code{death_from_cancer}
+splits the deaths into \code{"Died of Disease"} (622) and \code{"Died of Other Causes"} (480), with one death of unknown cause (\code{NA}), and is
+\code{"Living"} for the 801 alive.
 }
 \references{
 Curtis, C. et al. (2012). The genomic and transcriptomic

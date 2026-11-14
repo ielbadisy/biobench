@@ -43,7 +43,9 @@
 #'   given in the dataset's help page: one column for classification and
 #'   regression, `"time, event"` for survival (for competing risks the event
 #'   column holds the cause, for `readmission` the gap start, stop and event
-#'   columns). It is `NA` when the help page does not identify a single
+#'   columns; for `metabric` the column `overall_survival` is 1 = alive,
+#'   so the event indicator is `1 - overall_survival`). It is `NA` when
+#'   the help page does not identify a single
 #'   outcome.
 #' @export
 #' @examples
@@ -139,7 +141,7 @@ biobenchindex <- function(outcome = NULL,
     crcfes = "time, event", crcmondaca = "time, status",
     framingham = "time, status", haberman = "survival_status",
     heartfailure = "time, DEATH_EVENT", highriskpreg = "risk_level",
-    metabric = "overall_survival_months, overall_survival",
+    metabric = "overall_survival_months, overall_survival",  # 1 = alive: event is 1 - overall_survival
     tobaccomorocco = "cigar_use",
     bmt = "t2, d3", drug6mp = NA, larynx = "time, delta",
     kidney = "time, delta", std = "time, rinfct", channing = "time, death",

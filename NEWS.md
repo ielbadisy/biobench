@@ -33,6 +33,9 @@
 
 ## Documentation
 
+* `metabric`: `overall_survival` is documented as vital status (1 = alive,
+  censored; 0 = died); the event indicator is `1 - overall_survival`. The
+  column is unchanged. `?biobenchindex` notes the same.
 * README lists the new sources and a table of the `"other"` datasets.
 * `framingham`: `time` is the last biennial exam attended (2 to 16), not
   years; approximate follow-up in years is `2 * (time - 1)`. `chd`,

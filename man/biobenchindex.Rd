@@ -59,7 +59,9 @@ A data frame with one row per matching dataset: \code{dataset},
 given in the dataset's help page: one column for classification and
 regression, \code{"time, event"} for survival (for competing risks the event
 column holds the cause, for \code{readmission} the gap start, stop and event
-columns). It is \code{NA} when the help page does not identify a single
+columns; for \code{metabric} the column \code{overall_survival} is 1 = alive,
+so the event indicator is \code{1 - overall_survival}). It is \code{NA} when
+the help page does not identify a single
 outcome.
 }
 \description{

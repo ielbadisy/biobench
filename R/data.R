@@ -466,7 +466,22 @@
 #' are renamed (`pam50_claudin_low_subtype`, `three_gene_classifier_subtype`,
 #' `hla_g`) and blank strings are coded `NA`.
 #'
-#' @format A data frame with 1904 rows and 693 variables.
+#' **Survival coding.** `overall_survival` is a vital-status flag, not an
+#' event indicator: 1 = alive at last follow-up (censored), 0 = died (any
+#' cause). Use `1 - overall_survival` as the event indicator, e.g.
+#' `survival::Surv(overall_survival_months, 1 - overall_survival)`. The
+#' column is kept as released. 801 patients are alive (median follow-up
+#' 158 months) and 1,103 died (median 86 months); `death_from_cancer`
+#' splits the deaths into `"Died of Disease"` (622) and `"Died of Other
+#' Causes"` (480), with one death of unknown cause (`NA`), and is
+#' `"Living"` for the 801 alive.
+#'
+#' @format A data frame with 1904 rows and 693 variables. Survival
+#'   outcome columns: `overall_survival_months` (follow-up time from
+#'   diagnosis, months, 0 to 355); `overall_survival` (vital status, 1 =
+#'   alive and censored, 0 = died; the event indicator is
+#'   `1 - overall_survival`); `death_from_cancer` (`"Living"`,
+#'   `"Died of Disease"`, `"Died of Other Causes"`).
 #' @references Curtis, C. et al. (2012). The genomic and transcriptomic
 #'   architecture of 2,000 breast tumours reveals novel subgroups.
 #'   \emph{Nature}, 486, 346-352. Pereira, B. et al. (2016). The somatic
