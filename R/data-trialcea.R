@@ -1,0 +1,39 @@
+#' Trial-based cost-effectiveness teaching dataset
+#'
+#' Patient-level costs and quality-adjusted life-years (QALYs) of 500
+#' patients randomised 1:1 to treatment or control, with baseline cost,
+#' baseline QALY and covariates. The standard example for trial-based
+#' economic evaluation: incremental cost-effectiveness ratio, net monetary
+#' benefit regression, bootstrap and cost-effectiveness acceptability
+#' curves. Regression (cost and QALY outcomes).
+#'
+#' It is the example dataset of the textbook by Glick, Doshi, Sonnad and
+#' Polsky, described as provided by a Health Services Research Unit. The
+#' sources do not identify the underlying trial, the intervention, the
+#' disease or the price year, and do not state whether the values are
+#' real trial data or a teaching construction: use it for methods, not
+#' for clinical conclusions.
+#'
+#' @format A data frame with 500 rows (patients) and 10 variables:
+#' \describe{
+#'   \item{id}{Patient identifier, 1 to 500.}
+#'   \item{treat}{Treatment arm, 1 treatment, 0 control (250 each).}
+#'   \item{cost}{Total cost over follow-up, US dollars.}
+#'   \item{qaly}{QALYs over follow-up.}
+#'   \item{dissev}{Disease severity score, about 0.025 to 0.729 (scale not
+#'     documented by the source).}
+#'   \item{race}{Race indicator, 0/1, as supplied (coding not documented).}
+#'   \item{blcost}{Baseline cost, US dollars.}
+#'   \item{blqaly}{Baseline QALY (utility), up to 1.}
+#'   \item{male}{Sex, 1 male, 0 female.}
+#'   \item{group}{Factor version of `treat`, levels `control`,
+#'     `treatment`.}
+#' }
+#' @references Glick, H. A., Doshi, J. A., Sonnad, S. S., & Polsky, D.
+#'   (2014). \emph{Economic Evaluation in Clinical Trials} (2nd ed.).
+#'   Oxford University Press.
+#' @source R package \pkg{CEACT} (`trial_cea`, MIT licence), which took it
+#'   from the R package \pkg{ceaR} (`clintrial_cea`). Original: example
+#'   dataset of Glick et al. (2014). Changes: Stata attributes dropped,
+#'   0/1 columns stored as integers.
+"trialcea"

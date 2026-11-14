@@ -36,7 +36,7 @@ package a dataset was sourced from (\code{"mlbench"}, \code{"medicaldata"},
 \code{"survival"}, \code{"TH.data"}, \code{"biobench"}, \code{"KMsurv"}, \code{"timereg"},
 \code{"HSAUR3"}, \code{"pec"}, \code{"riskRegression"}, \code{"MASS"}, \code{"boot"},
 \code{"aplore3"}, \code{"casebase"}, \code{"addhazard"}, \code{"cbioportal"},
-\code{"frailtypack"}, \code{"uci"}, \code{"geo"}, \code{"datasets"}, \code{"panglm"}). Default
+\code{"frailtypack"}, \code{"uci"}, \code{"geo"}, \code{"datasets"}, \code{"panglm"}, \code{"CEACT"}). Default
 \code{NULL} (no filter). \code{"biobench"} marks datasets curated directly in
 biobench from their original publications, with no upstream R package;
 the former label \code{"biostatlab"} is still accepted, with a warning.}
