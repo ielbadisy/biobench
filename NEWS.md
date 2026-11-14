@@ -2,6 +2,7 @@
 
 ## New datasets
 
+* `cigarettes`: cigarette packs per capita, prices and taxes in 48 US states, 1985 and 1995 (Stock and Watson 2007), for instrumental variables, copied from AER.
 * `wenchuan`: 17 PCL-C PTSD symptom items (5-point Likert) of 362 Wenchuan earthquake survivors (McNally et al. 2015), copied from MPsychoR.
 * `diagnoses`: nominal psychiatric diagnoses of 30 patients by six raters (Fleiss 1971), for multi-rater kappa, copied from irr with harmonised factor levels.
 * `medexp`: annual medical expenditure in the RAND Health Insurance Experiment (5,574 observations, 23 percent zeros; Deb and Trivedi 2002), for two-part and GLM cost models, copied from Ecdat.

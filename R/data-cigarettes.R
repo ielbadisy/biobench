@@ -1,0 +1,36 @@
+#' Cigarette consumption, prices and taxes in 48 US states, 1985 and 1995
+#'
+#' Packs of cigarettes sold per capita, average price, excise and sales
+#' taxes, income, population and consumer price index for the 48
+#' continental US states in 1985 and 1995. The textbook example for
+#' instrumental variables: the price elasticity of cigarette demand, with
+#' the sales tax as instrument for price (Stock and Watson 2007, chapter
+#' 12). Regression (packs per capita).
+#'
+#' @format A data frame with 96 rows (48 states x 2 years) and 9
+#'   variables:
+#' \describe{
+#'   \item{state}{Factor, two-letter state code.}
+#'   \item{year}{Factor, `"1985"` or `"1995"`.}
+#'   \item{cpi}{Consumer price index (1.076 in 1985, 1.524 in 1995;
+#'     1982-1984 = 1).}
+#'   \item{population}{State population.}
+#'   \item{packs}{Packs of cigarettes per capita.}
+#'   \item{income}{State personal income, total, nominal dollars.}
+#'   \item{tax}{Average state, federal and average local excise taxes for
+#'     the fiscal year, cents per pack.}
+#'   \item{price}{Average price during the fiscal year, including sales
+#'     tax, cents per pack.}
+#'   \item{taxs}{Average excise taxes for the fiscal year, including sales
+#'     tax, cents per pack.}
+#' }
+#' Real values: divide `price`, `tax`, `taxs` and `income / population`
+#' by `cpi`; the sales-tax instrument is `(taxs - tax) / cpi`.
+#' @references Stock, J. H., & Watson, M. W. (2007). \emph{Introduction to
+#'   Econometrics} (2nd ed.). Addison Wesley.
+#'
+#'   Kleiber, C., & Zeileis, A. (2008). \emph{Applied Econometrics with
+#'   R}. Springer.
+#' @source R package \pkg{AER} (`CigarettesSW`, GPL-2 | GPL-3), copied
+#'   unchanged; from the online complements to Stock and Watson (2007).
+"cigarettes"
