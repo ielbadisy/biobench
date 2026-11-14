@@ -2,6 +2,7 @@
 
 ## New datasets
 
+* `wenchuan`: 17 PCL-C PTSD symptom items (5-point Likert) of 362 Wenchuan earthquake survivors (McNally et al. 2015), copied from MPsychoR.
 * `diagnoses`: nominal psychiatric diagnoses of 30 patients by six raters (Fleiss 1971), for multi-rater kappa, copied from irr with harmonised factor levels.
 * `medexp`: annual medical expenditure in the RAND Health Insurance Experiment (5,574 observations, 23 percent zeros; Deb and Trivedi 2002), for two-part and GLM cost models, copied from Ecdat.
 * `auditc`: 14 diagnostic accuracy 2x2 tables of the AUDIT-C alcohol screening questionnaire (Kriston et al. 2008), for bivariate meta-analysis of sensitivity and specificity, copied from mada.
