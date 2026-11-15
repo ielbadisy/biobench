@@ -39,7 +39,8 @@ biobench 0.4.0): an age of 325 years (\code{study_id} 480) and a BMI of 0
 \code{system.file("extdata", "highriskpreg_raw.csv", package = "biobench")},
 for data-cleaning exercises. Other ages are implausible for a pregnancy
 cohort but not impossible, and are kept as released: 14 records aged 10
-to 13 and 30 aged 55 to 65, with heaping at 60 (15 records). Query them
+to 13 (one aged 10) and 29 aged 55 to 65, with heaping at 60 (15 records,
+likely rounded or default entries). Query them
 before use, or restrict the analysis age range.
 }
 \references{

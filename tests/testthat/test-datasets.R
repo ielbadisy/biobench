@@ -29,3 +29,15 @@ test_that("column names are syntactic and no string column holds blanks", {
     expect_false(any(blank), info = paste(nm, names(d)[blank]))
   }
 })
+
+test_that("highriskpreg implausible ages match the documentation", {
+  d <- biobench::highriskpreg
+  expect_equal(sum(is.na(d$age)), 1L)
+  expect_true(is.na(d$age[d$study_id == 480]))
+  expect_equal(sum(d$age >= 10 & d$age <= 13, na.rm = TRUE), 14L)
+  expect_equal(sum(d$age == 10, na.rm = TRUE), 1L)
+  expect_equal(sum(d$age >= 55 & d$age <= 65, na.rm = TRUE), 29L)
+  expect_equal(sum(d$age == 60, na.rm = TRUE), 15L)
+  raw <- utils::read.csv(system.file("extdata", "highriskpreg_raw.csv", package = "biobench"))
+  expect_equal(raw$Age[raw$study_id == 480], 325)
+})

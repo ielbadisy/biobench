@@ -1,3 +1,7 @@
+# biobench 0.4.1
+
+* `highriskpreg` help: the count of records aged 55 to 65 is 29 (was given as 30); the single record aged 10 and the heaping at 60 (15 records) are stated. Data unchanged.
+
 # biobench 0.4.0
 
 ## New datasets
